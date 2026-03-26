@@ -16,7 +16,16 @@ a { color: #d35400; text-decoration: none; font-weight: bold; }
 <h1>🛒 Your Cart</h1>
 <div id="cart-items"></div>
 <button onclick="clearCart()">Clear Cart</button>
-<button onclick="orderWhatsApp()" style="background: #25D366; margin-top: 10px;">Order on WhatsApp</button>
+
+<div id="paymentSection" style="display:none; background:white; padding:15px; margin:15px 0; border-radius:8px; text-align:center;">
+  <h3>Pay 50% Advance</h3>
+  <p id="advanceAmount" style="font-size:20px; color:#d35400; font-weight:bold;"></p>
+  <img id="qrCode" src="" style="width:200px; margin:10px 0;">
+  <p style="color:green;">Scan & Pay, then click below</p>
+  <button onclick="confirmPayment()" style="background:#25D366; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Payment Done</button>
+</div>
+
+<button onclick="showPayment()" style="background: #25D366; margin-top: 10px;">Pay 50% Advance & Order</button>
 <br><br>
 <a href="index.html">← Back to Shop</a>
 
@@ -44,45 +53,19 @@ function clearCart() {
   alert('Cart cleared!');
 }
 
-function orderWhatsApp() {
+function showPayment() {
   if (cart.length === 0) {
     alert('Cart is empty!');
     return;
   }
   
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      sendOrder(position.coords.latitude, position.coords.longitude);
-    }, function() {
-      sendOrder(null, null);
-    });
-  } else {
-    sendOrder(null, null);
-  }
-}
-
-function sendOrder(lat, lng) {
-  let message = 'New Order from Adarsh Retails:%0A%0A';
+  const total = cart.reduce((sum, item) => sum + (item.mrp || 0), 0);
+  const advance = Math.round(total * 0.5);
   
-  cart.forEach((item, index) => {
-    let itemName = item.name || item;
-    let itemPrice = item.mrp ? ' (₹' + item.mrp + ')' : '';
-    message += (index+1) + '. ' + itemName + itemPrice + '%0A';
-  });
+  document.getElementById('advanceAmount').innerText = `₹${advance} (50% of ₹${total})`;
   
-  if (lat && lng) {
-    message += '%0A%0A📍 Customer Location:%0A';
-    message += 'https://maps.google.com/?q=' + lat + ',' + lng + '%0A';
-    message += 'Coordinates: ' + lat.toFixed(6) + ', ' + lng.toFixed(6);
-  } else {
-    message += '%0ALocation: Not shared';
-  }
+  const upiId = '8298827509@fam';
+  const upiUrl = `upi://pay?pa=${upiId}&pn=AdarshRetails&am=${advance}&cu=INR`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
   
-  let phone = '918298827509';
-  window.open('https://wa.me/' + phone + '?text=' + message, '_blank');
-}
-
-displayCart();
-</script>
-</body>
-</html>
+  document.getElementById('qrCode').src = qr
