@@ -325,6 +325,17 @@
     <p class="contact-note">आदर्श रिटेल्स, डालटनगंज</p>
 </div>
     </footer>
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.getElementById('cart-count').innerText = cart.length;
 
+function addToCart(item) {
+  cart.push(item);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  document.getElementById('cart-count').innerText = cart.length;
+  alert('✓ ' + item + ' added!');
+}
+</script>
+</body>
 </body>
 </html>
