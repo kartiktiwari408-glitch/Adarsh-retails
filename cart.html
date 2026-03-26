@@ -8,7 +8,7 @@
 body { font-family: Arial; background: #fff8f0; padding: 20px; }
 h1 { color: #d35400; }
 .item { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-button { background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+button { background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
 a { color: #d35400; text-decoration: none; font-weight: bold; }
 </style>
 </head>
@@ -18,16 +18,17 @@ a { color: #d35400; text-decoration: none; font-weight: bold; }
 <button onclick="clearCart()">Clear Cart</button>
 
 <div id="paymentSection" style="display:none; background:white; padding:15px; margin:15px 0; border-radius:8px; text-align:center;">
-  <h3>Pay 50% Advance</h3>
-  <p id="advanceAmount" style="font-size:20px; color:#d35400; font-weight:bold;"></p>
+  <h3>Pay ₹100 Advance</h3>
+  <p style="font-size:20px; color:#d35400; font-weight:bold;">₹100 (Minimum Advance)</p>
   <img id="qrCode" src="" style="width:200px; margin:10px 0;">
-  <p style="color:green;">1. Scan & Pay</p>
+  <p style="color:green;">1. Scan & Pay ₹100</p>
   <p style="color:red;">2. Upload payment screenshot</p>
   <input type="file" id="screenshot" accept="image/*" style="margin:10px 0;">
-  <button onclick="confirmPayment()" style="background:#25D366; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Payment Done</button>
+  <button onclick="submitAdvance()" style="background:#25D366;">Payment Done</button>
 </div>
 
-<button onclick="showPayment()" style="background: #25D366; margin-top: 10px;">Pay 50% Advance & Order</button>
+<button onclick="showPayment()" style="background: #25D366;">Pay ₹100 Advance</button>
+<button onclick="submitCOD()" style="background: #3498db;">Cash on Delivery</button>
 <br><br>
 <a href="index.html">← Back to Shop</a>
 
@@ -61,34 +62,33 @@ function showPayment() {
     return;
   }
 
-  const total = cart.reduce((sum, item) => sum + (item.price || 0), 0);
-  const advance = Math.round(total * 0.5);
-
-  document.getElementById('advanceAmount').innerText = `₹${advance} (50% of ₹${total})`;
-
   const upiId = '8298827509@fam';
-  const upiUrl = `upi://pay?pa=${upiId}&pn=AdarshRetails&am=${advance}&cu=INR`;
+  const upiUrl = `upi://pay?pa=${upiId}&pn=AdarshRetails&am=100&cu=INR`;
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
 
   document.getElementById('qrCode').src = qrUrl;
   document.getElementById('paymentSection').style.display = 'block';
 }
 
-function confirmPayment() {
+function submitAdvance() {
   const file = document.getElementById('screenshot').files[0];
   if (!file) {
-    alert('Please upload payment screenshot first!');
+    alert('Please upload payment screenshot!');
     return;
   }
 
-  orderWhatsApp();
+  orderWhatsApp('₹100 Advance Paid');
 
   setTimeout(() => {
-    alert('Order sent! अब WhatsApp पर जाकर अपना payment screenshot भेजो ताकि मैं verify कर सकूं।');
+    alert('Order sent! अब WhatsApp पर जाकर payment screenshot भेजो।');
   }, 1000);
 }
 
-function orderWhatsApp() {
+function submitCOD() {
+  orderWhatsApp('Cash on Delivery');
+}
+
+function orderWhatsApp(paymentType) {
   if (cart.length === 0) {
     alert('Cart is empty!');
     return;
@@ -96,18 +96,18 @@ function orderWhatsApp() {
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      sendOrder(position.coords.latitude, position.coords.longitude);
+      sendOrder(position.coords.latitude, position.coords.longitude, paymentType);
     }, function() {
-      sendOrder(null, null);
+      sendOrder(null, null, paymentType);
     });
   } else {
-    sendOrder(null, null);
+    sendOrder(null, null, paymentType);
   }
 }
 
-function sendOrder(lat, lng) {
+function sendOrder(lat, lng, paymentType) {
   let message = 'New Order from Adarsh Retails:%0A%0A';
-  message += '💰 Payment: 50% Advance (Screenshot to be sent)%0A%0A';
+  message += '💰 Payment: ' + paymentType + '%0A%0A';
 
   cart.forEach((item, index) => {
     let itemName = item.name || item;
