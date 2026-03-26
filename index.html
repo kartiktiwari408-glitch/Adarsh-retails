@@ -24,7 +24,27 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   justify-content: space-between;
   align-items: center;
 }
-.logo { font-size: 24px; font-weight: bold; }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.ar-logo {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #2E7D32;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Arial Black', sans-serif;
+}
 .cart-btn {
   background: white;
   color: #2E7D32;
@@ -33,6 +53,106 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   text-decoration: none;
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tagline {
+  background: linear-gradient(90deg, #FF6F00, #FF9800, #FFC107, #FF9800, #FF6F00);
+  background-size: 200% 100%;
+  animation: gradient 3s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.tagline span {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.offer-banner {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.offer-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.offer-card h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.offer-card p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.offer-badge {
+  background: #FFD700;
+  color: #2E7D32;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.coupon-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.coupon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+.coupon-card {
+  background: linear-gradient(135deg, #FF6F00 0%, #FF9800 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.coupon-card h3 { font-size: 24px; margin-bottom: 10px; }
+.coupon-card .code {
+  background: white;
+  color: #FF6F00;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .hero {
@@ -45,6 +165,68 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
 }
 .hero h1 { font-size: 36px; margin-bottom: 10px; }
 .hero p { font-size: 18px; }
+
+.price-menu {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+.price-menu h2 {
+  color: #2E7D32;
+  text-align: center;
+  border-bottom: 3px solid #2E7D32;
+  padding-bottom: 10px;
+  font-size: 28px;
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.price-table th {
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  color: white;
+  padding: 10px 8px;
+  text-align: left;
+  font-size: 14px;
+}
+.price-table td {
+  border: 1px solid #ddd;
+  padding: 10px 8px;
+  font-size: 13px;
+}
+.price-table tr:nth-child(even) { background-color: #f9f9f9; }
+.price-table tr:hover { background-color: #e8f5e9; }
+.price-table td:nth-child(1) { color: #FF6F00; font-weight: bold; }
+.price-table td:nth-child(2) { color: #1565C0; font-weight: 600; }
+.price-table td:nth-child(3) { color: #2E7D32; font-weight: bold; text-decoration: underline; }
+.price-table td:nth-child(4) { color: #D32F2F; font-weight: bold; font-size: 14px; }
+
+.add-btn {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 1px;
+  font-size: 14px;
+}
+.remove-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 1px;
+  font-size: 14px;
+}
 
 .categories {
   max-width: 1200px;
@@ -73,68 +255,6 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
 .cat-card img { width: 100%; height: 180px; object-fit: cover; }
 .cat-card h3 { padding: 15px; color: #2E7D32; }
 .cat-card p { padding: 0 15px 15px; color: #666; }
-
-.price-menu {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  border-radius: 12px;
-}
-.price-menu h2 {
-  color: #2E7D32;
-  text-align: center;
-  border-bottom: 3px solid #2E7D32;
-  padding-bottom: 10px;
-  font-size: 28px;
-}
-.price-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  overflow-x: auto;
-  display: block;
-}
-.price-table th {
-  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
-  color: white;
-  padding: 14px;
-  text-align: left;
-  font-size: 16px;
-}
-.price-table td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  font-size: 15px;
-}
-.price-table tr:nth-child(even) { background-color: #f9f9f9; }
-.price-table tr:hover { background-color: #e8f5e9; }
-.price-table td:nth-child(1) { color: #FF6F00; font-weight: bold; }
-.price-table td:nth-child(2) { color: #1565C0; font-weight: 600; }
-.price-table td:nth-child(3) { color: #2E7D32; font-weight: bold; text-decoration: underline; }
-.price-table td:nth-child(4) { color: #D32F2F; font-weight: bold; font-size: 16px; }
-
-.add-btn {
-  background: #25D366;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 2px;
-}
-.remove-btn {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 2px;
-}
 
 .contact-section {
   max-width: 900px;
@@ -186,41 +306,66 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   font-size: 16px;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .price-table th, .price-table td {
+    padding: 8px 5px;
+    font-size: 12px;
+  }
+  .add-btn, .remove-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 <body>
 
 <div class="header">
   <div class="header-content">
-    <div class="logo">🛍️ आदर्श रिटेल्स</div>
+    <div class="logo">
+      <div class="ar-logo">AR</div>
+      <span>आदर्श रिटेल्स</span>
+    </div>
     <a href="cart.html" class="cart-btn">🛒 Cart: <span id="cart-count">0</span></a>
+  </div>
+</div>
+
+<div class="tagline">
+  <span>👍</span> your needs with us
+</div>
+
+<div class="offer-banner">
+  <div class="offer-card">
+    <h2>🎉 MEGA SALE 🎉</h2>
+    <p>Up to 30% OFF on All Kirana Items</p>
+    <div class="offer-badge">Limited Time Offer!</div>
+  </div>
+</div>
+
+<div class="coupon-section">
+  <div class="coupon-grid">
+    <div class="coupon-card">
+      <h3>🎉 New Customer</h3>
+      <p>Get ₹50 OFF on first order</p>
+      <div class="code">WELCOME50</div>
+    </div>
+    <div class="coupon-card" style="background: linear-gradient(135deg, #E91E63 0%, #F06292 100%);">
+      <h3>💰 Festive Sale</h3>
+      <p>10% OFF on orders above ₹500</p>
+      <div class="code">FESTIVE10</div>
+    </div>
+    <div class="coupon-card" style="background: linear-gradient(135deg, #673AB7 0%, #9575CD 100%);">
+      <h3>🚚 Free Delivery</h3>
+      <p>On orders above ₹1000</p>
+      <div class="code">FREEDEL</div>
+    </div>
   </div>
 </div>
 
 <div class="hero">
   <h1>स्वागत है आदर्श रिटेल्स में</h1>
   <p>Best Quality Kirana Products at Best Prices</p>
-</div>
-
-<div class="categories">
-  <h2>हमारी कैटेगरी</h2>
-  <div class="cat-grid">
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/220x150?text=आटा+चावल" alt="आटा चावल">
-      <h3>आटा, चावल, दालें</h3>
-      <p>बेस्ट क्वालिटी, रोज़ के दाम</p>
-    </div>
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/220x150?text=तेल+मसाले" alt="तेल मसाले">
-      <h3>तेल, घी, मसाले</h3>
-      <p>सभी ब्रांड उपलब्ध</p>
-    </div>
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/220x150?text=स्नैक्स" alt="स्नैक्स">
-      <h3>बिस्किट, स्नैक्स, कोल्ड ड्रिंक्स</h3>
-      <p>ताजा स्टॉक</p>
-    </div>
-  </div>
 </div>
 
 <section class="price-menu">
@@ -239,16 +384,32 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
       <tr><td>1 KG</td><td>Ghadi Sharaf</td><td>₹60</td><td>₹74</td><td><button class="add-btn" onclick="addToCart('Ghadi Sharaf 1 KG', 74)">+</button> <button class="remove-btn" onclick="removeFromCart('Ghadi Sharaf 1 KG', 74)">-</button></td></tr>
       <tr><td>200g</td><td>Haldi Ram Nagpur Mongdal</td><td>₹48</td><td>₹57</td><td><button class="add-btn" onclick="addToCart('Haldi Ram Nagpur Mongdal 200g', 57)">+</button> <button class="remove-btn" onclick="removeFromCart('Haldi Ram Nagpur Mongdal 200g', 57)">-</button></td></tr>
       <tr><td>500g</td><td>Agni Tea</td><td>₹105</td><td>₹120</td><td><button class="add-btn" onclick="addToCart('Agni Tea 500g', 120)">+</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 500g', 120)">-</button></td></tr>
-      <tr><td>1 KG</td><td>Agni Tea</td><td>₹175</td><td>₹190</td><td><button class="add-btn" onclick="addToCart('Agni Tea 1 KG', 190)">+</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 1 KG', 190)">-</button></td></tr>
-      <tr><td>400g</td><td>Danth Kanti paste</td><td>₹200</td><td>₹229</td><td><button class="add-btn" onclick="addToCart('Danth Kanti paste 400g', 229)">+</button> <button class="remove-btn" onclick="removeFromCart('Danth Kanti paste 400g', 229)">-</button></td></tr>
-      <tr><td>500g</td><td>Son Papri Pramod</td><td>₹90</td><td>₹179</td><td><button class="add-btn" onclick="addToCart('Son Papri Pramod 500g', 179)">+</button> <button class="remove-btn" onclick="removeFromCart('Son Papri Pramod 500g', 179)">-</button></td></tr>
       <tr><td>5 KG</td><td>आटा</td><td>₹220</td><td>₹230</td><td><button class="add-btn" onclick="addToCart('आटा 5 KG', 230)">+</button> <button class="remove-btn" onclick="removeFromCart('आटा 5 KG', 230)">-</button></td></tr>
-      <tr><td>10 KG</td><td>आटा</td><td>₹420</td><td>₹430</td><td><button class="add-btn" onclick="addToCart('आटा 10 KG', 430)">+</button> <button class="remove-btn" onclick="removeFromCart('आटा 10 KG', 430)">-</button></td></tr>
-      <tr><td>1 KG</td><td>बासमती चावल</td><td>₹110</td><td>₹120</td><td><button class="add-btn" onclick="addToCart('बासमती चावल 1 KG', 120)">+</button> <button class="remove-btn" onclick="removeFromCart('बासमती चावल 1 KG', 120)">-</button></td></tr>
       <tr><td>1 KG</td><td>चीनी</td><td>₹45</td><td>₹45</td><td><button class="add-btn" onclick="addToCart('चीनी 1 KG', 45)">+</button> <button class="remove-btn" onclick="removeFromCart('चीनी 1 KG', 45)">-</button></td></tr>
     </tbody>
   </table>
 </section>
+
+<div class="categories">
+  <h2>हमारी कैटेगरी</h2>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <img src="images/atta.jpg" alt="आटा">
+      <h3>आटा</h3>
+      <p>Premium Quality Wheat Flour</p>
+    </div>
+    <div class="cat-card">
+      <img src="images/dal.jpg" alt="दाल">
+      <h3>दालें</h3>
+      <p>All Types of Pulses Available</p>
+    </div>
+    <div class="cat-card">
+      <img src="images/chawal.jpg" alt="चावल">
+      <h3>चावल</h3>
+      <p>Best Basmati & Regular Rice</p>
+    </div>
+  </div>
+</div>
 
 <div class="contact-section">
   <h3>📞 Contact Us</h3>
@@ -296,4 +457,4 @@ function removeFromCart(name, price) {
 }
 </script>
 </body>
-                                                </html>
+      </html>
