@@ -42,7 +42,7 @@ function clearCart() {
   displayCart();
   alert('Cart cleared!');
 }
-function orderWhatsApp() {
+ function orderWhatsApp() {
   if (cart.length === 0) {
     alert('Cart is empty!');
     return;
@@ -56,6 +56,29 @@ function orderWhatsApp() {
     });
   } else {
     sendOrder(null, null);
+  }
+}
+
+function sendOrder(lat, lng) {
+  let message = 'New Order from Adarsh Retails:%0A%0A';
+  
+  cart.forEach((item, index) => {
+    // अगर item object है तो name दिखाओ, वरना direct item
+    let itemName = item.name || item;
+    message += (index+1) + '. ' + itemName + '%0A';
+  });
+  
+  if (lat && lng) {
+    message += '%0A%0A📍 Customer Location:%0A';
+    message += 'https://maps.google.com/?q=' + lat + ',' + lng + '%0A';
+    message += 'Coordinates: ' + lat.toFixed(6) + ', ' + lng.toFixed(6);
+  } else {
+    message += '%0ALocation: Not shared';
+  }
+  
+  let phone = '918298827509';
+  window.open('https://wa.me/' + phone + '?text=' + message, '_blank');
+}
   }
 }
 
