@@ -5,21 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>हमारे उत्पाद - आदर्श रिटेल्स</title>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #f8f8f8; color: #333; }
-        header { background: #0d6efd; color: white; padding: 20px; text-align: center; }
-        header a { color: white; text-decoration: none; font-size: 14px; }
-        nav { background: #0b5ed7; padding: 10px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        .container { padding: 20px; max-width: 1000px; margin: auto; }
-        h2 { color: #0d6efd; border-bottom: 2px solid #0d6efd; padding-bottom: 5px; margin-top: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px; }
-        .item { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
-        .item img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; background: #eee; }
-        .item h3 { margin: 10px 0 5px; font-size: 18px; }
-        .item p { margin: 5px 0; font-size: 14px; color: #555; }
-        .btn { display: inline-block; background: #25D366; color: white; padding: 8px 15px; 
-               text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 8px; font-size: 14px; }
-        footer { background: #222; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #333; }
+        
+        header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        header h1 { font-size: 28px; margin-bottom: 5px; }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        nav {
+            background: #1B5E20;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover { background: rgba(255,255,255,0.2); }
+        
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        h2 {
+            color: #2E7D32;
+            border-bottom: 3px solid #2E7D32;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 26px;
+            text-align: center;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .item {
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+        }
+        .item h3 {
+            margin: 15px 10px 5px;
+            font-size: 20px;
+            color: #2E7D32;
+            font-weight: bold;
+        }
+        .item p {
+            margin: 5px 10px 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px 10px 15px;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        footer p { font-size: 16px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -39,32 +141,32 @@
         <h2>किराना सामान</h2>
         <div class="grid">
             <div class="item">
-                <img src="https://via.placeholder.com/220x150?text=आटा+चावल" alt="आटा चावल">
+                <img src="https://via.placeholder.com/220x180?text=आटा+चावल" alt="आटा चावल">
                 <h3>आटा, चावल, दालें</h3>
                 <p>बेस्ट क्वालिटी, रोज़ के दाम</p>
                 <a class="btn" href="https://wa.me/918298827509?text=मुझे आटा/चावल/दाल का रेट चाहिए" target="_blank">WhatsApp करें</a>
-            </div>.       
-                    <div class="item">
-            <img src="https://raw.githubusercontent.com/kartiktiwari408-glitch/Adarsh-retails/refs/heads/main/images/IMG-20260325-WA0189.jpg" alt="तेल मसाले">
-            <h3>तेल, मसाले</h3>
-            <p>सभी ब्रांड उपलब्ध</p>
-            <a class="btn" href="https://wa.me/918298827509?text=मुझे तेल/मसाले का रेट चाहिए" target="_blank">WhatsApp करें</a>
-        </div>
+            </div>
+            
             <div class="item">
-                <img src="https://via.placeholder.com/220x150?text=स्नैक्स" alt="स्नैक्स">
+                <img src="https://raw.githubusercontent.com/kartiktiwari408-glitch/Adarsh-retails/refs/heads/main/images/IMG-20260325-WA0189.jpg" alt="तेल मसाले">
+                <h3>तेल, मसाले</h3>
+                <p>सभी ब्रांड उपलब्ध</p>
+                <a class="btn" href="https://wa.me/918298827509?text=मुझे तेल/मसाले का रेट चाहिए" target="_blank">WhatsApp करें</a>
+            </div>
+            
+            <div class="item">
+                <img src="https://via.placeholder.com/220x180?text=स्नैक्स" alt="स्नैक्स">
                 <h3>बिस्किट, स्नैक्स, कोल्ड ड्रिंक्स</h3>
                 <p>ताजा स्टॉक</p>
                 <a class="btn" href="https://wa.me/918298827509?text=मुझे स्नैक्स का रेट चाहिए" target="_blank">WhatsApp करें</a>
-                  <div class="item">
-            <img src="https://raw.githubusercontent.com/kartiktiwari408-glitch/Adarsh-retails/refs/heads/main/images/IMG-20260325-WA0190.jpg" alt="आटा दाल">
-            <h3>आटा, दाल</h3>
-            <p>शुद्ध और ताजा</p>
-            <a class="btn" href="https://wa.me/918298827509?text=मुझे आटा/दाल का रेट चाहिए" target="_blank">WhatsApp करें</a>
-        </div>  </div>
-        </div>
-
-        <h2>इलेक्ट्रॉनिक्स</h2>
-        
+            </div>
+            
+            <div class="item">
+                <img src="https://raw.githubusercontent.com/kartiktiwari408-glitch/Adarsh-retails/refs/heads/main/images/IMG-20260325-WA0190.jpg" alt="आटा दाल">
+                <h3>आटा, दाल</h3>
+                <p>शुद्ध और ताजा</p>
+                <a class="btn" href="https://wa.me/918298827509?text=मुझे आटा/दाल का रेट चाहिए" target="_blank">WhatsApp करें</a>
+            </div>
         </div>
 
     </div>
@@ -74,4 +176,4 @@
     </footer>
 
 </body>
-</html>
+    </html>
