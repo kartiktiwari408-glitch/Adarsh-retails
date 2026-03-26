@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -17,7 +16,7 @@ a { color: #d35400; text-decoration: none; font-weight: bold; }
 <h1>🛒 Your Cart</h1>
 <div id="cart-items"></div>
 <button onclick="clearCart()">Clear Cart</button>
-  <button onclick="orderWhatsApp()" style="background: #25D366; margin-top: 10px;">Order on WhatsApp</button>
+<button onclick="orderWhatsApp()" style="background: #25D366; margin-top: 10px;">Order on WhatsApp</button>
 <br><br>
 <a href="index.html">← Back to Shop</a>
 
@@ -33,8 +32,8 @@ function displayCart() {
   cartDiv.innerHTML = '';
   cart.forEach((item, index) => {
     let itemName = item.name || item;
-let itemPrice = item.price ? ' - ₹' + item.price : '';
-cartDiv.innerHTML += '<div class="item">' + (index+1) + '. ' + itemName + itemPrice + '</div>';
+    let itemPrice = item.price ? ' - ₹' + item.price : '';
+    cartDiv.innerHTML += '<div class="item">' + (index+1) + '. ' + itemName + itemPrice + '</div>';
   });
 }
 
@@ -44,7 +43,8 @@ function clearCart() {
   displayCart();
   alert('Cart cleared!');
 }
- function orderWhatsApp() {
+
+function orderWhatsApp() {
   if (cart.length === 0) {
     alert('Cart is empty!');
     return;
@@ -65,7 +65,6 @@ function sendOrder(lat, lng) {
   let message = 'New Order from Adarsh Retails:%0A%0A';
   
   cart.forEach((item, index) => {
-    // अगर item object है तो name दिखाओ, वरना direct item
     let itemName = item.name || item;
     message += (index+1) + '. ' + itemName + '%0A';
   });
@@ -81,10 +80,6 @@ function sendOrder(lat, lng) {
   let phone = '918298827509';
   window.open('https://wa.me/' + phone + '?text=' + message, '_blank');
 }
-  displayCart();
-  }
-}
-
 
 displayCart();
 </script>
