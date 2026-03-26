@@ -17,6 +17,7 @@ a { color: #d35400; text-decoration: none; font-weight: bold; }
 <h1>🛒 Your Cart</h1>
 <div id="cart-items"></div>
 <button onclick="clearCart()">Clear Cart</button>
+  <button onclick="orderWhatsApp()" style="background: #25D366; margin-top: 10px;">Order on WhatsApp</button>
 <br><br>
 <a href="index.html">← Back to Shop</a>
 
@@ -41,7 +42,20 @@ function clearCart() {
   displayCart();
   alert('Cart cleared!');
 }
-
+function orderWhatsApp() {
+  if (cart.length === 0) {
+    alert('Cart is empty!');
+    return;
+  }
+  
+  let message = 'New Order from Shankar Store:%0A%0A';
+  cart.forEach((item, index) => {
+    message += (index+1) + '. ' + item + '%0A';
+  });
+  
+  let phone = '918298827509';
+  window.open('https://wa.me/' + phone + '?text=' + message, '_blank');
+  }
 displayCart();
 </script>
 </body>
