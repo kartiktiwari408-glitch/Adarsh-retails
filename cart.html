@@ -32,7 +32,8 @@ function displayCart() {
   }
   cartDiv.innerHTML = '';
   cart.forEach((item, index) => {
-    cartDiv.innerHTML += '<div class="item">' + (index+1) + '. ' + item + '</div>';
+    let itemName = item.name || item;
+cartDiv.innerHTML += '<div class="item">' + (index+1) + '. ' + itemName + '</div>';
   });
 }
 
