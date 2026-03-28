@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>आदर्श रिटेल्स - Best Kirana Store</title>
-<meta name="description" content="आदर्श रिटेल्स - डालटनगंज का बेस्ट किराना स्टोर। आटा, चावल, दाल, तेल, मसाले सबसे कम दाम पर। होम डिलीवरी उपलब्ध।">
-<meta name="keywords" content="आदर्श रिटेल्स, Adarsh Retails, डालटनगंज किराना, Daltonganj kirana store, grocery store Daltonganj">
-<meta name="author" content="आदर्श रिटेल्स">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
@@ -457,11 +454,16 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
 <body>
   <div id="loginModal" class="modal">
     <div class="modal-content">
-      <h2>Login / Signup</h2>
-      <input type="text" id="phone" placeholder="Phone Number">
-      <input type="password" id="password" placeholder="Password">
-      <button class="login-submit" onclick="login()">Login</button>
-      <button class="signup-submit" onclick="signup()">Signup</button>
+      <h2>Login with OTP</h2>
+      <input type="text" id="phone" placeholder="Phone Number (e.g. 8298827509)">
+      <button class="login-submit" onclick="sendOTP()" id="sendOtpBtn">Send OTP</button>
+      
+      <div id="otpSection" style="display:none;">
+        <input type="text" id="otp" placeholder="Enter 4-digit OTP" maxlength="4">
+        <button class="signup-submit" onclick="verifyOTP()">Verify OTP</button>
+        <p id="otpMessage" style="text-align:center; color:#666; font-size:14px; margin-top:10px;"></p>
+      </div>
+      
       <button class="close-modal" onclick="closeLogin()">Close</button>
     </div>
   </div>
@@ -498,6 +500,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
 }
 </style>
 <script>
+var currentOTP = '';
+
 function closeOffer() {
   document.getElementById('offerModal').style.display = 'none';
 }
@@ -507,41 +511,45 @@ setTimeout(function() {
 
 function showLogin() {
   document.getElementById('loginModal').style.display = 'flex';
+  document.getElementById('otpSection').style.display = 'none';
+  document.getElementById('sendOtpBtn').style.display = 'block';
 }
 function closeLogin() {
   document.getElementById('loginModal').style.display = 'none';
+  document.getElementById('phone').value = '';
+  document.getElementById('otp').value = '';
+  document.getElementById('otpSection').style.display = 'none';
+  document.getElementById('sendOtpBtn').style.display = 'block';
 }
-function login() {
-  const phone = document.getElementById('phone').value;
-  const password = document.getElementById('password').value;
+function sendOTP() {
+  var phone = document.getElementById('phone').value;
+  if(phone && phone.length >= 10) {
+    currentOTP = Math.floor(1000 + Math.random() * 9000).toString();
+    alert('OTP sent to ' + phone + '\n\nYour OTP is: ' + currentOTP + '\n\n(Demo mode - OTP shown here)');
+    document.getElementById('otpSection').style.display = 'block';
+    document.getElementById('sendOtpBtn').style.display = 'none';
+    document.getElementById('otpMessage').innerText = 'OTP sent! Check alert message';
+  } else {
+    alert('Valid phone number डालें!');
+  }
+}
+function verifyOTP() {
+  var enteredOTP = document.getElementById('otp').value;
+  var phone = document.getElementById('phone').value;
   
-  if(phone && password) {
+  if(enteredOTP === currentOTP) {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userPhone', phone);
     alert('Login successful!');
     closeLogin();
     updateLoginButton();
   } else {
-    alert('Phone और Password डालें!');
-  }
-}
-function signup() {
-  const phone = document.getElementById('phone').value;
-  const password = document.getElementById('password').value;
-  
-  if(phone && password) {
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('userPhone', phone);
-    alert('Signup successful!');
-    closeLogin();
-    updateLoginButton();
-  } else {
-    alert('Phone और Password डालें!');
+    alert('Invalid OTP! Try again');
   }
 }
 function updateLoginButton() {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  const loginBtn = document.querySelector('.login-btn');
+  var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  var loginBtn = document.querySelector('.login-btn');
   if(isLoggedIn) {
     loginBtn.innerHTML = '✅ Logged In';
     loginBtn.style.background = '#25D366';
@@ -661,7 +669,7 @@ if(!localStorage.getItem('guideShown')) {
   
   <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=FP" alt="Family Pack" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>987g</td><td>Family Pack Biscuit</td><td>₹170</td><td>₹260</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Family Pack Biscuit 987g', 260)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Family Pack Biscuit 987g', 260)">-</button></td></tr>
   
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=RM" alt="Rich Marie" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Rich Marie Biscuit</td><td>₹135</td><td>₹150</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Rich Marie Biscuit 1 KG', 150)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Rich Marie Biscuit 1 KG', 150)">-</button></td></tr>
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=RM" alt="Rich Marie" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Rich Marie Biscuit</ td><td>₹135</td><td>₹150</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Rich Marie Biscuit 1 KG', 150)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Rich Marie Biscuit 1 KG', 150)">-</button></td></tr>
   
   <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=SF" alt="Sun First" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>111g</td><td>Sun First Biscuit</td><td>₹25</td><td>₹30</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Sun First Biscuit 111g', 30)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Sun First Biscuit 111g', 30)">-</button></td></tr>
   
