@@ -72,6 +72,18 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+.checkout-btn {
+  background: #25D366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  border: none;
+  margin-left: 10px;
+}
 .tagline {
   background: linear-gradient(90deg, #FF6F00, #FF9800, #FFC107, #FF9800, #FF6F00);
   background-size: 200% 100%;
@@ -508,8 +520,10 @@ async function login() {
   });
   const result = await response.json();
   if(result.success) {
+    localStorage.setItem('isLoggedIn', 'true');
     alert('Login successful!');
     closeLogin();
+    updateLoginButton();
   } else {
     alert('Login failed!');
   }
@@ -523,10 +537,20 @@ async function signup() {
   });
   const result = await response.json();
   if(result.success) {
+    localStorage.setItem('isLoggedIn', 'true');
     alert('Signup successful!');
     closeLogin();
+    updateLoginButton();
   } else {
     alert('Signup failed!');
+  }
+}
+function updateLoginButton() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const loginBtn = document.querySelector('.login-btn');
+  if(isLoggedIn) {
+    loginBtn.innerHTML = '✅ Logged In';
+    loginBtn.style.background = '#25D366';
   }
 }
 </script>
@@ -565,6 +589,7 @@ if(!localStorage.getItem('guideShown')) {
     <div class="header-buttons">
       <button class="login-btn" onclick="showLogin()">🔐 Login</button>
       <a href="cart.html" class="cart-btn">🛒 Cart: <span id="cart-count">0</span></a>
+      <button class="checkout-btn" onclick="checkout()">✓ Checkout</button>
     </div>
   </div>
 </div>
@@ -757,6 +782,7 @@ if(!localStorage.getItem('guideShown')) {
 <script>
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 document.getElementById('cart-count').innerText = cart.length;
+updateLoginButton();
 
 function addToCart(name, price) {
   cart.push({name: name, price: price});
@@ -775,6 +801,26 @@ function removeFromCart(name, price) {
   } else {
     alert('Item not in cart!');
   }
+}
+
+function checkout() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    alert('⚠️ Order करने के लिए पहले Login करें!');
+    showLogin();
+    return;
+  }
+  if (cart.length === 0) {
+    alert('Cart खाली है! पहले products add करें।');
+    return;
+  }
+  let message = 'नमस्ते! मैं order करना चाहता/चाहती हूं:\n\n';
+  cart.forEach(item => {
+    message += `- ${item.name}: ₹${item.price}\n`;
+  });
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  message += `\nTotal: ₹${total}`;
+  window.open(`https://wa.me/918298827509?text=${encodeURIComponent(message)}`, '_blank');
 }
 </script>
 </body>
