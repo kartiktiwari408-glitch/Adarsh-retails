@@ -511,38 +511,32 @@ function showLogin() {
 function closeLogin() {
   document.getElementById('loginModal').style.display = 'none';
 }
-async function login() {
+function login() {
   const phone = document.getElementById('phone').value;
   const password = document.getElementById('password').value;
-  const response = await fetch('YOUR_SCRIPT_URL', {
-    method: 'POST',
-    body: JSON.stringify({action: 'login', phone: phone, password: password})
-  });
-  const result = await response.json();
-  if(result.success) {
+  
+  if(phone && password) {
     localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userPhone', phone);
     alert('Login successful!');
     closeLogin();
     updateLoginButton();
   } else {
-    alert('Login failed!');
+    alert('Phone और Password डालें!');
   }
 }
-async function signup() {
+function signup() {
   const phone = document.getElementById('phone').value;
   const password = document.getElementById('password').value;
-  const response = await fetch('YOUR_SCRIPT_URL', {
-    method: 'POST',
-    body: JSON.stringify({action: 'signup', phone: phone, password: password})
-  });
-  const result = await response.json();
-  if(result.success) {
+  
+  if(phone && password) {
     localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userPhone', phone);
     alert('Signup successful!');
     closeLogin();
     updateLoginButton();
   } else {
-    alert('Signup failed!');
+    alert('Phone और Password डालें!');
   }
 }
 function updateLoginButton() {
