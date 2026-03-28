@@ -72,7 +72,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-  .tagline {
+.tagline {
   background: linear-gradient(90deg, #FF6F00, #FF9800, #FFC107, #FF9800, #FF6F00);
   background-size: 200% 100%;
   animation: gradient 3s ease infinite;
@@ -171,7 +171,6 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   display: inline-block;
   margin-top: 10px;
 }
-
 .hero {
   background: linear-gradient(rgba(46,125,50,0.8), rgba(46,125,50,0.8)), url('images/offer.jpg');
   background-size: cover;
@@ -182,7 +181,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
 }
 .hero h1 { font-size: 36px; margin-bottom: 10px; }
 .hero p { font-size: 18px; }
-  .price-menu {
+
+.price-menu {
   max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
@@ -271,7 +271,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
 .cat-card img { width: 100%; height: 180px; object-fit: cover; }
 .cat-card h3 { padding: 15px; color: #2E7D32; }
 .cat-card p { padding: 0 15px 15px; color: #666; }
-  .contact-section {
+
+.contact-section {
   max-width: 900px;
   margin: 40px auto 20px auto;
   padding: 25px;
@@ -322,7 +323,6 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   font-weight: bold;
 }
 
-/* Login Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -378,7 +378,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   background: #e74c3c;
   color: white;
 }
-  @media (max-width: 768px) {
+
+@media (max-width: 768px) {
   .price-table th, .price-table td {
     padding: 8px 5px;
     font-size: 12px;
@@ -442,7 +443,6 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
 </style>
 </head>
 <body>
-  <!-- Login Modal -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <h2>Login / Signup</h2>
@@ -454,7 +454,6 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
     </div>
   </div>
 
-  <!-- Offer Popup -->
 <div id="offerModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1001; justify-content: center; align-items: center;">
   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; border-radius: 25px; max-width: 450px; margin: 20px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; animation: popupBounce 0.5s;">
     <button onclick="closeOffer()" style="position: absolute; top: 15px; right: 15px; background: white; color: #667eea; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer;">×</button>
@@ -462,7 +461,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
     <div style="font-size: 60px; margin-bottom: 10px;">🎉</div>
     <h2 style="color: white; font-size: 32px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">MEGA OFFER!</h2>
     <p style="color: #FFD700; font-size: 24px; font-weight: bold; margin-bottom: 20px;">5% - 10% OFF</p>
-        <div style="background: rgba(255,255,255,0.2); border-radius: 15px; padding: 20px; margin: 20px 0;">
+    
+    <div style="background: rgba(255,255,255,0.2); border-radius: 15px; padding: 20px; margin: 20px 0;">
       <p style="color: white; font-size: 18px; margin-bottom: 10px;">✅ सभी सामान पर छूट</p>
       <p style="color: white; font-size: 18px; margin-bottom: 10px;">✅ होम डिलीवरी फ्री*</p>
       <p style="color: white; font-size: 18px;">✅ Best Quality Guarantee</p>
@@ -485,7 +485,6 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
   100% { transform: scale(1); opacity: 1; }
 }
 </style>
-
 <script>
 function closeOffer() {
   document.getElementById('offerModal').style.display = 'none';
@@ -494,7 +493,6 @@ setTimeout(function() {
   document.getElementById('offerModal').style.display = 'flex';
 }, 1000);
 
-// Login Functions
 function showLogin() {
   document.getElementById('loginModal').style.display = 'flex';
 }
@@ -532,8 +530,6 @@ async function signup() {
   }
 }
 </script>
-
-<!-- How to Order Popup -->
 <div id="guideModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
   <div style="background: white; padding: 30px; border-radius: 20px; max-width: 500px; margin: 20px;">
     <h2 style="color: #2E7D32; text-align: center;">📱 Order कैसे करें?</h2>
@@ -577,7 +573,186 @@ if(!localStorage.getItem('guideShown')) {
   <span>👍</span> your needs with us
 </div>
 
-<!-- बाकी आपका पूरा content यहाँ आएगा (products, categories, contact) -->
+<div class="offer-banner">
+  <div class="offer-card">
+    <h2>🎉 MEGA SALE 🎉</h2>
+    <p>Up to 30% OFF on All Kirana Items</p>
+    <div class="offer-badge">Limited Time Offer!</div>
+  </div>
+</div>
+
+<div class="coupon-section">
+  <div class="coupon-grid">
+    <div class="coupon-card">
+      <h3>🎉 New Customer</h3>
+      <p>Get ₹50 OFF on first order</p>
+      <div class="code">WELCOME50</div>
+    </div>
+    <div class="coupon-card" style="background: linear-gradient(135deg, #E91E63 0%, #F06292 100%);">
+      <h3>💰 Festive Sale</h3>
+      <p>10% OFF on orders above ₹500</p>
+      <div class="code">FESTIVE10</div>
+    </div>
+    <div class="coupon-card" style="background: linear-gradient(135deg, #673AB7 0%, #9575CD 100%);">
+      <h3>🚚 Free Delivery</h3>
+      <p>On orders above ₹1000</p>
+      <div class="code">FREEDEL</div>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>स्वागत है आदर्श रिटेल्स में</h1>
+  <p>Best Quality Kirana Products at Best Prices</p>
+</div>
+
+<section class="price-menu">
+  <h2>Our Price List</h2>
+  <table class="price-table">
+    <thead>
+ <tr>
+        <th>Image</th>
+        <th>Quantity</th>
+        <th>Product Name</th>
+        <th>Main Price</th>
+        <th>Selling Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=GS" alt="Ghadi Sharaf" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Ghadi Sharaf</td><td>₹60</td><td>₹74</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Ghadi Sharaf 1 KG', 74)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Ghadi Sharaf 1 KG', 74)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=HR" alt="Haldi Ram" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Haldi Ram Nagpur Mongdal</td><td>₹48</td><td>₹57</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Haldi Ram Nagpur Mongdal 200g', 57)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Haldi Ram Nagpur Mongdal 200g', 57)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=AT" alt="Agni Tea" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Agni Tea</td><td>₹105</td><td>₹120</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Agni Tea 500g', 120)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Agni Tea 500g', 120)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=AT" alt="Agni Tea" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Agni Tea</td><td>₹175</td><td>₹190</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Agni Tea 1 KG', 190)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Agni Tea 1 KG', 190)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=DK" alt="Danth Kanti" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>400g</td><td>Danth Kanti paste</td><td>₹200</td><td>₹229</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Danth Kanti paste 400g', 229)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Danth Kanti paste 400g', 229)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=SP" alt="Son Papri" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Son Papri Pramod</td><td>₹90</td><td>₹179</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Son Papri Pramod 500g', 179)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Son Papri Pramod 500g', 179)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=BB" alt="Bonbita" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Bonbita chocolate</td><td>₹212</td><td>₹249</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bonbita chocolate 500g', 249)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bonbita chocolate 500g', 249)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=BB" alt="Bonbita" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Bonbita chocolate</td><td>₹125</td><td>₹138</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bonbita chocolate 200g', 138)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bonbita chocolate 200g', 138)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=BV" alt="Bornvita" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Bornvita</td><td>₹125</td><td>₹138</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bornvita 200g', 138)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bornvita 200g', 138)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=MG" alt="Maggie" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>768g</td><td>Maggie Packet (Family Pack)</td><td>₹130</td><td>₹160</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Maggie Packet (Family Pack) 768g', 160)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Maggie Packet (Family Pack) 768g', 160)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=FP" alt="Family Pack" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>987g</td><td>Family Pack Biscuit</td><td>₹170</td><td>₹260</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Family Pack Biscuit 987g', 260)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Family Pack Biscuit 987g', 260)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=RM" alt="Rich Marie" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Rich Marie Biscuit</td><td>₹135</td><td>₹150</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Rich Marie Biscuit 1 KG', 150)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Rich Marie Biscuit 1 KG', 150)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=SF" alt="Sun First" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>111g</td><td>Sun First Biscuit</td><td>₹25</td><td>₹30</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Sun First Biscuit 111g', 30)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Sun First Biscuit 111g', 30)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=BW" alt="Butter White" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Butter White</td><td>₹85</td><td>₹110</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Butter White 1 KG', 110)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Butter White 1 KG', 110)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=GL" alt="Good Life" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Good Life</td><td>₹185</td><td>₹235</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Good Life 200g', 235)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Good Life 200g', 235)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=BS" alt="Bikaji Soya" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Bikaji Soya Steak</td><td>₹40</td><td>₹75</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bikaji Soya Steak 200g', 75)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bikaji Soya Steak 200g', 75)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=AP" alt="Act Popcorn" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>30g</td><td>Act Popcorn</td><td>₹7.80</td><td>₹10</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Act Popcorn 30g', 10)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Act Popcorn 30g', 10)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=BP" alt="Butter Popcorn" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>35g</td><td>Butter Popcorn</td><td>₹22</td><td>₹25</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Butter Popcorn 35g', 25)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Butter Popcorn 35g', 25)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=LW" alt="Lays" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>-</td><td>Lays West Indian</td><td>₹42</td><td>₹48</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Lays West Indian', 48)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Lays West Indian', 48)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=FS" alt="Fortune Soya" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1kg</td><td>Fortune Soyabadi</td><td>₹130</td><td>₹200</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Fortune Soyabadi 1kg', 200)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Fortune Soyabadi 1kg', 200)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=SV" alt="Super Vasnani" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>100ml</td><td>Super Vasnani</td><td>₹60</td><td>₹65</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Super Vasnani 100ml', 65)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Super Vasnani 100ml', 65)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=GC" alt="Garnier" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>70ml+60g</td><td>Garnier Colour</td><td>₹229</td><td>₹210</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Garnier Colour 70ml+60g', 210)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Garnier Colour 70ml+60g', 210)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=SH" alt="Shampoo" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>175ml</td><td>Shampoo</td><td>₹140</td><td>₹154</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Shampoo 175ml', 154)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Shampoo 175ml', 154)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=NM" alt="Nupur Mehndi" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>50g</td><td>Nupur Mehndi</td><td>₹35</td><td>₹40</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Nupur Mehndi 50g', 40)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Nupur Mehndi 50g', 40)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=SS" alt="Sunsilk" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>180ml</td><td>Sunsilk Shampoo</td><td>₹175</td><td>₹222</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Sunsilk Shampoo 180ml', 222)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Sunsilk Shampoo 180ml', 222)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=GR" alt="Godrej" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>20g+20ml</td><td>Godrej Rich Colour</td><td>₹38</td><td>₹40</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Godrej Rich Colour 20g+20ml', 40)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Godrej Rich Colour 20g+20ml', 40)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=CC" alt="Coca Cola" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>750g</td><td>Coca Cola</td><td>₹35</td><td>₹40</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Coca Cola 750g', 40)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Coca Cola 750g', 40)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=AB" alt="Amul Butter" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>100g/500g</td><td>Amul Butter</td><td>₹255/275</td><td>₹258/286</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Amul Butter 100g/500g', 258)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Amul Butter 100g/500g', 258)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=OT" alt="Oats" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Oats</td><td>₹220</td><td>₹270</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Oats 500g', 270)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Oats 500g', 270)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=MD" alt="Maida" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Maida</td><td>₹24</td><td>₹48</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Maida 500g', 48)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Maida 500g', 48)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=CP" alt="Coffee" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>225g</td><td>Coffee Powder</td><td>₹133</td><td>₹149</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Coffee Powder 225g', 149)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Coffee Powder 225g', 149)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=TC" alt="Tajaa Chai" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1kg</td><td>Tajaa Chai Patti</td><td>₹235</td><td>₹250</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Tajaa Chai Patti 1kg', 250)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Tajaa Chai Patti 1kg', 250)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=AA" alt="आटा" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>5 KG</td><td>आटा</td><td>₹220</td><td>₹230</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('आटा 5 KG', 230)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('आटा 5 KG', 230)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=AA" alt="आटा" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>10 KG</td><td>आटा</td><td>₹420</td><td>₹430</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('आटा 10 KG', 430)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('आटा 10 KG', 430)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=BC" alt="बासमती" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>बासमती चावल</td><td>₹110</td><td>₹120</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('बासमती चावल 1 KG', 120)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('बासमती चावल 1 KG', 120)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=BC" alt="बासमती" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>5 KG</td><td>बासमती चावल</td><td>₹520</td><td>₹530</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('बासमती चावल 5 KG', 530)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('बासमती चावल 5 KG', 530)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=CB" alt="चावल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>25 KG</td><td>चावल (बोरा)</td><td>₹1800</td><td>₹1810</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('चावल (बोरा) 25 KG', 1810)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('चावल (बोरा) 25 KG', 1810)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=TD" alt="तूर दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>तूर दाल</td><td>₹140</td><td>₹150</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('तूर दाल 1 KG', 150)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('तूर दाल 1 KG', 150)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=MD" alt="मूंग दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>मूंग दाल</td><td>₹120</td><td>₹130</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('मूंग दाल 1 KG', 130)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('मूंग दाल 1 KG', 130)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=CD" alt="चना दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>चना दाल</td><td>₹85</td><td>₹95</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('चना दाल 1 KG', 95)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('चना दाल 1 KG', 95)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=MD" alt="मसूर दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>मसूर दाल</td><td>₹95</td><td>₹105</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('मसूर दाल 1 KG', 105)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('मसूर दाल 1 KG', 105)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=UD" alt="उड़द दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>उड़द दाल</td><td>₹130</td><td>₹140</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('उड़द दाल 1 KG', 140)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('उड़द दाल 1 KG', 140)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=ST" alt="सरसों तेल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 L</td><td>सरसों तेल</td><td>₹165</td><td>₹175</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('सरसों तेल 1 L', 175)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('सरसों तेल 1 L', 175)">-</button></td></tr>
+  
+  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=RT" alt="रिफाइंड तेल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 L</td><td>रिफाइंड तेल</td><td>₹145</td><td>₹155</td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('रिफाइंड तेल 1 L', 155)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('रिफाइंड तेल 1 L', 155)">-</button></td></tr>
+</tbody>
+  </table>
+</section>
+
+<div class="categories">
+  <h2>हमारी कैटेगरी</h2>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <img src="images/atta.jpg" alt="आटा">
+      <h3>आटा</h3>
+      <p>Premium Quality Wheat Flour</p>
+    </div>
+    <div class="cat-card">
+      <img src="images/dal.jpg" alt="दाल">
+      <h3>दालें</h3>
+      <p>All Types of Pulses Available</p>
+    </div>
+    <div class="cat-card">
+      <img src="images/chawal.jpg" alt="चावल">
+      <h3>चावल</h3>
+      <p>Best Basmati & Regular Rice</p>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section">
+  <h3>📞 Contact Us</h3>
+  <div class="contact-cards">
+    <a href="tel:+918298827509" class="contact-card">
+      <span class="icon">📱</span>
+      <span class="label">Mobile</span>
+      <span class="value">+91 8298 827 509</span>
+    </a>
+    <a href="https://instagram.com/adarsh_retails" target="_blank" class="contact-card instagram">
+      <span class="icon">📷</span>
+      <span class="label">Instagram</span>
+      <span class="value">@adarsh_retails</span>
+    </a>
+    <a href="https://wa.me/918298827509" target="_blank" class="contact-card whatsapp">
+      <span class="icon">💬</span>
+      <span class="label">WhatsApp</span>
+      <span class="value">Order Here</span>
+    </a>
+  </div>
+  <p class="contact-note">आदर्श रिटेल्स, डालटनगंज</p>
+</div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
