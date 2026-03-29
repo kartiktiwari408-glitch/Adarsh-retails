@@ -540,6 +540,11 @@ function verifyOTP() {
   if(enteredOTP === currentOTP) {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userPhone', phone);
+    fetch('/api/login', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({email: phone})
+});
     alert('Login successful!');
     closeLogin();
     updateLoginButton();
