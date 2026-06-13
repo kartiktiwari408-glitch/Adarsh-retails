@@ -14,7 +14,6 @@
 html, body {
   max-width: 100vw!important;
   overflow-x: hidden!important;
-  touch-action: pan-y!important;
   font-family: 'Segoe UI', sans-serif;
   background: var(--ar-bg);
 }
@@ -68,6 +67,7 @@ html, body {
   border: none;
   font-weight: bold;
   font-size: 12px;
+  cursor: pointer;
 }
 .cart-btn,.checkout-btn {
   background: rgba(255, 215, 0, 0.2);
@@ -113,7 +113,7 @@ html, body {
   text-align: center;
   cursor: pointer;
 }
-.coupon-card .code {
+.coupon-card.code {
   background: var(--ar-accent);
   color: var(--ar-primary);
   padding: 4px 8px;
@@ -156,7 +156,6 @@ html, body {
   height: 45px!important;
   object-fit: cover;
   border-radius: 8px;
-  touch-action: none;
 }
 .selling-price { color: #00C853; font-weight: bold; font-size: 13px; }
 .mrp-price { text-decoration: line-through; color: #999; font-size: 11px; }
@@ -168,6 +167,7 @@ html, body {
   border-radius: 15px;
   font-weight: bold;
   font-size: 11px;
+  cursor: pointer;
 }
 .remove-btn {
   background: #f44336;
@@ -177,6 +177,7 @@ html, body {
   border-radius: 15px;
   font-weight: bold;
   font-size: 11px;
+  cursor: pointer;
 }
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
 .modal-content { background: white; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; max-height: 80vh; overflow-y: auto; }
@@ -187,6 +188,7 @@ html, body {
   margin: 0 5px;
   border-radius: 8px;
   font-weight: bold;
+  cursor: pointer;
 }
 .tab-btn.active {
   background: var(--ar-primary);
@@ -209,7 +211,7 @@ html, body {
 .status-pending { background: #FFA000; color: white; }
 .status-delivered { background: #00C853; color: white; }
 .status-cancelled { background: #f44336; color: white; }
-.logout-btn { background: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 8px; margin-top: 15px; width: 100%; }
+.logout-btn { background: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 8px; margin-top: 15px; width: 100%; cursor: pointer; }
 .contact-section { background: white; margin: 15px; padding: 15px; border-radius: 12px; }
 .contact-card { display: block; background: #f5f5f5; padding: 12px; border-radius: 8px; margin: 8px 0; text-decoration: none; color: #333; }
 </style>
@@ -330,50 +332,16 @@ html, body {
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=GS" alt="Ghadi Sharaf"></td><td>1 KG</td><td>Ghadi Sharaf</td><td><span class="mrp-price">MRP: ₹74</span></td><td><span class="selling-price">₹60</span></td><td><button class="add-btn" onclick="addToCart('Ghadi Sharaf 1 KG', 74, 60)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Ghadi Sharaf 1 KG', 60)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=HR" alt="Haldi Ram"></td><td>200g</td><td>Haldiram Nagpur Moong Dal</td><td><span class="mrp-price">MRP: ₹57</span></td><td><span class="selling-price">₹48</span></td><td><button class="add-btn" onclick="addToCart('Haldiram Nagpur Moong Dal 200g', 57, 48)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Haldiram Nagpur Moong Dal 200g', 48)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="Agni Tea"></td><td>500g</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹120</span></td><td><span class="selling-price">₹105</span></td><td><button class="add-btn" onclick="addToCart('Agni Tea 500g', 120, 105)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 500g', 105)">-</button></td></tr>
-            <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AT" alt="Agni Tea"></td><td>1 KG</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹210</span></td><td><span class="selling-price">₹190</span></td><td><button class="add-btn" onclick="addToCart('Agni Tea 1 KG', 210, 190)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 1 KG', 190)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AT" alt="Agni Tea"></td><td>1 KG</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹210</span></td><td><span class="selling-price">₹190</span></td><td><button class="add-btn" onclick="addToCart('Agni Tea 1 KG', 210, 190)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 1 KG', 190)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=DK" alt="Dant Kanti"></td><td>400g</td><td>Dant Kanti Toothpaste</td><td><span class="mrp-price">MRP: ₹249</span></td><td><span class="selling-price">₹229</span></td><td><button class="add-btn" onclick="addToCart('Dant Kanti 400g', 249, 229)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Dant Kanti 400g', 229)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=SP" alt="Soan Papdi"></td><td>500g</td><td>Soan Papdi Pramod</td><td><span class="mrp-price">MRP: ₹199</span></td><td><span class="selling-price">₹179</span></td><td><button class="add-btn" onclick="addToCart('Soan Papdi 500g', 199, 179)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Soan Papdi 500g', 179)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=BV" alt="Bournvita"></td><td>500g</td><td>Bournvita Chocolate</td><td><span class="mrp-price">MRP: ₹269</span></td><td><span class="selling-price">₹249</span></td><td><button class="add-btn" onclick="addToCart('Bournvita 500g', 269, 249)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Bournvita 500g', 249)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MG" alt="Maggie"></td><td>768g</td><td>Maggie Family Pack</td><td><span class="mrp-price">MRP: ₹180</span></td><td><span class="selling-price">₹160</span></td><td><button class="add-btn" onclick="addToCart('Maggie Family Pack', 180, 160)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Maggie Family Pack', 160)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=BS" alt="Biscuit"></td><td>987g</td><td>Family Pack Biscuit</td><td><span class="mrp-price">MRP: ₹280</span></td><td><span class="selling-price">₹260</span></td><td><button class="add-btn" onclick="addToCart('Family Pack Biscuit', 280, 260)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Family Pack Biscuit', 260)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=RM" alt="Rich Marie"></td><td>1 KG</td><td>Rich Marie Biscuit</td><td><span class="mrp-price">MRP: ₹170</span></td><td><span class="selling-price">₹150</span></td><td><button class="add-btn" onclick="addToCart('Rich Marie 1 KG', 170, 150)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Rich Marie 1 KG', 150)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=SF" alt="Sun First"></td><td>111g</td><td>Sun First Biscuit</td><td><span class="mrp-price">MRP: ₹50</span></td><td><span class="selling-price">₹30</span></td><td><button class="add-btn" onclick="addToCart('Sun First 111g', 50, 30)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Sun First 111g', 30)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BW" alt="Butter White"></td><td>1 KG</td><td>Butter White</td><td><span class="mrp-price">MRP: ₹130</span></td><td><span class="selling-price">₹110</span></td><td><button class="add-btn" onclick="addToCart('Butter White 1 KG', 130, 110)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Butter White 1 KG', 110)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=GL" alt="Good Life"></td><td>200g</td><td>Good Life</td><td><span class="mrp-price">MRP: ₹255</span></td><td><span class="selling-price">₹235</span></td><td><button class="add-btn" onclick="addToCart('Good Life 200g', 255, 235)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Good Life 200g', 235)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BS" alt="Bikaji Soya"></td><td>200g</td><td>Bikaji Soya Steak</td><td><span class="mrp-price">MRP: ₹95</span></td><td><span class="selling-price">₹75</span></td><td><button class="add-btn" onclick="addToCart('Bikaji Soya 200g', 95, 75)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Bikaji Soya 200g', 75)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AP" alt="Act Popcorn"></td><td>30g</td><td>Act Popcorn</td><td><span class="mrp-price">MRP: ₹30</span></td><td><span class="selling-price">₹10</span></td><td><button class="add-btn" onclick="addToCart('Act Popcorn 30g', 30, 10)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Act Popcorn 30g', 10)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BP" alt="Butter Popcorn"></td><td>35g</td><td>Butter Popcorn</td><td><span class="mrp-price">MRP: ₹45</span></td><td><span class="selling-price">₹25</span></td><td><button class="add-btn" onclick="addToCart('Butter Popcorn 35g', 45, 25)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Butter Popcorn 35g', 25)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=LW" alt="Lays"></td><td>90g</td><td>Lays West Indian</td><td><span class="mrp-price">MRP: ₹68</span></td><td><span class="selling-price">₹48</span></td><td><button class="add-btn" onclick="addToCart('Lays 90g', 68, 48)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Lays 90g', 48)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=FS" alt="Fortune Soya"></td><td>1kg</td><td>Fortune Soyabadi</td><td><span class="mrp-price">MRP: ₹220</span></td><td><span class="selling-price">₹200</span></td><td><button class="add-btn" onclick="addToCart('Fortune Soyabadi 1kg', 220, 200)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Fortune Soyabadi 1kg', 200)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=SV" alt="Super Vasnani"></td><td>100ml</td><td>Super Vasnani</td><td><span class="mrp-price">MRP: ₹85</span></td><td><span class="selling-price">₹65</span></td><td><button class="add-btn" onclick="addToCart('Super Vasnani 100ml', 85, 65)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Super Vasnani 100ml', 65)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=GC" alt="Garnier"></td><td>70ml+60g</td><td>Garnier Colour</td><td><span class="mrp-price">MRP: ₹230</span></td><td><span class="selling-price">₹210</span></td><td><button class="add-btn" onclick="addToCart('Garnier Colour', 230, 210)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Garnier Colour', 210)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=SH" alt="Shampoo"></td><td>175ml</td><td>Shampoo</td><td><span class="mrp-price">MRP: ₹174</span></td><td><span class="selling-price">₹154</span></td><td><button class="add-btn" onclick="addToCart('Shampoo 175ml', 174, 154)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Shampoo 175ml', 154)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=NM" alt="Nupur Mehndi"></td><td>50g</td><td>Nupur Mehndi</td><td><span class="mrp-price">MRP: ₹60</span></td><td><span class="selling-price">₹40</span></td><td><button class="add-btn" onclick="addToCart('Nupur Mehndi 50g', 60, 40)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Nupur Mehndi 50g', 40)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=SS" alt="Sunsilk"></td><td>180ml</td><td>Sunsilk Shampoo</td><td><span class="mrp-price">MRP: ₹242</span></td><td><span class="selling-price">₹222</span></td><td><button class="add-btn" onclick="addToCart('Sunsilk 180ml', 242, 222)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Sunsilk 180ml', 222)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=GR" alt="Godrej"></td><td>20g+20ml</td><td>Godrej Rich Colour</td><td><span class="mrp-price">MRP: ₹60</span></td><td><span class="selling-price">₹40</span></td><td><button class="add-btn" onclick="addToCart('Godrej Rich Colour', 60, 40)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Godrej Rich Colour', 40)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CC" alt="Coca Cola"></td><td>750ml</td><td>Coca Cola</td><td><span class="mrp-price">MRP: ₹60</span></td><td><span class="selling-price">₹40</span></td><td><button class="add-btn" onclick="addToCart('Coca Cola 750ml', 60, 40)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Coca Cola 750ml', 40)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AB" alt="Amul Butter"></td><td>500g</td><td>Amul Butter</td><td><span class="mrp-price">MRP: ₹306</span></td><td><span class="selling-price">₹286</span></td><td><button class="add-btn" onclick="addToCart('Amul Butter 500g', 306, 286)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Amul Butter 500g', 286)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=OT" alt="Oats"></td><td>500g</td><td>Oats</td><td><span class="mrp-price">MRP: ₹290</span></td><td><span class="selling-price">₹270</span></td><td><button class="add-btn" onclick="addToCart('Oats 500g', 290, 270)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Oats 500g', 270)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MD" alt="Maida"></td><td>500g</td><td>Maida</td><td><span class="mrp-price">MRP: ₹68</span></td><td><span class="selling-price">₹48</span></td><td><button class="add-btn" onclick="addToCart('Maida 500g', 68, 48)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Maida 500g', 48)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CF" alt="Coffee"></td><td>225g</td><td>Coffee Powder</td><td><span class="mrp-price">MRP: ₹169</span></td><td><span class="selling-price">₹149</span></td><td><button class="add-btn" onclick="addToCart('Coffee Powder 225g', 169, 149)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Coffee Powder 225g', 149)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=TC" alt="Tajaa Chai"></td><td>1kg</td><td>Tajaa Chai Patti</td><td><span class="mrp-price">MRP: ₹270</span></td><td><span class="selling-price">₹250</span></td><td><button class="add-btn" onclick="addToCart('Tajaa Chai 1kg', 270, 250)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Tajaa Chai 1kg', 250)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=RM" alt="Rich Marie"></td><td>1 KG</td><td>Rich Marie Biscuit</td><td><span class="mrp-price">MRP: ₹170</span></td><td><span class="selling-price">₹150</span></td><td><button class="add-btn" onclick="addToCart('Rich Marie 1 KG', 170, 150)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Rich Marie 1 KG', 150)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=LW" alt="Lays"></td><td>90g</td><td>Lays West Indian</td><td><span class="mrp-price">MRP: ₹68</span></td><td><span class="selling-price">₹48</span></td><td><button class="add-btn" onclick="addToCart('Lays 90g', 68, 48)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Lays 90g', 48)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="आटा"></td><td>5 KG</td><td>आटा</td><td><span class="mrp-price">MRP: ₹250</span></td><td><span class="selling-price">₹230</span></td><td><button class="add-btn" onclick="addToCart('आटा 5 KG', 250, 230)">Add +</button> <button class="remove-btn" onclick="removeFromCart('आटा 5 KG', 230)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AT" alt="आटा"></td><td>10 KG</td><td>आटा</td><td><span class="mrp-price">MRP: ₹450</span></td><td><span class="selling-price">₹430</span></td><td><button class="add-btn" onclick="addToCart('आटा 10 KG', 450, 430)">Add +</button> <button class="remove-btn" onclick="removeFromCart('आटा 10 KG', 430)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=BR" alt="Basmati Rice"></td><td>1 KG</td><td>बासमती चावल</td><td><span class="mrp-price">MRP: ₹90</span></td><td><span class="selling-price">₹70</span></td><td><button class="add-btn" onclick="addToCart('बासमती चावल 1 KG', 90, 70)">Add +</button> <button class="remove-btn" onclick="removeFromCart('बासमती चावल 1 KG', 70)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=PR" alt="Pony Rice"></td><td>1 KG</td><td>पोनी चावल</td><td><span class="mrp-price">MRP: ₹60</span></td><td><span class="selling-price">₹40</span></td><td><button class="add-btn" onclick="addToCart('पोनी चावल 1 KG', 60, 40)">Add +</button> <button class="remove-btn" onclick="removeFromCart('पोनी चावल 1 KG', 40)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BR" alt="Basmati Rice"></td><td>1 KG</td><td>बासमती चावल</td><td><span class="mrp-price">MRP: ₹90</span></td><td><span class="selling-price">₹70</span></td><td><button class="add-btn" onclick="addToCart('बासमती चावल 1 KG', 90, 70)">Add +</button> <button class="remove-btn" onclick="removeFromCart('बासमती चावल 1 KG', 70)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CH" alt="Chini"></td><td>1 KG</td><td>चीनी</td><td><span class="mrp-price">MRP: ₹62</span></td><td><span class="selling-price">₹42</span></td><td><button class="add-btn" onclick="addToCart('चीनी 1 KG', 62, 42)">Add +</button> <button class="remove-btn" onclick="removeFromCart('चीनी 1 KG', 42)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MD" alt="Maida"></td><td>1 KG</td><td>मैदा</td><td><span class="mrp-price">MRP: ₹58</span></td><td><span class="selling-price">₹38</span></td><td><button class="add-btn" onclick="addToCart('मैदा 1 KG', 58, 38)">Add +</button> <button class="remove-btn" onclick="removeFromCart('मैदा 1 KG', 38)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=DF" alt="Daliya Fine"></td><td>1 KG</td><td>दलिया फाइन</td><td><span class="mrp-price">MRP: ₹90</span></td><td><span class="selling-price">₹70</span></td><td><button class="add-btn" onclick="addToCart('दलिया फाइन 1 KG', 90, 70)">Add +</button> <button class="remove-btn" onclick="removeFromCart('दलिया फाइन 1 KG', 70)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=DM" alt="Daliya Medium"></td><td>1 KG</td><td>दलिया मीडियम</td><td><span class="mrp-price">MRP: ₹90</span></td><td><span class="selling-price">₹70</span></td><td><button class="add-btn" onclick="addToCart('दलिया मीडियम 1 KG', 90, 70)">Add +</button> <button class="remove-btn" onclick="removeFromCart('दलिया मीडियम 1 KG', 70)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=SU" alt="Suji"></td><td>1 KG</td><td>सूजी</td><td><span class="mrp-price">MRP: ₹90</span></td><td><span class="selling-price">₹70</span></td><td><button class="add-btn" onclick="addToCart('सूजी 1 KG', 90, 70)">Add +</button> <button class="remove-btn" onclick="removeFromCart('सूजी 1 KG', 70)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BF" alt="Besan Fine"></td><td>1 KG</td><td>बेसन फाइन</td><td><span class="mrp-price">MRP: ₹110</span></td><td><span class="selling-price">₹90</span></td><td><button class="add-btn" onclick="addToCart('बेसन फाइन 1 KG', 110, 90)">Add +</button> <button class="remove-btn" onclick="removeFromCart('बेसन फाइन 1 KG', 90)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=BM" alt="Besan Medium"></td><td>1 KG</td><td>बेसन मीडियम</td><td><span class="mrp-price">MRP: ₹110</span></td><td><span class="selling-price">₹90</span></td><td><button class="add-btn" onclick="addToCart('बेसन मीडियम 1 KG', 110, 90)">Add +</button> <button class="remove-btn" onclick="removeFromCart('बेसन मीडियम 1 KG', 90)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AR" alt="Arhar Dal"></td><td>1 KG</td><td>अरहर दाल</td><td><span class="mrp-price">MRP: ₹150</span></td><td><span class="selling-price">₹130</span></td><td><button class="add-btn" onclick="addToCart('अरहर दाल 1 KG', 150, 130)">Add +</button> <button class="remove-btn" onclick="removeFromCart('अरहर दाल 1 KG', 130)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=MA" alt="Malka"></td><td>1 KG</td><td>मलका दाल</td><td><span class="mrp-price">MRP: ₹140</span></td><td><span class="selling-price">₹120</span></td><td><button class="add-btn" onclick="addToCart('मलका दाल 1 KG', 140, 120)">Add +</button> <button class="remove-btn" onclick="removeFromCart('मलका दाल 1 KG', 120)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MO" alt="Moong Dal"></td><td>1 KG</td><td>मूंग दाल</td><td><span class="mrp-price">MRP: ₹150</span></td><td><span class="selling-price">₹130</span></td><td><button class="add-btn" onclick="addToCart('मूंग दाल 1 KG', 150, 130)">Add +</button> <button class="remove-btn" onclick="removeFromCart('मूंग दाल 1 KG', 130)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CH" alt="Chana Dal"></td><td>1 KG</td><td>चना दाल</td><td><span class="mrp-price">MRP: ₹100</span></td><td><span class="selling-price">₹80</span></td><td><button class="add-btn" onclick="addToCart('चना दाल 1 KG', 100, 80)">Add +</button> <button class="remove-btn" onclick="removeFromCart('चना दाल 1 KG', 80)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=RC" alt="Rajma Chitra"></td><td>1 KG</td><td>राजमा चित्रा</td><td><span class="mrp-price">MRP: ₹160</span></td><td><span class="selling-price">₹140</span></td><td><button class="add-btn" onclick="addToCart('राजमा चित्रा 1 KG', 160, 140)">Add +</button> <button class="remove-btn" onclick="removeFromCart('राजमा चित्रा 1 KG', 140)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=KC" alt="Kabuli Chana"></td><td>1 KG</td><td>काबुली चना</td><td><span class="mrp-price">MRP: ₹160</span></td><td><span class="selling-price">₹140</span></td><td><button class="add-btn" onclick="addToCart('काबुली चना 1 KG', 160, 140)">Add +</button> <button class="remove-btn" onclick="removeFromCart('काबुली चना 1 KG', 140)">-</button></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=RT" alt="Refined Oil"></td><td>1 LTR</td><td>रिफाइंड तेल</td><td><span class="mrp-price">MRP: ₹160</span></td><td><span class="selling-price">₹140</span></td><td><button class="add-btn" onclick="addToCart('रिफाइंड तेल 1 LTR', 160, 140)">Add +</button> <button class="remove-btn" onclick="removeFromCart('रिफाइंड तेल 1 LTR', 140)">-</button></td></tr>
     </tbody>
   </table>
@@ -514,8 +482,16 @@ function showTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
   event.target.classList.add('active');
   if(tab === 'profile') {
-    document.getElementById
-    // Login Functions
+    document.getElementById('profileTab').style.display = 'block';
+    document.getElementById('ordersTab').style.display = 'none';
+  } else {
+    document.getElementById('profileTab').style.display = 'none';
+    document.getElementById('ordersTab').style.display = 'block';
+    loadOrders();
+  }
+}
+
+// Login Functions
 function showLogin() {
   document.getElementById('loginModal').style.display = 'flex';
 }
