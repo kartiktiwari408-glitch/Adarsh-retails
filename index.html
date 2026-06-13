@@ -114,7 +114,7 @@ html, body {
   text-align: center;
   cursor: pointer;
 }
-.coupon-card.code {
+.coupon-card .code {
   background: var(--ar-accent);
   color: var(--ar-primary);
   padding: 4px 8px;
@@ -247,27 +247,23 @@ html, body {
       <h3 id="modalName" style="margin:10px 0;"></h3>
       <p id="modalPhone" style="color:#666;"></p>
     </div>
-
     <div style="text-align:center;margin:15px 0;">
       <button class="tab-btn active" onclick="showTab('profile')">Profile</button>
       <button class="tab-btn" onclick="showTab('orders')">My Orders</button>
     </div>
-
     <div id="profileTab">
       <input type="file" id="photoUpload" accept="image/*" style="margin:10px 0;width:100%;">
       <button onclick="uploadPhoto()" style="background:var(--ar-accent);color:var(--ar-primary);padding:8px 15px;border:none;border-radius:8px;width:100%;margin:5px 0;">Change Photo</button>
       <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
-
     <div id="ordersTab" style="display:none;">
       <div id="ordersList"></div>
     </div>
-
     <button onclick="closeProfile()" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ccc;border-radius:8px;">Close</button>
   </div>
 </div>
 
-<!-- Header -->
+<!-- Header - FIXED -->
 <div class="header">
   <div style="display:flex;align-items:center;gap:10px;">
     <div class="ar-logo">AR</div>
@@ -275,6 +271,7 @@ html, body {
       <div style="font-size:16px;font-weight:bold;">आदर्श रिटेल्स</div>
       <div id="loginStatus" style="font-size:11px;">Not Logged In</div>
     </div>
+  </div>
   <div class="header-right">
     <div class="profile-box" onclick="showProfile()" id="profileBox">
       <img id="userPhoto" src="https://via.placeholder.com/28/4A148C/FFD700?text=U">
@@ -312,6 +309,7 @@ html, body {
       <p>On orders above ₹1000</p>
       <div class="code">FREEDEL</div>
     </div>
+  </div>
   <p id="coupon-msg" style="text-align:center;color:#00C853;font-weight:bold;margin-top:10px;display:none;"></p>
 </div>
 
@@ -345,7 +343,7 @@ html, body {
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=RM" alt="Rich Marie"></td><td>1 KG</td><td>Rich Marie</td><td><span class="mrp-price">₹170</span></td><td><span class="selling-price">₹150</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Rich Marie 1 KG', 170, 150)">+</button><button class="remove-btn" onclick="removeFromCart('Rich Marie 1 KG', 150)">-</button></div></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=LW" alt="Lays"></td><td>90g</td><td>Lays West</td><td><span class="mrp-price">₹68</span></td><td><span class="selling-price">₹48</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Lays 90g', 68, 48)">+</button><button class="remove-btn" onclick="removeFromCart('Lays 90g', 48)">-</button></div></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="आटा"></td><td>5 KG</td><td>आटा</td><td><span class="mrp-price">₹250</span></td><td><span class="selling-price">₹230</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('आटा 5 KG', 250, 230)">+</button><button class="remove-btn" onclick="removeFromCart('आटा 5 KG', 230)">-</button></div></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BR" alt="Basmati Rice"></td><td>1 KG</td><td>बासमती चावल</td><td><span class="mrp-price">₹90</span></td><span class="selling-price">₹70</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('बासमती चावल 1 KG', 90, 70)">+</button><button class="remove-btn" onclick="removeFromCart('बासमती चावल 1 KG', 70)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BR" alt="Basmati Rice"></td><td>1 KG</td><td>बासमती चावल</td><td><span class="mrp-price">₹90</span></td><td><span class="selling-price">₹70</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('बासमती चावल 1 KG', 90, 70)">+</button><button class="remove-btn" onclick="removeFromCart('बासमती चावल 1 KG', 70)">-</button></div></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CH" alt="Chini"></td><td>1 KG</td><td>चीनी</td><td><span class="mrp-price">₹62</span></td><td><span class="selling-price">₹42</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('चीनी 1 KG', 62, 42)">+</button><button class="remove-btn" onclick="removeFromCart('चीनी 1 KG', 42)">-</button></div></td></tr>
       <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=RT" alt="Refined Oil"></td><td>1 LTR</td><td>रिफाइंड तेल</td><td><span class="mrp-price">₹160</span></td><td><span class="selling-price">₹140</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('रिफाइंड तेल 1 LTR', 160, 140)">+</button><button class="remove-btn" onclick="removeFromCart('रिफाइंड तेल 1 LTR', 140)">-</button></div></td></tr>
     </tbody>
@@ -357,9 +355,9 @@ html, body {
   <a href="tel:+918298827509" class="contact-card">📱 Call: 8298827509</a>
   <a href="https://wa.me/918298827509" class="contact-card">💬 WhatsApp: 8298827509</a>
   <a href="mailto:adarshretails@gmail.com" class="contact-card">📧 Email: adarshretails@gmail.com</a>
-  <div class="contact-card">📍 Address: Near Uday Singh Petrol Pump, Glorious School Road, Daltonganj, Sudhanam</div>
-</section>
-
+  <div class="contact-card">📍 Address: Near Uday Singh Petrol Pump, Glorious School Road, Daltonganj, Sudna</div>
+                                                                                                                                                                                                                                </section>
+                                                                                                                                                                                                                                
 <script>
 let cart = JSON.parse(localStorage.getItem('arCart')) || [];
 let user = JSON.parse(localStorage.getItem('arUser')) || null;
@@ -593,7 +591,7 @@ function uploadPhoto() {
   let file = document.getElementById('photoUpload').files[0];
   if(file) {
     let reader = new FileReader();
-    reader.onload =    reader.onload = function(e) {
+    reader.onload = function(e) {
       user.photo = e.target.result;
       localStorage.setItem('arUser', JSON.stringify(user));
       updateLoginStatus();
