@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Cart - आदर्श रिटेल्स</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #F3E5F5 0%, #FFFFFF 100%);
+  overflow-x: hidden;
+  width: 100%;
+}
+.header {
+  background: linear-gradient(135deg, #6A1B9A 0%, #8E24AA 100%);
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.ar-logo {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #6A1B9A;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Arial Black', sans-serif;
+}
+.back-btn {
+  background: white;
+  color: #6A1B9A;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  border: none;
+}
+.cart-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.cart-title {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.cart-title h1 {
+  color: #6A1B9A;
+  font-size: 28px;
+}
+.cart-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.item-img {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #8E24AA, #6A1B9A);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.item-details {
+  flex: 1;
+}
+.item-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1B5E20;
+  margin-bottom: 5px;
+}
+.item-price {
+  font-size: 16px;
+  color: #666;
+}
+.item-price.mrp {
+  text-decoration: line-through;
+  color: #D32F2F;
+  margin-right: 10px;
+}
+.item-price.selling {
+  color: #6A1B9A;
+  font-weight: bold;
+  font-size: 18px;
+}
+.remove-item {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+.coupon-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+.coupon-box h3 {
+  color: #6A1B9A;
+  margin-bottom: 15px;
+}
+.coupon-input {
+  display: flex;
+  gap: 10px;
+}
+.coupon-input input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #E1BEE7;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.coupon-input button {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #6A1B9A;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.coupon-applied {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.location-box {
+  background: #FFF8E1;
+  border: 2px solid #FFD700;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(255,215,0,0.2);
+}
+.location-box h4 {
+  color: #6A1B9A;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+.location-box input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.location-btn {
+  background: linear-gradient(135deg, #6A1B9A 0%, #8E24AA 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+.location-status {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+.location-status.success {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+.payment-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+.payment-box h3 {
+  color: #6A1B9A;
+  margin-bottom: 15px;
+}
+.payment-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.payment-option {
+  flex: 1;
+  min-width: 150px;
+  padding: 15px;
+  border: 3px solid #E1BEE7;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s;
+}
+.payment-option.selected {
+  border-color: #FFD700;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+}
+.payment-option.icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.payment-option.label {
+  font-weight: bold;
+  color: #6A1B9A;
+}
+.summary {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #F3E5F5;
+  font-size: 16px;
+}
+.summary-row.discount {
+  color: #FFD700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 10px 0;
+  font-weight: bold;
+  border: none;
+}
+.summary-row.delivery {
+  color: #E91E63;
+  font-weight: bold;
+}
+.summary-row.total {
+  border-bottom: none;
+  border-top: 3px solid #FFD700;
+  margin-top: 10px;
+  padding-top: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #6A1B9A;
+}
+.checkout-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+.empty-cart {
+  background: white;
+  padding: 60px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.empty-cart h2 {
+  color: #999;
+  margin-bottom: 20px;
+}
+.login-required {
+  background: white;
+  padding: 60px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.login-required h2 {
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+.login-required button {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #6A1B9A;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-content">
+    <div class="logo">
+      <div class="ar-logo">AR</div>
+      <span>आदर्श रिटेल्स</span>
+    </div>
+    <button class="back-btn" onclick="window.location.href='index.html'">← Back to Shop</button>
+  </div>
+</div>
+
+<div class="cart-container" id="cartContainer">
+  <div class="cart-title">
+    <h1>🛒 Your Cart</h1>
+  </div>
+</div>
+
+<script>
+const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let appliedCoupon = localStorage.getItem('coupon') || null;
+let paymentMethod = 'cod';
+let userLocation = null;
+
+const COUPONS = {
+  'WELCOME50': { discount: 50, type: 'flat', minOrder: 0 },
+  'FESTIVE10': { discount: 10, type: 'percent', minOrder: 500 },
+  'FREEDEL': { discount: 0, type: 'free_delivery', minOrder: 1000 }
+};
+
+function renderCart() {
+  const container = document.getElementById('cartContainer');
+
+  if (!isLoggedIn) {
+    container.innerHTML = `
+      <div class="login-required">
+        <h2>🔒 Login Required</h2>
+        <p style="color:#666;margin-bottom:20px;">Cart देखने के लिए पहले Login करें</p>
+        <button onclick="window.location.href='index.html'">Login करने जाओ</button>
+      </div>
+    `;
+    return;
+  }
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="cart-title">
+        <h1>🛒 Your Cart</h1>
+      </div>
+      <div class="empty-cart">
+        <h2>Cart खाली है 😢</h2>
+        <p style="color:#666;margin-bottom:20px;">Products add करके order करें</p>
+        <button class="back-btn" onclick="window.location.href='index.html'">Shop Now</button>
+      </div>
+    `;
+    return;
+  }
+
+  let itemsHTML = '';
+  let subtotal = 0;
+
+  cart.forEach((item, index) => {
+    subtotal += item.price;
+    const imgText = item.name.substring(0,2).toUpperCase();
+    itemsHTML += `
+      <div class="cart-item">
+        <div class="item-img">${imgText}</div>
+        <div class="item-details">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">
+            <span class="mrp">MRP: ₹${item.mrp}</span>
+            <span class="selling">₹${item.price}</span>
+          </div>
+        </div>
+        <button class="remove-item" onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+  });
+
+  let discount = 0;
+  let discountText = '';
+  if (appliedCoupon && COUPONS[appliedCoupon]) {
+    const coupon = COUPONS[appliedCoupon];
+    if (subtotal >= coupon.minOrder) {
+      if (coupon.type === 'flat') {
+        discount = coupon.discount;
+        discountText = `₹${discount} OFF`;
+      } else if (coupon.type === 'percent') {
+        discount = Math.round(subtotal * coupon.discount / 100);
+        discountText = `${coupon.discount}% OFF`;
+      }
+    }
+  }
+
+  const delivery = subtotal >= 1000 || appliedCoupon === 'FREEDEL'? 0 : 40;
+  const total = subtotal - discount + delivery;
+
+  container.innerHTML = `
+    <div class="cart-title">
+      <h1>🛒 Your Cart (${cart.length} items)</h1>
+    </div>
+
+    ${itemsHTML}
+
+    <div class="coupon-box">
+      <h3>🎁 Apply Coupon</h3>
+      <div class="coupon-input">
+        <input type="text" id="couponCode" placeholder="Enter coupon code" value="${appliedCoupon || ''}">
+        <button onclick="applyCoupon()">APPLY</button>
+      </div>
+      ${appliedCoupon? `<div class="coupon-applied">✅ Coupon ${appliedCoupon} Applied - ${discountText}</div>` : ''}
+    </div>
+
+    <div class="location-box">
+      <h4>📍 Delivery Address</h4>
+      <input type="text" id="deliveryAddress" placeholder="Enter your full address with landmark" value="${localStorage.getItem('userAddress') || ''}">
+      <button class="location-btn" onclick="getLocation()">📍 Get Current Location</button>
+      <div id="locationStatus"></div>
+    </div>
+
+    <div class="payment-box">
+      <h3>💳 Payment Method</h3>
+      <div class="payment-options">
+        <div class="payment-option ${paymentMethod === 'cod'? 'selected' : ''}" onclick="selectPayment('cod')">
+          <div class="icon">💵</div>
+          <div class="label">Cash on Delivery</div>
+        </div>
+        <div class="payment-option ${paymentMethod === 'online'? 'selected' : ''}" onclick="selectPayment('online')">
+          <div class="icon">💳</div>
+          <div class="label">Online Payment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>₹${subtotal}</span>
+      </div>
+      ${discount > 0? `
+      <div class="summary-row discount">
+        <span>Discount (${appliedCoupon})</span>
+        <span>-₹${discount}</span>
+      </div>
+      ` : ''}
+      <div class="summary-row delivery">
+        <span>Delivery Charge</span>
+        <span>${delivery === 0? '<span style="color:#4CAF50;">FREE</span>' : '₹' + delivery}</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total Amount</span>
+        <span>₹${total}</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout(${total})">
+        ${paymentMethod === 'cod'? '💵 Place COD Order' : '💳 Pay Online'} on WhatsApp
+      </button>
+    </div>
+  `;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+function applyCoupon() {
+  const code = document.getElementById('couponCode').value.toUpperCase();
+  if (COUPONS[code]) {
+    appliedCoupon = code;
+    localStorage.setItem('coupon', code);
+    renderCart();
+  } else {
+    alert('❌ Invalid coupon code');
+  }
+}
+
+function selectPayment(method) {
+  paymentMethod = method;
+  renderCart();
+}
+
+function getLocation() {
+  const statusDiv = document.getElementById('locationStatus');
+  statusDiv.innerHTML = '<div class="location-status">📍 Getting location...</div>';
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        userLocation = { lat, lon };
+        statusDiv.innerHTML = `<div class="location-status success">✅ Location Captured: ${lat.toFixed(4)}, ${lon.toFixed(4)}</div>`;
+
+        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+     .then(res => res.json())
+     .then(data => {
+            const address = data.display_name;
+            document.getElementById('deliveryAddress').value = address;
+            localStorage.setItem('userAddress', address);
+          });
+      },
+      (error) => {
+        statusDiv.innerHTML = `<div class="location-status" style="background:#FFEBEE;color:#C62828;">❌ Location permission denied. Please enter manually.</div>`;
+      }
+    );
+  } else {
+    statusDiv.innerHTML = `<div class="location-status" style="background:#FFEBEE;color:#C62828;">❌ Geolocation not supported</div>`;
+  }
+}
+
+function checkout(total) {
+  const userPhone = localStorage.getItem('userPhone');
+  const address = document.getElementById('deliveryAddress').value;
+
+  if (!address) {
+    alert('⚠️ Please enter delivery address or click Get Current Location');
+    return;
+  }
+
+  localStorage.setItem('userAddress', address);
+
+  if (paymentMethod === 'online') {
+    const upiId = '9334922498@ybl';
+    const upiLink = `upi://pay?pa=${upiId}&pn=Adarsh%20Retails&am=${total}&cu=INR&tn=Order%20Payment`;
+
+    const confirmPayment = confirm(`💳 Online Payment\n\nTotal Amount: ₹${total}\n\nUPI ID: ${upiId}\n\nClick OK to open UPI App / Scanner\nClick Cancel to cancel payment`);
+
+    if (!confirmPayment) return;
+
+    window.location.href = upiLink;
+
+    setTimeout(() => {
+      const paid = confirm('✅ Did you complete the payment?\n\nClick OK if YES\nClick Cancel if NO');
+      if (!paid) {
+        alert('❌ Payment cancelled. Order not placed.');
+        return;
+      }
+      proceedToWhatsApp(total, userPhone, address);
+    }, 3000);
+
+  } else {
+    proceedToWhatsApp(total, userPhone, address);
+  }
+}
+
+function proceedToWhatsApp(total, userPhone, address) {
+  let message = '🛒 *NEW ORDER - आदर्श रिटेल्स*\n\n';
+  message += `📞 *Customer:* ${userPhone}\n`;
+  message += `📍 *Address:* ${address}\n`;
+
+  if (userLocation) {
+    message += `🗺️ *Location:* https://maps.google.com/?q=${userLocation.lat},${userLocation.lon}\n`;
+  }
+
+  message += `\n*ORDER ITEMS:*\n`;
+  cart.forEach((item, i) => {
+    message += `${i+1}. ${item.name} - ₹${item.price} (MRP: ₹${item.mrp})\n`;
+  });
+
+  message += `\n💰 *Total: ₹${total}*`;
+
+  if (appliedCoupon) {
+    message += `\n🎁 *Coupon:* ${appliedCoupon}`;
+  }
+
+  message += `\n💳 *Payment:* ${paymentMethod === 'cod'? 'Cash on Delivery' : 'Online Payment - PAID ✅'}`;
+  message += `\n\n✅ Please confirm my order`;
+
+  const orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+  orderHistory.push({
+    id: Date.now(),
+    date: new Date().toLocaleString('hi-IN'),
+    items: cart,
+    total: total,
+    address: address,
+    payment: paymentMethod,
+    status: 'Pending',
+    coupon: appliedCoupon,
+    location: userLocation
+  });
+  localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+
+  window.open(`https://wa.me/918298827509?text=${encodeURIComponent(message)}`, '_blank');
+
+  localStorage.removeItem('cart');
+  localStorage.removeItem('coupon');
+  setTimeout(() => {
+    alert('✅ Order sent! Check "My Orders" for status.');
+    window.location.href = 'orders.html';
+  }, 1000);
+}
+
+renderCart();
+</script>
+
+</body>
+  </html>
