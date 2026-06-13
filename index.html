@@ -44,7 +44,7 @@ html, body {
 }
 .header-right { display: flex; align-items: center; gap: 8px; }
 .profile-box {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 8px;
   background: rgba(255,255,255,0.15);
@@ -141,43 +141,49 @@ html, body {
 .price-table th {
   background: var(--ar-primary);
   color: white;
-  padding: 8px 4px;
+  padding: 8px 2px;
   font-size: 11px;
   word-wrap: break-word;
 }
 .price-table td {
-  padding: 8px 4px;
+  padding: 8px 2px;
   border-bottom: 1px solid #eee;
   text-align: center;
   word-wrap: break-word;
   overflow: hidden;
+  vertical-align: middle;
 }
 .price-table img {
-  width: 45px!important;
-  height: 45px!important;
+  width: 40px!important;
+  height: 40px!important;
   object-fit: cover;
   border-radius: 8px;
 }
 .selling-price { color: #00C853; font-weight: bold; font-size: 13px; }
-.mrp-price { text-decoration: line-through; color: #999; font-size: 11px; }
+.mrp-price { text-decoration: line-through; color: #999; font-size: 10px; }
+.btn-group {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
 .add-btn {
   background: var(--ar-accent);
   color: var(--ar-primary);
   border: none;
-  padding: 5px 8px;
-  border-radius: 15px;
+  padding: 4px 6px;
+  border-radius: 12px;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 10px;
   cursor: pointer;
 }
 .remove-btn {
   background: #f44336;
   color: white;
   border: none;
-  padding: 5px 8px;
-  border-radius: 15px;
+  padding: 4px 6px;
+  border-radius: 12px;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 10px;
   cursor: pointer;
 }
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
@@ -196,7 +202,7 @@ html, body {
   color: white;
 }
 .order-card {
-  background: #f9f9;
+  background: #f9f9f9;
   padding: 12px;
   margin: 10px 0;
   border-radius: 10px;
@@ -269,9 +275,8 @@ html, body {
       <div style="font-size:16px;font-weight:bold;">आदर्श रिटेल्स</div>
       <div id="loginStatus" style="font-size:11px;">Not Logged In</div>
     </div>
-  </div>
   <div class="header-right">
-    <div class="profile-box" onclick="showProfile()" id="profileBox" style="display:none;">
+    <div class="profile-box" onclick="showProfile()" id="profileBox">
       <img id="userPhoto" src="https://via.placeholder.com/28/4A148C/FFD700?text=U">
       <span id="userName" style="font-size:12px;">User</span>
     </div>
@@ -307,7 +312,6 @@ html, body {
       <p>On orders above ₹1000</p>
       <div class="code">FREEDEL</div>
     </div>
-  </div>
   <p id="coupon-msg" style="text-align:center;color:#00C853;font-weight:bold;margin-top:10px;display:none;"></p>
 </div>
 
@@ -322,28 +326,28 @@ html, body {
     <thead>
       <tr>
         <th>Image</th>
-        <th>Quantity</th>
-        <th>Product Name</th>
-        <th>Main Price</th>
-        <th>Selling Price</th>
+        <th>Qty</th>
+        <th>Product</th>
+        <th>MRP</th>
+        <th>Price</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=GS" alt="Ghadi Sharaf"></td><td>1 KG</td><td>Ghadi Sharaf</td><td><span class="mrp-price">MRP: ₹74</span></td><span class="selling-price">₹60</span></td><td><button class="add-btn" onclick="addToCart('Ghadi Sharaf 1 KG', 74, 60)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Ghadi Sharaf 1 KG', 60)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=HR" alt="Haldi Ram"></td><td>200g</td><td>Haldiram Nagpur Moong Dal</td><td><span class="mrp-price">MRP: ₹57</span></td><td><span class="selling-price">₹48</span></td><td><button class="add-btn" onclick="addToCart('Haldiram Nagpur Moong Dal 200g', 57, 48)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Haldiram Nagpur Moong Dal 200g', 48)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="Agni Tea"></td><td>500g</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹120</span></td><td><span class="selling-price">₹105</span></td><td><button class="add-btn" onclick="addToCart('Agni Tea 500g', 120, 105)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 500g', 105)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AT" alt="Agni Tea"></td><td>1 KG</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹210</span></td><td><span class="selling-price">₹190</span></td><button class="add-btn" onclick="addToCart('Agni Tea 1 KG', 210, 190)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 1 KG', 190)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=DK" alt="Dant Kanti"></td><td>400g</td><td>Dant Kanti Toothpaste</td><td><span class="mrp-price">MRP: ₹249</span></td><td><span class="selling-price">₹229</span></td><td><button class="add-btn" onclick="addToCart('Dant Kanti 400g', 249, 229)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Dant Kanti 400g', 229)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=SP" alt="Soan Papdi"></td><td>500g</td><td>Soan Papdi Pramod</td><td><span class="mrp-price">MRP: ₹199</span></td><span class="selling-price">₹179</span></td><td><button class="add-btn" onclick="addToCart('Soan Papdi 500g', 199, 179)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Soan Papdi 500g', 179)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=BV" alt="Bournvita"></td><td>500g</td><td>Bournvita Chocolate</td><td><span class="mrp-price">MRP: ₹269</span></td><td><span class="selling-price">₹249</span></td><td><button class="add-btn" onclick="addToCart('Bournvita 500g', 269, 249)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Bournvita 500g', 249)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MG" alt="Maggie"></td><td>768g</td><td>Maggie Family Pack</td><td><span class="mrp-price">MRP: ₹180</span></td><td><span class="selling-price">₹160</span></td><td><button class="add-btn" onclick="addToCart('Maggie Family Pack', 180, 160)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Maggie Family Pack', 160)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=RM" alt="Rich Marie"></td><td>1 KG</td><td>Rich Marie Biscuit</td><td><span class="mrp-price">MRP: ₹170</span></td><td><span class="selling-price">₹150</span></td><td><button class="add-btn" onclick="addToCart('Rich Marie 1 KG', 170, 150)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Rich Marie 1 KG', 150)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=LW" alt="Lays"></td><td>90g</td><td>Lays West Indian</td><td><span class="mrp-price">MRP: ₹68</span></td><td><span class="selling-price">₹48</span></td><td><button class="add-btn" onclick="addToCart('Lays 90g', 68, 48)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Lays 90g', 48)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="आटा"></td><td>5 KG</td><td>आटा</td><td><span class="mrp-price">MRP: ₹250</span></td><td><span class="selling-price">₹230</span></td><td><button class="add-btn" onclick="addToCart('आटा 5 KG', 250, 230)">Add +</button> <button class="remove-btn" onclick="removeFromCart('आटा 5 KG', 230)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BR" alt="Basmati Rice"></td><td>1 KG</td><td>बासमती चावल</td><td><span class="mrp-price">MRP: ₹90</span></td><td><span class="selling-price">₹70</span></td><td><button class="add-btn" onclick="addToCart('बासमती चावल 1 KG', 90, 70)">Add +</button> <button class="remove-btn" onclick="removeFromCart('बासमती चावल 1 KG', 70)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CH" alt="Chini"></td><td>1 KG</td><td>चीनी</td><td><span class="mrp-price">MRP: ₹62</span></td><td><span class="selling-price">₹42</span></td><td><button class="add-btn" onclick="addToCart('चीनी 1 KG', 62, 42)">Add +</button> <button class="remove-btn" onclick="removeFromCart('चीनी 1 KG', 42)">-</button></td></tr>
-      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=RT" alt="Refined Oil"></td><td>1 LTR</td><td>रिफाइंड तेल</td><td><span class="mrp-price">MRP: ₹160</span></td><td><span class="selling-price">₹140</span></td><button class="add-btn" onclick="addToCart('रिफाइंड तेल 1 LTR', 160, 140)">Add +</button> <button class="remove-btn" onclick="removeFromCart('रिफाइंड तेल 1 LTR', 140)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=GS" alt="Ghadi Sharaf"></td><td>1 KG</td><td>Ghadi Sharaf</td><td><span class="mrp-price">₹74</span></td><td><span class="selling-price">₹60</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Ghadi Sharaf 1 KG', 74, 60)">+</button><button class="remove-btn" onclick="removeFromCart('Ghadi Sharaf 1 KG', 60)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=HR" alt="Haldi Ram"></td><td>200g</td><td>Haldiram Moong</td><td><span class="mrp-price">₹57</span></td><td><span class="selling-price">₹48</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Haldiram Moong Dal 200g', 57, 48)">+</button><button class="remove-btn" onclick="removeFromCart('Haldiram Moong Dal 200g', 48)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="Agni Tea"></td><td>500g</td><td>Agni Tea</td><td><span class="mrp-price">₹120</span></td><td><span class="selling-price">₹105</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Agni Tea 500g', 120, 105)">+</button><button class="remove-btn" onclick="removeFromCart('Agni Tea 500g', 105)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AT" alt="Agni Tea"></td><td>1 KG</td><td>Agni Tea</td><td><span class="mrp-price">₹210</span></td><td><span class="selling-price">₹190</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Agni Tea 1 KG', 210, 190)">+</button><button class="remove-btn" onclick="removeFromCart('Agni Tea 1 KG', 190)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=DK" alt="Dant Kanti"></td><td>400g</td><td>Dant Kanti</td><td><span class="mrp-price">₹249</span></td><td><span class="selling-price">₹229</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Dant Kanti 400g', 249, 229)">+</button><button class="remove-btn" onclick="removeFromCart('Dant Kanti 400g', 229)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=SP" alt="Soan Papdi"></td><td>500g</td><td>Soan Papdi</td><td><span class="mrp-price">₹199</span></td><td><span class="selling-price">₹179</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Soan Papdi 500g', 199, 179)">+</button><button class="remove-btn" onclick="removeFromCart('Soan Papdi 500g', 179)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=BV" alt="Bournvita"></td><td>500g</td><td>Bournvita</td><td><span class="mrp-price">₹269</span></td><td><span class="selling-price">₹249</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Bournvita 500g', 269, 249)">+</button><button class="remove-btn" onclick="removeFromCart('Bournvita 500g', 249)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MG" alt="Maggie"></td><td>768g</td><td>Maggie Pack</td><td><span class="mrp-price">₹180</span></td><td><span class="selling-price">₹160</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Maggie Family Pack', 180, 160)">+</button><button class="remove-btn" onclick="removeFromCart('Maggie Family Pack', 160)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=RM" alt="Rich Marie"></td><td>1 KG</td><td>Rich Marie</td><td><span class="mrp-price">₹170</span></td><td><span class="selling-price">₹150</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Rich Marie 1 KG', 170, 150)">+</button><button class="remove-btn" onclick="removeFromCart('Rich Marie 1 KG', 150)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=LW" alt="Lays"></td><td>90g</td><td>Lays West</td><td><span class="mrp-price">₹68</span></td><td><span class="selling-price">₹48</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('Lays 90g', 68, 48)">+</button><button class="remove-btn" onclick="removeFromCart('Lays 90g', 48)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="आटा"></td><td>5 KG</td><td>आटा</td><td><span class="mrp-price">₹250</span></td><td><span class="selling-price">₹230</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('आटा 5 KG', 250, 230)">+</button><button class="remove-btn" onclick="removeFromCart('आटा 5 KG', 230)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=BR" alt="Basmati Rice"></td><td>1 KG</td><td>बासमती चावल</td><td><span class="mrp-price">₹90</span></td><span class="selling-price">₹70</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('बासमती चावल 1 KG', 90, 70)">+</button><button class="remove-btn" onclick="removeFromCart('बासमती चावल 1 KG', 70)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CH" alt="Chini"></td><td>1 KG</td><td>चीनी</td><td><span class="mrp-price">₹62</span></td><td><span class="selling-price">₹42</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('चीनी 1 KG', 62, 42)">+</button><button class="remove-btn" onclick="removeFromCart('चीनी 1 KG', 42)">-</button></div></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=RT" alt="Refined Oil"></td><td>1 LTR</td><td>रिफाइंड तेल</td><td><span class="mrp-price">₹160</span></td><td><span class="selling-price">₹140</span></td><td><div class="btn-group"><button class="add-btn" onclick="addToCart('रिफाइंड तेल 1 LTR', 160, 140)">+</button><button class="remove-btn" onclick="removeFromCart('रिफाइंड तेल 1 LTR', 140)">-</button></div></td></tr>
     </tbody>
   </table>
 </section>
@@ -353,7 +357,7 @@ html, body {
   <a href="tel:+918298827509" class="contact-card">📱 Call: 8298827509</a>
   <a href="https://wa.me/918298827509" class="contact-card">💬 WhatsApp: 8298827509</a>
   <a href="mailto:adarshretails@gmail.com" class="contact-card">📧 Email: adarshretails@gmail.com</a>
-  <div class="contact-card">📍 Address: Garhani, Bihar - 802203</div>
+  <div class="contact-card">📍 Address: Near Uday Singh Petrol Pump, Glorious School Road, Daltonganj, Sudhanam</div>
 </section>
 
 <script>
@@ -361,6 +365,30 @@ let cart = JSON.parse(localStorage.getItem('arCart')) || [];
 let user = JSON.parse(localStorage.getItem('arUser')) || null;
 let currentOTP = '';
 let usedCoupons = JSON.parse(localStorage.getItem('arUsedCoupons')) || [];
+
+window.onload = function() {
+  updateCartCount();
+  updateLoginStatus();
+  updateCouponUI();
+}
+
+function updateLoginStatus() {
+  let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if(isLoggedIn) {
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('profileBox').style.display = 'flex';
+    document.getElementById('loginStatus').innerText = '✅ Logged In';
+    user = JSON.parse(localStorage.getItem('arUser'));
+    if(user) {
+      document.getElementById('userName').innerText = user.name;
+      document.getElementById('userPhoto').src = user.photo;
+    }
+  } else {
+    document.getElementById('loginBtn').style.display = 'block';
+    document.getElementById('profileBox').style.display = 'none';
+    document.getElementById('loginStatus').innerText = 'Not Logged In';
+  }
+}
 
 function addToCart(name, mrp, price) {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -459,18 +487,36 @@ function loadOrders() {
     userOrders.reverse().forEach(order => {
       let statusClass = order.status === 'Delivered'? 'status-delivered' :
                        order.status === 'Cancelled'? 'status-cancelled' : 'status-pending';
+
+      let totalMRP = order.items.reduce((sum, item) => sum + (item.mrp * item.qty), 0);
+      let totalSelling = order.items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      let totalSaving = totalMRP - totalSelling;
+      let itemCount = order.items.reduce((sum, item) => sum + item.qty, 0);
+
       html += `
         <div class="order-card">
           <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
             <strong>Order #${order.id}</strong>
             <span class="order-status ${statusClass}">${order.status}</span>
           </div>
-          <p style="font-size:13px;color:#666;">Date: ${order.date}</p>
-          <p style="font-size:13px;color:#666;">Payment: ${order.paymentType}</p>
-          <p style="font-size:14px;margin:8px 0;font-weight:bold;">Total: ₹${order.total}</p>
-          <details style="font-size:12px;color:#666;">
-            <summary>View Items (${order.items.length})</summary>
-            ${order.items.map((item, i) => `${i+1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}`).join('<br>')}
+          <p style="font-size:13px;color:#666;margin:4px 0;">📅 Date: ${order.date}</p>
+          <p style="font-size:13px;color:#666;margin:4px 0;">💳 Payment: ${order.paymentType}</p>
+          <p style="font-size:13px;color:#666;margin:4px 0;">📦 Items: ${itemCount} products</p>
+          <p style="font-size:13px;color:#666;margin:4px 0;">💰 MRP Total: ₹${totalMRP}</p>
+          <p style="font-size:14px;margin:4px 0;font-weight:bold;color:#00C853;">✅ You Paid: ₹${order.total}</p>
+          <p style="font-size:14px;margin:4px 0;font-weight:bold;color:#4A148C;">🎉 You Saved: ₹${totalSaving}</p>
+          <p style="font-size:13px;color:#666;margin:8px 0 4px 0;">📍 Delivery Address:</p>
+          <p style="font-size:12px;color:#333;background:#fff;padding:8px;border-radius:5px;">${order.address || 'Not Available'}</p>
+          <details style="font-size:12px;color:#666;margin-top:8px;">
+            <summary style="cursor:pointer;font-weight:bold;">📋 View All Items (${order.items.length})</summary>
+            <div style="margin-top:8px;">
+              ${order.items.map((item, i) => `
+                <div style="padding:5px 0;border-bottom:1px dashed #ddd;">
+                  ${i+1}. ${item.name} x ${item.qty}<br>
+                  <small>MRP: ₹${item.mrp} | Price: ₹${item.price} | Total: ₹${item.price * item.qty}</small>
+                </div>
+              `).join('')}
+            </div>
           </details>
         </div>
       `;
@@ -524,28 +570,10 @@ function verifyOTP() {
     localStorage.setItem('arUser', JSON.stringify(user));
     alert('Login successful!');
     closeLogin();
-    updateLoginButton();
+    updateLoginStatus();
     updateCouponUI();
   } else {
     alert('Invalid OTP! Try again');
-  }
-}
-function updateLoginButton() {
-  let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  if(isLoggedIn) {
-    document.getElementById('loginBtn').style.display = 'none';
-    document.getElementById('profileBox').style.display = 'flex';
-    document.getElementById('loginStatus').innerText = '✅ Logged In';
-    user = JSON.parse(localStorage.getItem('arUser'));
-    if(user) {
-      document.getElementById('userName').innerText = user.name;
-      document.getElementById('userPhoto').src = user.photo;
-    }
-    updateCouponUI();
-  } else {
-    document.getElementById('loginBtn').style.display = 'block';
-    document.getElementById('profileBox').style.display = 'none';
-    document.getElementById('loginStatus').innerText = 'Not Logged In';
   }
 }
 
@@ -565,10 +593,10 @@ function uploadPhoto() {
   let file = document.getElementById('photoUpload').files[0];
   if(file) {
     let reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload =    reader.onload = function(e) {
       user.photo = e.target.result;
       localStorage.setItem('arUser', JSON.stringify(user));
-      updateLoginButton();
+      updateLoginStatus();
       closeProfile();
     }
     reader.readAsDataURL(file);
@@ -582,10 +610,6 @@ function logout() {
   localStorage.removeItem('arCart');
   location.reload();
 }
-
-updateCartCount();
-updateLoginButton();
-if(localStorage.getItem('isLoggedIn') === 'true') updateCouponUI();
 </script>
 </body>
 </html>
