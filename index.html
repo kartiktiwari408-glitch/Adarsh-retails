@@ -2,617 +2,238 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>आदर्श रिटेल्स - Best Kirana Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AR - आदर्श रिटेल्स</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
-
-.header {
-  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
-  color: white;
-  padding: 15px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+:root {
+  --ar-primary: #4A148C;
+  --ar-accent: #FFD700;
+  --ar-bg: #F3E5F5;
 }
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  max-width: 100vw!important;
+  overflow-x: hidden!important;
+  touch-action: pan-y!important;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--ar-bg);
+}
+.header {
+  background: linear-gradient(135deg, #4A148C 0%, #7B1FA2 100%);
+  color: white;
+  padding: 12px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 24px;
-  font-weight: bold;
+  box-shadow: 0 4px 20px rgba(74, 20, 140, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .ar-logo {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  border-radius: 12px;
+  background: var(--ar-accent);
+  color: var(--ar-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
   font-weight: 900;
-  color: #2E7D32;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  font-family: 'Arial Black', sans-serif;
+  font-size: 18px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
-.header-buttons {
+.header-right { display: flex; align-items: center; gap: 8px; }
+.profile-box {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.profile-box img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--ar-accent);
 }
 .login-btn {
-  background: #FFD700;
-  color: #2E7D32;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
+  background: var(--ar-accent);
+  color: var(--ar-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
   border: none;
-}
-.cart-btn {
-  background: white;
-  color: #2E7D32;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-size: 12px;
 }
-.checkout-btn {
-  background: #25D366;
+.cart-btn, .checkout-btn {
+  background: rgba(255, 215, 0, 0.2);
+  border: 2px solid var(--ar-accent);
   color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
   font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  border: none;
-  margin-left: 10px;
+  font-size: 12px;
+  text-decoration: none;
 }
 .tagline {
-  background: linear-gradient(90deg, #FF6F00, #FF9800, #FFC107, #FF9800, #FF6F00);
-  background-size: 200% 100%;
+  background: linear-gradient(90deg, #FFD700, #FFA000, #FF6F00, #FFA000, #FFD700);
+  background-size: 300% 300%;
   animation: gradient 3s ease infinite;
-  color: white;
+  color: var(--ar-primary);
   text-align: center;
-  padding: 12px;
-  font-size: 18px;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  padding: 8px;
+  font-weight: 900;
+  font-size: 14px;
 }
 @keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-.tagline span {
-  font-size: 22px;
-  margin-right: 8px;
-}
-
 .offer-banner {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-.offer-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 20px;
-  padding: 40px 30px;
+  background: linear-gradient(135deg, #4A148C, #7B1FA2);
+  color: white;
   text-align: center;
-  color: white;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-.offer-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: shine 3s infinite;
-}
-@keyframes shine {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.offer-card h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-.offer-card p {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-.offer-badge {
-  background: #FFD700;
-  color: #2E7D32;
-  padding: 10px 25px;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 18px;
-  display: inline-block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.coupon-section {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-.coupon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-.coupon-card {
-  background: linear-gradient(135deg, #FF6F00 0%, #FF9800 100%);
-  color: white;
-  padding: 20px;
+  padding: 20px 15px;
+  margin: 10px;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-.coupon-card h3 { font-size: 24px; margin-bottom: 10px; }
-.coupon-card .code {
+.coupon-section { padding: 10px; }
+.coupon-grid { display: flex; gap: 10px; overflow-x: auto; }
+.coupon-card {
+  min-width: 200px;
   background: white;
-  color: #FF6F00;
-  padding: 8px 15px;
+  border: 2px dashed var(--ar-primary);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+.coupon-card .code {
+  background: var(--ar-accent);
+  color: var(--ar-primary);
+  padding: 4px 8px;
   border-radius: 5px;
   font-weight: bold;
-  font-size: 18px;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 5px;
 }
-.hero {
-  background: linear-gradient(rgba(46,125,50,0.8), rgba(46,125,50,0.8)), url('images/offer.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-.hero h1 { font-size: 36px; margin-bottom: 10px; }
-.hero p { font-size: 18px; }
-
-.price-menu {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  border-radius: 12px;
-}
-.price-menu h2 {
-  color: #2E7D32;
-  text-align: center;
-  border-bottom: 3px solid #2E7D32;
-  padding-bottom: 10px;
-  font-size: 28px;
-}
+.hero { text-align: center; padding: 15px; }
+.price-menu { padding: 0 10px; max-width: 100%; }
 .price-table {
-  width: 100%;
+  width: 100%!important;
+  table-layout: fixed!important;
   border-collapse: collapse;
-  margin-top: 20px;
-}
-.price-table th {
-  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
-  color: white;
-  padding: 10px 8px;
-  text-align: left;
-  font-size: 14px;
-}
-.price-table td {
-  border: 1px solid #ddd;
-  padding: 10px 8px;
+  background: white;
+  margin: 10px 0;
   font-size: 13px;
 }
-.price-table tr:nth-child(even) { background-color: #f9f9f9; }
-.price-table tr:hover { background-color: #e8f5e9; }
-.price-table td:nth-child(1) { color: #FF6F00; font-weight: bold; }
-.price-table td:nth-child(2) { color: #1565C0; font-weight: 600; }
-.price-table td:nth-child(3) { color: #2E7D32; font-weight: bold; }
-.price-table td:nth-child(4) { font-weight: bold; }
-.mrp-price { color: #D32F2F; text-decoration: line-through; font-size: 13px; margin-right: 8px; }
-.selling-price { color: #2E7D32; font-weight: bold; font-size: 15px; }
-
-.add-btn {
-  background: #25D366;
+.price-table th {
+  background: var(--ar-primary);
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 1px;
-  font-size: 14px;
-}
-.remove-btn {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 1px;
-  font-size: 14px;
-}
-
-.categories {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-.categories h2 {
-  text-align: center;
-  color: #2E7D32;
-  font-size: 28px;
-  margin-bottom: 30px;
-}
-.cat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-.cat-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-.cat-card:hover { transform: translateY(-5px); }
-.cat-card img { width: 100%; height: 180px; object-fit: cover; }
-.cat-card h3 { padding: 15px; color: #2E7D32; }
-.cat-card p { padding: 0 15px 15px; color: #666; }
-
-.contact-section {
-  max-width: 900px;
-  margin: 40px auto 20px auto;
-  padding: 25px;
-  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-.contact-section h3 {
-  color: white;
-  text-align: center;
-  margin-top: 0;
-  font-size: 24px;
-}
-.contact-cards {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-.contact-card {
-  background: white;
-  padding: 15px 25px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 140px;
-  transition: transform 0.3s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-.contact-card .icon { font-size: 32px; margin-bottom: 8px; }
-.contact-card .label { font-size: 12px; color: #666; text-transform: uppercase; }
-.contact-card .value { font-size: 14px; font-weight: bold; color: #2E7D32; margin-top: 5px; }
-.contact-card.instagram .value { color: #E4405F; }
-.contact-card.whatsapp .value { color: #25D366; }
-.contact-note {
-  text-align: center;
-  color: white;
-  margin-top: 15px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-.modal-content h2 {
-  color: #2E7D32;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.modal-content input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-}
-.modal-content button {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 16px;
-}
-.login-submit {
-  background: #2E7D32;
-  color: white;
-}
-.signup-submit {
-  background: #FF9800;
-  color: white;
-}
-.close-modal {
-  background: #e74c3c;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .price-table th, .price-table td {
-    padding: 8px 5px;
-    font-size: 12px;
-  }
-  .add-btn, .remove-btn {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-}
-.price-table tbody tr {
-  transition: all 0.3s;
-  background: white;
-}
-.price-table tbody tr:hover {
-  background: #E8F5E9;
-  transform: scale(1.02);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 8px 4px;
+  font-size: 11px;
+  word-wrap: break-word;
 }
 .price-table td {
-  padding: 15px;
-  font-size: 16px;
-  border-bottom: 2px solid #E8F5E9;
+  padding: 8px 4px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
 }
-.price-table td:nth-child(2) {
-  font-weight: 600;
-  color: #1B5E20;
+.price-table img {
+  width: 45px!important;
+  height: 45px!important;
+  object-fit: cover;
+  border-radius: 8px;
+  touch-action: none;
 }
+.selling-price { color: #00C853; font-weight: bold; font-size: 13px; }
+.mrp-price { text-decoration: line-through; color: #999; font-size: 11px; }
 .add-btn {
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  color: white;
+  background: var(--ar-accent);
+  color: var(--ar-primary);
   border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 5px 8px;
+  border-radius: 15px;
   font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
-  transition: all 0.3s;
-}
-.add-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
-}
-.add-btn:active {
-  transform: scale(0.95);
+  font-size: 11px;
 }
 .remove-btn {
-  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  background: #f44336;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 5px 8px;
+  border-radius: 15px;
   font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
-  transition: all 0.3s;
+  font-size: 11px;
 }
-.remove-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.5);
-}
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; }
+.logout-btn { background: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 8px; margin-top: 15px; width: 100%; }
+.contact-section { background: white; margin: 15px; padding: 15px; border-radius: 12px; }
+.contact-card { display: block; background: #f5f5f5; padding: 12px; border-radius: 8px; margin: 8px 0; text-decoration: none; color: #333; }
 </style>
 </head>
 <body>
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>Login with OTP</h2>
-      <input type="text" id="phone" placeholder="Phone Number (e.g. 8298827509)">
-      <button class="login-submit" onclick="sendOTP()" id="sendOtpBtn">Send OTP</button>
-      
-      <div id="otpSection" style="display:none;">
-        <input type="text" id="otp" placeholder="Enter 4-digit OTP" maxlength="4">
-        <button class="signup-submit" onclick="verifyOTP()">Verify OTP</button>
-        <p id="otpMessage" style="text-align:center; color:#666; font-size:14px; margin-top:10px;"></p>
-      </div>
-      
-      <button class="close-modal" onclick="closeLogin()">Close</button>
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h2>Login with OTP</h2>
+    <input type="text" id="phone" placeholder="Phone Number" style="width:100%;padding:12px;margin:10px 0;border:2px solid var(--ar-primary);border-radius:8px;">
+    <button onclick="sendOTP()" id="sendOtpBtn" style="width:100%;padding:12px;background:var(--ar-accent);color:var(--ar-primary);border:none;border-radius:8px;font-weight:bold;">Send OTP</button>
+    <div id="otpSection" style="display:none;">
+      <input type="text" id="otp" placeholder="Enter 4-digit OTP" maxlength="4" style="width:100%;padding:12px;margin:10px 0;border:2px solid var(--ar-primary);border-radius:8px;">
+      <button onclick="verifyOTP()" style="width:100%;padding:12px;background:var(--ar-accent);color:var(--ar-primary);border:none;border-radius:8px;font-weight:bold;">Verify OTP</button>
+      <p id="otpMessage" style="text-align:center;color:#666;font-size:14px;margin-top:10px;"></p>
     </div>
-  </div>
-
-<div id="offerModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1001; justify-content: center; align-items: center;">
-  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; border-radius: 25px; max-width: 450px; margin: 20px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; animation: popupBounce 0.5s;">
-    <button onclick="closeOffer()" style="position: absolute; top: 15px; right: 15px; background: white; color: #667eea; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer;">×</button>
-    
-    <div style="font-size: 60px; margin-bottom: 10px;">🎉</div>
-    <h2 style="color: white; font-size: 32px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">MEGA OFFER!</h2>
-    <p style="color: #FFD700; font-size: 24px; font-weight: bold; margin-bottom: 20px;">5% - 10% OFF</p>
-    
-    <div style="background: rgba(255,255,255,0.2); border-radius: 15px; padding: 20px; margin: 20px 0;">
-      <p style="color: white; font-size: 18px; margin-bottom: 10px;">✅ सभी सामान पर छूट</p>
-      <p style="color: white; font-size: 18px; margin-bottom: 10px;">✅ होम डिलीवरी फ्री*</p>
-      <p style="color: white; font-size: 18px;">✅ Best Quality Guarantee</p>
-    </div>
-    
-    <div style="background: #FFD700; color: #2E7D32; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; margin: 20px 0; display: inline-block;">
-      कोड: SAVE10
-    </div>
-    
-    <button onclick="closeOffer()" style="background: white; color: #667eea; border: none; padding: 15px 40px; border-radius: 25px; font-weight: bold; font-size: 18px; cursor: pointer; width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">अभी खरीदारी करें!</button>
-    
-    <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 15px;">*₹1000 से ऊपर के ऑर्डर पर</p>
+    <button onclick="closeLogin()" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ccc;border-radius:8px;">Close</button>
   </div>
 </div>
 
-<style>
-@keyframes popupBounce {
-  0% { transform: scale(0.5); opacity: 0; }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); opacity: 1; }
-}
-</style>
-<script>
-var currentOTP = '';
-
-function closeOffer() {
-  document.getElementById('offerModal').style.display = 'none';
-}
-setTimeout(function() {
-  document.getElementById('offerModal').style.display = 'flex';
-}, 1000);
-
-function showLogin() {
-  document.getElementById('loginModal').style.display = 'flex';
-  document.getElementById('otpSection').style.display = 'none';
-  document.getElementById('sendOtpBtn').style.display = 'block';
-}
-function closeLogin() {
-  document.getElementById('loginModal').style.display = 'none';
-  document.getElementById('phone').value = '';
-  document.getElementById('otp').value = '';
-  document.getElementById('otpSection').style.display = 'none';
-  document.getElementById('sendOtpBtn').style.display = 'block';
-}
-function sendOTP() {
-  var phone = document.getElementById('phone').value;
-  if(phone && phone.length >= 10) {
-    currentOTP = Math.floor(1000 + Math.random() * 9000).toString();
-    alert('OTP sent to ' + phone + '\n\nYour OTP is: ' + currentOTP + '\n\n(Demo mode - OTP shown here)');
-    document.getElementById('otpSection').style.display = 'block';
-    document.getElementById('sendOtpBtn').style.display = 'none';
-    document.getElementById('otpMessage').innerText = 'OTP sent! Check alert message';
-  } else {
-    alert('Valid phone number डालें!');
-  }
-}
-function verifyOTP() {
-  var enteredOTP = document.getElementById('otp').value;
-  var phone = document.getElementById('phone').value;
-  
-  if(enteredOTP === currentOTP) {
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('userPhone', phone);
-    fetch('/api/login', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({email: phone})
-});
-    alert('Login successful!');
-    closeLogin();
-    updateLoginButton();
-  } else {
-    alert('Invalid OTP! Try again');
-  }
-}
-function updateLoginButton() {
-  var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  var loginBtn = document.querySelector('.login-btn');
-  if(isLoggedIn) {
-    loginBtn.innerHTML = '✅ Logged In';
-    loginBtn.style.background = '#25D366';
-  }
-}
-</script>
-<div id="guideModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
-  <div style="background: white; padding: 30px; border-radius: 20px; max-width: 500px; margin: 20px;">
-    <h2 style="color: #2E7D32; text-align: center;">📱 Order कैसे करें?</h2>
-    <div style="margin: 20px 0;">
-      <p>✅ <b>Step 1:</b> Green <b>+ button</b> दबाएं (Product add होगा)</p>
-      <p>✅ <b>Step 2:</b> ऊपर <b>Cart count</b> देखें</p>
-      <p>✅ <b>Step 3:</b> <b>Checkout</b> button दबाएं</p>
-      <p>✅ <b>Step 4:</b> <b>WhatsApp</b> पर order भेजें</p>
-      <p style="color: #e74c3c; margin-top: 15px;">❌ Red <b>- button</b> = Cart से हटाने के लिए</p>
-    </div>
-    <button onclick="closeGuide()" style="background: #2E7D32; color: white; border: none; padding: 12px 30px; border-radius: 25px; width: 100%; font-weight: bold; cursor: pointer;">समझ गया!</button>
+<!-- Profile Modal -->
+<div id="profileModal" class="modal">
+  <div class="modal-content">
+    <img id="modalPhoto" src="" style="width:80px;height:80px;border-radius:50%;border:3px solid var(--ar-accent);margin:0 auto;display:block;">
+    <h3 id="modalName" style="margin:10px 0;text-align:center;"></h3>
+    <p id="modalPhone" style="text-align:center;color:#666;"></p>
+    <input type="file" id="photoUpload" accept="image/*" style="margin:10px 0;width:100%;">
+    <button onclick="uploadPhoto()" style="background:var(--ar-accent);color:var(--ar-primary);padding:8px 15px;border:none;border-radius:8px;width:100%;margin:5px 0;">Change Photo</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <button onclick="closeProfile()" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ccc;border-radius:8px;">Close</button>
   </div>
 </div>
 
-<script>
-function showGuide() {
-  document.getElementById('guideModal').style.display = 'flex';
-}
-function closeGuide() {
-  document.getElementById('guideModal').style.display = 'none';
-}
-if(!localStorage.getItem('guideShown')) {
-  setTimeout(showGuide, 2000);
-  localStorage.setItem('guideShown', 'true');
-}
-</script>
+<!-- Header -->
 <div class="header">
-  <div class="header-content">
-    <div class="logo">
-      <div class="ar-logo">AR</div>
-      <span>आदर्श रिटेल्स</span>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="ar-logo">AR</div>
+    <div>
+      <div style="font-size:16px;font-weight:bold;">आदर्श रिटेल्स</div>
+      <div id="loginStatus" style="font-size:11px;">Not Logged In</div>
     </div>
-    <div class="header-buttons">
-      <button class="login-btn" onclick="showLogin()">🔐 Login</button>
-      <a href="cart.html" class="cart-btn">🛒 Cart: <span id="cart-count">0</span></a>
-      <button class="checkout-btn" onclick="checkout()">✓ Checkout</button>
+  </div>
+  <div class="header-right">
+    <div class="profile-box" onclick="showProfile()" id="profileBox" style="display:none;">
+      <img id="userPhoto" src="https://via.placeholder.com/28/4A148C/FFD700?text=U">
+      <span id="userName" style="font-size:12px;">User</span>
     </div>
+    <button class="login-btn" id="loginBtn" onclick="showLogin()">🔐 Login</button>
+    <a href="cart.html" class="cart-btn">🛒 <span id="cart-count">0</span></a>
+    <button class="checkout-btn" onclick="checkout()">✓</button>
   </div>
 </div>
 
-<div class="tagline">
-  <span>👍</span> your needs with us
-</div>
+<div class="tagline">👍 your needs with us</div>
 
 <div class="offer-banner">
-  <div class="offer-card">
-    <h2>🎉 MEGA SALE 🎉</h2>
-    <p>Up to 30% OFF on All Kirana Items</p>
-    <div class="offer-badge">Limited Time Offer!</div>
-  </div>
+  <h2>🎉 MEGA SALE 🎉</h2>
+  <p>Up to 30% OFF on All Kirana Items</p>
+  <div style="background:rgba(255,255,255,0.2);padding:5px 15px;border-radius:20px;display:inline-block;margin-top:10px;font-size:12px;">Limited Time Offer!</div>
 </div>
 
 <div class="coupon-section">
@@ -622,12 +243,12 @@ if(!localStorage.getItem('guideShown')) {
       <p>Get ₹50 OFF on first order</p>
       <div class="code">WELCOME50</div>
     </div>
-    <div class="coupon-card" style="background: linear-gradient(135deg, #E91E63 0%, #F06292 100%);">
+    <div class="coupon-card">
       <h3>💰 Festive Sale</h3>
       <p>10% OFF on orders above ₹500</p>
       <div class="code">FESTIVE10</div>
     </div>
-    <div class="coupon-card" style="background: linear-gradient(135deg, #673AB7 0%, #9575CD 100%);">
+    <div class="coupon-card">
       <h3>🚚 Free Delivery</h3>
       <p>On orders above ₹1000</p>
       <div class="code">FREEDEL</div>
@@ -644,7 +265,7 @@ if(!localStorage.getItem('guideShown')) {
   <h2>Our Price List</h2>
   <table class="price-table">
     <thead>
- <tr>
+      <tr>
         <th>Image</th>
         <th>Quantity</th>
         <th>Product Name</th>
@@ -654,168 +275,106 @@ if(!localStorage.getItem('guideShown')) {
       </tr>
     </thead>
     <tbody>
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=GS" alt="Ghadi Sharaf" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Ghadi Sharaf</td><td><span class="mrp-price">MRP: ₹60</span><span class="selling-price">₹74</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Ghadi Sharaf 1 KG', 74, 60)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Ghadi Sharaf 1 KG', 74)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=HR" alt="Haldi Ram" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Haldiram Nagpur Moong Dal</td><td><span class="mrp-price">MRP: ₹48</span><span class="selling-price">₹57</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Haldiram Nagpur Moong Dal 200g', 57, 48)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Haldiram Nagpur Moong Dal 200g', 57)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=AT" alt="Agni Tea" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹105</span><span class="selling-price">₹120</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Agni Tea 500g', 120, 105)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Agni Tea 500g', 120)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=AT" alt="Agni Tea" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹175</span><span class="selling-price">₹190</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Agni Tea 1 KG', 190, 175)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Agni Tea 1 KG', 190)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=DK" alt="Dant Kanti" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>400g</td><td>Dant Kanti Toothpaste</td><td><span class="mrp-price">MRP: ₹200</span><span class="selling-price">₹229</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Dant Kanti Toothpaste 400g', 229, 200)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Dant Kanti Toothpaste 400g', 229)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=SP" alt="Soan Papdi" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Soan Papdi Pramod</td><td><span class="mrp-price">MRP: ₹90</span><span class="selling-price">₹179</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Soan Papdi Pramod 500g', 179, 90)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Soan Papdi Pramod 500g', 179)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=BV" alt="Bournvita" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Bournvita chocolate</td><td><span class="mrp-price">MRP: ₹212</span><span class="selling-price">₹249</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bournvita chocolate 500g', 249, 212)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bournvita chocolate 500g', 249)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=BV" alt="Bournvita" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Bournvita chocolate</td><td><span class="mrp-price">MRP: ₹125</span><span class="selling-price">₹138</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bournvita chocolate 200g', 138, 125)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bournvita chocolate 200g', 138)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=BV" alt="Bournvita" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Bournvita</td><td><span class="mrp-price">MRP: ₹125</span><span class="selling-price">₹138</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bournvita 200g', 138, 125)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bournvita 200g', 138)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=MG" alt="Maggie" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>768g</td><td>Maggie Packet (Family Pack)</td><td><span class="mrp-price">MRP: ₹130</span><span class="selling-price">₹160</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Maggie Packet (Family Pack) 768g', 160, 130)">+</button
-                                                                                                                                                                                                                                                                                                                                                                                                                              <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=MG" alt="Maggie" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>768g</td><td>Maggie Packet (Family Pack)</td><td><span class="mrp-price">MRP: ₹130</span><span class="selling-price">₹160</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Maggie Packet (Family Pack) 768g', 160, 130)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Maggie Packet (Family Pack) 768g', 160)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=FP" alt="Family Pack" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>987g</td><td>Family Pack Biscuit</td><td><span class="mrp-price">MRP: ₹170</span><span class="selling-price">₹260</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Family Pack Biscuit 987g', 260, 170)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Family Pack Biscuit 987g', 260)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=RM" alt="Rich Marie" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Rich Marie Biscuit</td><td><span class="mrp-price">MRP: ₹135</span><span class="selling-price">₹150</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Rich Marie Biscuit 1 KG', 150, 135)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Rich Marie Biscuit 1 KG', 150)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=SF" alt="Sun First" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>111g</td><td>Sun First Biscuit</td><td><span class="mrp-price">MRP: ₹25</span><span class="selling-price">₹30</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Sun First Biscuit 111g', 30, 25)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Sun First Biscuit 111g', 30)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=BW" alt="Butter White" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>Butter White</td><td><span class="mrp-price">MRP: ₹85</span><span class="selling-price">₹110</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Butter White 1 KG', 110, 85)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Butter White 1 KG', 110)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=GL" alt="Good Life" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Good Life</td><td><span class="mrp-price">MRP: ₹185</span><span class="selling-price">₹235</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Good Life 200g', 235, 185)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Good Life 200g', 235)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=BS" alt="Bikaji Soya" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>200g</td><td>Bikaji Soya Steak</td><td><span class="mrp-price">MRP: ₹40</span><span class="selling-price">₹75</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Bikaji Soya Steak 200g', 75, 40)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Bikaji Soya Steak 200g', 75)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=AP" alt="Act Popcorn" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>30g</td><td>Act Popcorn</td><td><span class="mrp-price">MRP: ₹7.80</span><span class="selling-price">₹10</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Act Popcorn 30g', 10, 7.80)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Act Popcorn 30g', 10)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=BP" alt="Butter Popcorn" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>35g</td><td>Butter Popcorn</td><td><span class="mrp-price">MRP: ₹22</span><span class="selling-price">₹25</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Butter Popcorn 35g', 25, 22)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Butter Popcorn 35g', 25)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=LW" alt="Lays" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>-</td><td>Lays West Indian</td><td><span class="mrp-price">MRP: ₹42</span><span class="selling-price">₹48</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Lays West Indian', 48, 42)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Lays West Indian', 48)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=FS" alt="Fortune Soya" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1kg</td><td>Fortune Soyabadi</td><td><span class="mrp-price">MRP: ₹130</span><span class="selling-price">₹200</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Fortune Soyabadi 1kg', 200, 130)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Fortune Soyabadi 1kg', 200)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=SV" alt="Super Vasnani" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>100ml</td><td>Super Vasnani</td><td><span class="mrp-price">MRP: ₹60</span><span class="selling-price">₹65</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Super Vasnani 100ml', 65, 60)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Super Vasnani 100ml', 65)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=GC" alt="Garnier" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>70ml+60g</td><td>Garnier Colour</td><td><span class="mrp-price">MRP: ₹229</span><span class="selling-price">₹210</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Garnier Colour 70ml+60g', 210, 229)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Garnier Colour 70ml+60g', 210)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=SH" alt="Shampoo" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>175ml</td><td>Shampoo</td><td><span class="mrp-price">MRP: ₹140</span><span class="selling-price">₹154</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Shampoo 175ml', 154, 140)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Shampoo 175ml', 154)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=NM" alt="Nupur Mehndi" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>50g</td><td>Nupur Mehndi</td><td><span class="mrp-price">MRP: ₹35</span><span class="selling-price">₹40</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Nupur Mehndi 50g', 40, 35)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Nupur Mehndi 50g', 40)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=SS" alt="Sunsilk" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>180ml</td><td>Sunsilk Shampoo</td><td><span class="mrp-price">MRP: ₹175</span><span class="selling-price">₹222</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Sunsilk Shampoo 180ml', 222, 175)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Sunsilk Shampoo 180ml', 222)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=GR" alt="Godrej" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>20g+20ml</td><td>Godrej Rich Colour</td><td><span class="mrp-price">MRP: ₹38</span><span class="selling-price">₹40</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Godrej Rich Colour 20g+20ml', 40, 38)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Godrej Rich Colour 20g+20ml', 40)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=CC" alt="Coca Cola" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>750g</td><td>Coca Cola</td><td><span class="mrp-price">MRP: ₹35</span><span class="selling-price">₹40</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Coca Cola 750g', 40, 35)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Coca Cola 750g', 40)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=AB" alt="Amul Butter" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>100g/500g</td><td>Amul Butter</td><td><span class="mrp-price">MRP: ₹255/275</span><span class="selling-price">₹258/286</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Amul Butter 100g/500g', 258, 255)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Amul Butter 100g/500g', 258)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=OT" alt="Oats" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Oats</td><td><span class="mrp-price">MRP: ₹220</span><span class="selling-price">₹270</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Oats 500g', 270, 220)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Oats 500g', 270)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=MD" alt="Maida" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>500g</td><td>Maida</td><td><span class="mrp-price">MRP: ₹24</span><span class="selling-price">₹48</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Maida 500g', 48, 24)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Maida 500g', 48)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=CP" alt="Coffee" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>225g</td><td>Coffee Powder</td><td><span class="mrp-price">MRP: ₹133</span><span class="selling-price">₹149</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Coffee Powder 225g', 149, 133)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Coffee Powder 225g', 149)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=TC" alt="Tajaa Chai" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1kg</td><td>Tajaa Chai Patti</td><td><span class="mrp-price">MRP: ₹235</span><span class="selling-price">₹250</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('Tajaa Chai Patti 1kg', 250, 235)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('Tajaa Chai Patti 1kg', 250)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=AA" alt="आटा" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>5 KG</td><td>आटा</td><td><span class="mrp-price">MRP: ₹220</span><span class="selling-price">₹230</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('आटा 5 KG', 230, 220)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('आटा 5 KG', 230)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=AA" alt="आटा" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>10 KG</td><td>आटा</td><td><span class="mrp-price">MRP: ₹420</span><span class="selling-price">₹430</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('आटा 10 KG', 430, 420)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('आटा 10 KG', 430)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=BC" alt="बासमती" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>बासमती चावल</td><td><span class="mrp-price">MRP: ₹110</span><span class="selling-price">₹120</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('बासमती चावल 1 KG', 120, 110)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('बासमती चावल 1 KG', 120)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=BC" alt="बासमती" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>5 KG</td><td>बासमती चावल</td><td><span class="mrp-price">MRP: ₹520</span><span class="selling-price">₹530</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('बासमती चावल 5 KG', 530, 520)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('बासमती चावल 5 KG', 530)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=CB" alt="चावल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>25 KG</td><td>चावल (बोरा)</td><td><span class="mrp-price">MRP: ₹1800</span><span class="selling-price">₹1810</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('चावल (बोरा) 25 KG', 1810, 1800)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('चावल (बोरा) 25 KG', 1810)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=TD" alt="तूर दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>तूर दाल</td><td><span class="mrp-price">MRP: ₹140</span><span class="selling-price">₹150</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('तूर दाल 1 KG', 150, 140)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('तूर दाल 1 KG', 150)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=MD" alt="मूंग दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>मूंग दाल</td><td><span class="mrp-price">MRP: ₹120</span><span class="selling-price">₹130</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('मूंग दाल 1 KG', 130, 120)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('मूंग दाल 1 KG', 130)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=CD" alt="चना दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>चना दाल</td><td><span class="mrp-price">MRP: ₹85</span><span class="selling-price">₹95</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('चना दाल 1 KG', 95, 85)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('चना दाल 1 KG', 95)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=MD" alt="मसूर दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>मसूर दाल</td><td><span class="mrp-price">MRP: ₹95</span><span class="selling-price">₹105</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('मसूर दाल 1 KG', 105, 95)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('मसूर दाल 1 KG', 105)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/2E7D32/ffffff?text=UD" alt="उड़द दाल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 KG</td><td>उड़द दाल</td><td><span class="mrp-price">MRP: ₹130</span><span class="selling-price">₹140</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('उड़द दाल 1 KG', 140, 130)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('उड़द दाल 1 KG', 140)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=ST" alt="सरसों तेल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 L</td><td>सरसों तेल</td><td><span class="mrp-price">MRP: ₹165</span><span class="selling-price">₹175</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('सरसों तेल 1 L', 175, 165)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('सरसों तेल 1 L', 175)">-</button></td></tr>
-  
-  <tr><td><img src="https://via.placeholder.com/50x50/FF9800/ffffff?text=RT" alt="रिफाइंड तेल" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td><td>1 L</td><td>रिफाइंड तेल</td><td><span class="mrp-price">MRP: ₹145</span><span class="selling-price">₹155</span></td><td><button class="add-btn" title="Cart में add करें" onclick="addToCart('रिफाइंड तेल 1 L', 155, 145)">+</button> <button class="remove-btn" title="Cart से हटाएं" onclick="removeFromCart('रिफाइंड तेल 1 L', 155)">-</button></td></tr>
-</tbody>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=GS" alt="Ghadi Sharaf"></td><td>1 KG</td><td>Ghadi Sharaf</td><td><span class="mrp-price">MRP: ₹74</span></td><td><span class="selling-price">₹60</span></td><td><button class="add-btn" onclick="addToCart('Ghadi Sharaf 1 KG', 74, 60)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Ghadi Sharaf 1 KG', 60)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=HR" alt="Haldi Ram"></td><td>200g</td><td>Haldiram Nagpur Moong Dal</td><td><span class="mrp-price">MRP: ₹57</span></td><td><span class="selling-price">₹48</span></td><td><button class="add-btn" onclick="addToCart('Haldiram Nagpur Moong Dal 200g', 57, 48)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Haldiram Nagpur Moong Dal 200g', 48)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=AT" alt="Agni Tea"></td><td>500g</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹120</span></td><td><span class="selling-price">₹105</span></td><td><button class="add-btn" onclick="addToCart('Agni Tea 500g', 120, 105)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 500g', 105)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=AT" alt="Agni Tea"></td><td>1 KG</td><td>Agni Tea</td><td><span class="mrp-price">MRP: ₹190</span></td><td><span class="selling-price">₹175</span></td><td><button class="add-btn" onclick="addToCart('Agni Tea 1 KG', 190, 175)">Add +</button> <button class="remove-btn" onclick="removeFromCart('Agni Tea 1 KG', 175)">-</button></td></tr>
+            <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=BS" alt="बासमती"></td><td>5 KG</td><td>बासमती चावल</td><td><span class="mrp-price">MRP: ₹530</span></td><td><span class="selling-price">₹520</span></td><td><button class="add-btn" onclick="addToCart('बासमती चावल 5 KG', 530, 520)">Add +</button> <button class="remove-btn" onclick="removeFromCart('बासमती चावल 5 KG', 520)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=CH" alt="चावल"></td><td>25 KG</td><td>चावल (बोरा)</td><td><span class="mrp-price">MRP: ₹1810</span></td><td><span class="selling-price">₹1800</span></td><td><button class="add-btn" onclick="addToCart('चावल (बोरा) 25 KG', 1810, 1800)">Add +</button> <button class="remove-btn" onclick="removeFromCart('चावल (बोरा) 25 KG', 1800)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=TD" alt="तूर दाल"></td><td>1 KG</td><td>तूर दाल</td><td><span class="mrp-price">MRP: ₹150</span></td><td><span class="selling-price">₹140</span></td><td><button class="add-btn" onclick="addToCart('तूर दाल 1 KG', 150, 140)">Add +</button> <button class="remove-btn" onclick="removeFromCart('तूर दाल 1 KG', 140)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MD" alt="मूंग दाल"></td><td>1 KG</td><td>मूंग दाल</td><td><span class="mrp-price">MRP: ₹130</span></td><td><span class="selling-price">₹120</span></td><td><button class="add-btn" onclick="addToCart('मूंग दाल 1 KG', 130, 120)">Add +</button> <button class="remove-btn" onclick="removeFromCart('मूंग दाल 1 KG', 120)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=CD" alt="चना दाल"></td><td>1 KG</td><td>चना दाल</td><td><span class="mrp-price">MRP: ₹95</span></td><td><span class="selling-price">₹85</span></td><td><button class="add-btn" onclick="addToCart('चना दाल 1 KG', 95, 85)">Add +</button> <button class="remove-btn" onclick="removeFromCart('चना दाल 1 KG', 85)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=MD" alt="मसूर दाल"></td><td>1 KG</td><td>मसूर दाल</td><td><span class="mrp-price">MRP: ₹105</span></td><td><span class="selling-price">₹95</span></td><td><button class="add-btn" onclick="addToCart('मसूर दाल 1 KG', 105, 95)">Add +</button> <button class="remove-btn" onclick="removeFromCart('मसूर दाल 1 KG', 95)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=UD" alt="उड़द दाल"></td><td>1 KG</td><td>उड़द दाल</td><td><span class="mrp-price">MRP: ₹140</span></td><td><span class="selling-price">₹130</span></td><td><button class="add-btn" onclick="addToCart('उड़द दाल 1 KG', 140, 130)">Add +</button> <button class="remove-btn" onclick="removeFromCart('उड़द दाल 1 KG', 130)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/FFD700/4A148C?text=ST" alt="सरसों तेल"></td><td>1 L</td><td>सरसों तेल</td><td><span class="mrp-price">MRP: ₹175</span></td><td><span class="selling-price">₹165</span></td><td><button class="add-btn" onclick="addToCart('सरसों तेल 1 L', 175, 165)">Add +</button> <button class="remove-btn" onclick="removeFromCart('सरसों तेल 1 L', 165)">-</button></td></tr>
+      <tr><td><img src="https://via.placeholder.com/45/4A148C/FFD700?text=RT" alt="रिफाइंड तेल"></td><td>1 L</td><td>रिफाइंड तेल</td><td><span class="mrp-price">MRP: ₹155</span></td><td><span class="selling-price">₹145</span></td><td><button class="add-btn" onclick="addToCart('रिफाइंड तेल 1 L', 155, 145)">Add +</button> <button class="remove-btn" onclick="removeFromCart('रिफाइंड तेल 1 L', 145)">-</button></td></tr>
+    </tbody>
   </table>
 </section>
 
-<div class="categories">
-  <h2>हमारी कैटेगरी</h2>
-  <div class="cat-grid">
-    <div class="cat-card">
-      <img src="images/atta.jpg" alt="आटा">
-      <h3>आटा</h3>
-      <p>Premium Quality Wheat Flour</p>
+<!-- Categories Section -->
+<section style="padding: 20px 10px;">
+  <h2 style="text-align:center;color:var(--ar-primary);margin-bottom:20px;">हमारी कैटेगरी</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
+    <div style="background:white;border-radius:12px;padding:15px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+      <div style="font-size:40px;">🌾</div>
+      <h3 style="color:var(--ar-primary);margin:10px 0;">आटा</h3>
+      <p style="font-size:13px;color:#666;">Premium Quality Wheat Flour</p>
     </div>
-    <div class="cat-card">
-      <img src="images/dal.jpg" alt="दाल">
-      <h3>दालें</h3>
-      <p>All Types of Pulses Available</p>
+    <div style="background:white;border-radius:12px;padding:15px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+      <div style="font-size:40px;">🥘</div>
+      <h3 style="color:var(--ar-primary);margin:10px 0;">दाल</h3>
+      <p style="font-size:13px;color:#666;">All Types of Pulses Available</p>
     </div>
-    <div class="cat-card">
-      <img src="images/chawal.jpg" alt="चावल">
-      <h3>चावल</h3>
-      <p>Best Basmati & Regular Rice</p>
+    <div style="background:white;border-radius:12px;padding:15px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+      <div style="font-size:40px;">🍚</div>
+      <h3 style="color:var(--ar-primary);margin:10px 0;">चावल</h3>
+      <p style="font-size:13px;color:#666;">Best Basmati & Regular Rice</p>
     </div>
   </div>
-</div>
+</section>
 
+<!-- Contact Section -->
 <div class="contact-section">
-  <h3>📞 Contact Us</h3>
-  <div class="contact-cards">
-    <a href="tel:+918298827509" class="contact-card">
-      <span class="icon">📱</span>
-      <span class="label">Mobile</span>
-      <span class="value">+91 8298 827 509</span>
-    </a>
-    <a href="https://instagram.com/adarsh_retails" target="_blank" class="contact-card instagram">
-      <span class="icon">📷</span>
-      <span class="label">Instagram</span>
-      <span class="value">@adarsh_retails</span>
-    </a>
-    <a href="https://wa.me/918298827509" target="_blank" class="contact-card whatsapp">
-      <span class="icon">💬</span>
-      <span class="label">WhatsApp</span>
-      <span class="value">Order Here</span>
-    </a>
-  </div>
-  <p class="contact-note">आदर्श रिटेल्स, डालटनगंज</p>
+  <h3 style="text-align:center;color:var(--ar-primary);margin-bottom:15px;">📞 Contact Us</h3>
+  <a href="tel:+918298827509" class="contact-card">
+    <div style="font-size:24px;">📱</div>
+    <div>
+      <div style="font-weight:bold;">Mobile</div>
+      <div style="color:var(--ar-primary);">+91 8298 827 509</div>
+    </div>
+  </a>
+  <a href="https://instagram.com/adarsh_retails" target="_blank" class="contact-card">
+    <div style="font-size:24px;">📷</div>
+    <div>
+      <div style="font-weight:bold;">Instagram</div>
+      <div style="color:var(--ar-primary);">@adarsh_retails</div>
+    </div>
+  </a>
+  <a href="https://wa.me/918298827509" target="_blank" class="contact-card">
+    <div style="font-size:24px;">💬</div>
+    <div>
+      <div style="font-weight:bold;">WhatsApp</div>
+      <div style="color:var(--ar-primary);">Order Here</div>
+    </div>
+  </a>
+  <p style="text-align:center;margin-top:15px;font-size:13px;color:#666;">आदर्श रिटेल्स, डालटनगंज</p>
 </div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-document.getElementById('cart-count').innerText = cart.length;
-updateLoginButton();
+let cart = JSON.parse(localStorage.getItem('arCart')) || [];
+let user = JSON.parse(localStorage.getItem('arUser')) || null;
+let currentOTP = '';
 
-function addToCart(name, sellingPrice, mrp) {
+function addToCart(name, mrp, price) {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   if (!isLoggedIn) {
     alert('⚠️ Order करने के लिए पहले Login करें!');
     showLogin();
     return;
   }
-  cart.push({name: name, price: sellingPrice, mrp: mrp});
-  localStorage.setItem('cart', JSON.stringify(cart));
-  document.getElementById('cart-count').innerText = cart.length;
+  let existing = cart.find(item => item.name === name);
+  if(existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({name: name, mrp: mrp, price: price, qty: 1});
+  }
+  localStorage.setItem('arCart', JSON.stringify(cart));
+  document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.qty, 0);
   alert('✓ ' + name + ' added!');
 }
 
 function removeFromCart(name, price) {
-  const index = cart.findIndex(item => item.name === name && item.price === price);
+  let index = cart.findIndex(item => item.name === name && item.price === price);
   if (index > -1) {
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    document.getElementById('cart-count').innerText = cart.length;
+    if(cart[index].qty > 1) {
+      cart[index].qty -= 1;
+    } else {
+      cart.splice(index, 1);
+    }
+    localStorage.setItem('arCart', JSON.stringify(cart));
+    document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.qty, 0);
     alert('✗ ' + name + ' removed!');
-  } else {
-    alert('Item not in cart!');
   }
 }
 
@@ -827,17 +386,89 @@ function checkout() {
     return;
   }
   if (cart.length === 0) {
-    alert('Cart खाली है! पहले products add करें।');
+    alert('Cart खाली है! पहले products add करें');
     return;
   }
-  let message = 'नमस्ते! मैं order करना चाहता/चाहती हूं:\n\n';
-  cart.forEach(item => {
-    message += `- ${item.name}: ₹${item.price} (MRP: ₹${item.mrp})\n`;
-  });
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
-  message += `\nTotal: ₹${total}`;
-  window.open(`https://wa.me/918298827509?text=${encodeURIComponent(message)}`, '_blank');
+  window.location = 'cart.html';
 }
+
+function showLogin() {
+  document.getElementById('loginModal').style.display = 'flex';
+}
+function closeLogin() {
+  document.getElementById('loginModal').style.display = 'none';
+}
+function sendOTP() {
+  let phone = document.getElementById('phone').value;
+  if(phone && phone.length >= 10) {
+    currentOTP = Math.floor(1000 + Math.random() * 9000).toString();
+    alert('OTP sent to ' + phone + '\n\nYour OTP is: ' + currentOTP + '\n\n(Demo mode - OTP shown here)');
+    document.getElementById('otpSection').style.display = 'block';
+    document.getElementById('sendOtpBtn').style.display = 'none';
+    document.getElementById('otpMessage').innerText = 'OTP sent! Check alert message';
+  } else {
+    alert('Valid phone number डालें!');
+  }
+}
+function verifyOTP() {
+  let enteredOTP = document.getElementById('otp').value;
+  let phone = document.getElementById('phone').value;
+  if(enteredOTP === currentOTP) {
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userPhone', phone);
+    user = {name: 'User', phone: phone, photo: 'https://via.placeholder.com/80/4A148C/FFD700?text=U'};
+    localStorage.setItem('arUser', JSON.stringify(user));
+    alert('Login successful!');
+    closeLogin();
+    updateLoginButton();
+  } else {
+    alert('Invalid OTP! Try again');
+  }
+}
+function updateLoginButton() {
+  let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if(isLoggedIn) {
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('profileBox').style.display = 'flex';
+    document.getElementById('loginStatus').innerText = '✅ Logged In';
+    if(user) {
+      document.getElementById('userName').innerText = user.name;
+      document.getElementById('userPhoto').src = user.photo;
+    }
+  }
+}
+function showProfile() {
+  if(user) {
+    document.getElementById('modalName').innerText = user.name;
+    document.getElementById('modalPhone').innerText = user.phone;
+    document.getElementById('modalPhoto').src = user.photo;
+    document.getElementById('profileModal').style.display = 'flex';
+  }
+}
+function closeProfile() {
+  document.getElementById('profileModal').style.display = 'none';
+}
+function uploadPhoto() {
+  let file = document.getElementById('photoUpload').files[0];
+  if(file) {
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      user.photo = e.target.result;
+      localStorage.setItem('arUser', JSON.stringify(user));
+      updateLoginButton();
+      closeProfile();
+    }
+    reader.readAsDataURL(file);
+  }
+}
+function logout() {
+  localStorage.removeItem('isLoggedIn');
+  localStorage.removeItem('arUser');
+  location.reload();
+}
+
+document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.qty, 0);
+updateLoginButton();
 </script>
 </body>
-</html>      
+</html>
