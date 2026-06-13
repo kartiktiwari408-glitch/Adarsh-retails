@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>आदर्श रिटेल्स V3</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #F3E5F5 0%, #FFFFFF 100%);
+  overflow-x: hidden;
+  width: 100%;
+}
+.header {
+  background: linear-gradient(135deg, #6A1B9A 0%, #8E24AA 100%);
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.ar-logo {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #6A1B9A;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Arial Black', sans-serif;
+}
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.login-btn {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #6A1B9A;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.cart-icon {
+  position: relative;
+  background: white;
+  color: #6A1B9A;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #E91E63;
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.search-bar {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.search-bar input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 3px solid #6A1B9A;
+  border-radius: 30px;
+  font-size: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.products-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.products-table {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+.products-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.products-table thead {
+  background: linear-gradient(135deg, #6A1B9A 0%, #8E24AA 100%);
+  color: white;
+}
+.products-table th {
+  padding: 15px 10px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+}
+.products-table td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #F3E5F5;
+}
+.products-table tbody tr:hover {
+  background: #F3E5F5;
+}
+.mrp-price {
+  text-decoration: line-through;
+  color: #D32F2F;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.selling-price {
+  color: #1B5E20;
+  font-weight: bold;
+  font-size: 16px;
+}
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.add-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+.remove-btn {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+.item-count {
+  background: #F3E5F5;
+  color: #6A1B9A;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+}
+.modal-content h2 {
+  color: #6A1B9A;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #E1BEE7;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #6A1B9A;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.close-modal {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)!important;
+  color: white!important;
+}
+.otp-message {
+  color: #6A1B9A;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-content">
+    <div class="logo">
+      <div class="ar-logo">AR</div>
+      <span>आदर्श रिटेल्स V3</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="login-btn" onclick="showLogin()">🔐 Login</button>
+      <div class="cart-icon" onclick="checkout()">
+        🛒
+        <span class="cart-badge" id="cart-count">0</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="🔍 Search products...">
+</div>
+
+<div class="products-container">
+  <div class="products-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Qty</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="productsTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <h2>🔐 Login / Sign Up</h2>
+    <input type="tel" id="phone" placeholder="Enter 10-digit mobile number" maxlength="10">
+    <div id="otpSection" style="display:none;">
+      <div class="otp-message" id="otpMessage">OTP sent!</div>
+      <input type="text" id="otp" placeholder="Enter 4-digit OTP" maxlength="4">
+    </div>
+    <button id="sendOtpBtn" onclick="sendOTP()">Send OTP</button>
+    <button onclick="closeLogin()" class="close-modal">Close</button>
+  </div>
+</div>
+
+<script>
+console.log('INDEX V3 LOADED - ' + new Date().toLocaleTimeString());
+
+const PRODUCTS = [
+  {id: 1, name: "Aashirvaad Atta", qty: "5 KG", selling: 230, mrp: 250},
+  {id: 2, name: "Aashirvaad Atta", qty: "10 KG", selling: 450, mrp: 480},
+  {id: 3, name: "Fortune Chakki Atta", qty: "5 KG", selling: 225, mrp: 245},
+  {id: 4, name: "Pillsbury Atta", qty: "5 KG", selling: 235, mrp: 255},
+  {id: 5, name: "Basmati Rice", qty: "1 KG", selling: 70, mrp: 80},
+  {id: 6, name: "India Gate Basmati", qty: "1 KG", selling: 85, mrp: 95},
+  {id: 7, name: "Sona Masoori Rice", qty: "5 KG", selling: 260, mrp: 280},
+  {id: 8, name: "Kolam Rice", qty: "5 KG", selling: 240, mrp: 260},
+  {id: 9, name: "Toor Dal", qty: "1 KG", selling: 95, mrp: 105},
+  {id: 10, name: "Moong Dal", qty: "1 KG", selling: 90, mrp: 100},
+  {id: 11, name: "Chana Dal", qty: "1 KG", selling: 75, mrp: 85},
+  {id: 12, name: "Urad Dal", qty: "1 KG", selling: 100, mrp: 110},
+  {id: 13, name: "Masoor Dal", qty: "1 KG", selling: 80, mrp: 90},
+  {id: 14, name: "Fortune Refined Oil", qty: "1 LTR", selling: 140, mrp: 155},
+  {id: 15, name: "Saffola Oil", qty: "1 LTR", selling: 155, mrp: 170},
+  {id: 16, name: "Mustard Oil", qty: "1 LTR", selling: 150, mrp: 165},
+  {id: 17, name: "Amul Ghee", qty: "1 LTR", selling: 550, mrp: 580},
+  {id: 18, name: "Haldi Powder", qty: "100g", selling: 25, mrp: 30},
+  {id: 19, name: "Dhaniya Powder", qty: "100g", selling: 30, mrp: 35},
+  {id: 20, name: "Mirch Powder", qty: "100g", selling: 35, mrp: 40},
+  {id: 21, name: "Garam Masala", qty: "100g", selling: 50, mrp: 60},
+  {id: 22, name: "Parle-G", qty: "800g", selling: 70, mrp: 80},
+  {id: 23, name: "Britannia Marie", qty: "1 KG", selling: 150, mrp: 165},
+  {id: 24, name: "Good Day", qty: "600g", selling: 90, mrp: 100},
+  {id: 25, name: "Oreo", qty: "300g", selling: 75, mrp: 85},
+  {id: 26, name: "Lays", qty: "90g", selling: 48, mrp: 55},
+  {id: 27, name: "Kurkure", qty: "90g", selling: 48, mrp: 55},
+  {id: 28, name: "Haldiram Bhujia", qty: "400g", selling: 95, mrp: 110},
+  {id: 29, name: "Tata Tea", qty: "500g", selling: 250, mrp: 270},
+  {id: 30, name: "Red Label", qty: "500g", selling: 260, mrp: 280},
+  {id: 31, name: "Bru Coffee", qty: "200g", selling: 180, mrp: 200},
+  {id: 32, name: "Nescafe", qty: "200g", selling: 200, mrp: 220},
+  {id: 33, name: "Coca Cola", qty: "2 LTR", selling: 95, mrp: 100},
+  {id: 34, name: "Pepsi", qty: "2 LTR", selling: 95, mrp: 100},
+  {id: 35, name: "Dove Soap", qty: "100g", selling: 45, mrp: 50},
+  {id: 36, name: "Lux Soap", qty: "100g", selling: 35, mrp: 40},
+  {id: 37, name: "Lifebuoy Soap", qty: "100g", selling: 30, mrp: 35},
+  {id: 38, name: "Head & Shoulders", qty: "180ml", selling: 120, mrp: 135},
+  {id: 39, name: "Clinic Plus", qty: "175ml", selling: 90, mrp: 100},
+  {id: 40, name: "Colgate", qty: "200g", selling: 85, mrp: 95},
+  {id: 41, name: "Closeup", qty: "150g", selling: 70, mrp: 80},
+  {id: 42, name: "Ponds Cream", qty: "50g", selling: 75, mrp: 85},
+  {id: 43, name: "Surf Excel", qty: "1 KG", selling: 140, mrp: 155},
+  {id: 44, name: "Rin Powder", qty: "1 KG", selling: 95, mrp: 105},
+  {id: 45, name: "Tide", qty: "1 KG", selling: 130, mrp: 145},
+  {id: 46, name: "Ariel", qty: "1 KG", selling: 150, mrp: 165},
+  {id: 47, name: "Vim Bar", qty: "300g", selling: 25, mrp: 30},
+  {id: 48, name: "Harpic", qty: "500ml", selling: 85, mrp: 95},
+  {id: 49, name: "Lizol", qty: "500ml", selling: 75, mrp: 85},
+  {id: 50, name: "Good Knight", qty: "1 Pc", selling: 85, mrp: 95}
+];
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function getItemCount(name, price) {
+  return cart.filter(item => item.name === name && item.price === price).length;
+}
+
+function renderProducts() {
+  const tbody = document.getElementById('productsTableBody');
+  tbody.innerHTML = '';
+  PRODUCTS.forEach(p => {
+    const count = getItemCount(p.name, p.selling);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><img src="https://via.placeholder.com/50x50/8E24AA/ffffff?text=${p.name.substring(0,2)}" alt="${p.name}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td>
+      <td>${p.qty}</td>
+      <td>${p.name}</td>
+      <td><span class="mrp-price">MRP: ₹${p.mrp}</span><span class="selling-price">₹${p.selling}</span></td>
+      <td>
+        <div class="qty-controls">
+          <button class="remove-btn" onclick="removeFromCart('${p.name}', ${p.selling}, ${p.mrp})">−</button>
+          <span class="item-count">${count}</span>
+          <button class="add-btn" onclick="addToCart('${p.name}', ${p.selling}, ${p.mrp})">+</button>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function addToCart(name, sellingPrice, mrp) {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    alert('⚠️ Order करने के लिए पहले Login करें!');
+    showLogin();
+    return;
+  }
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({name: name, price: sellingPrice, mrp: mrp});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  document.getElementById('cart-count').innerText = cart.length;
+  renderProducts();
+}
+
+function removeFromCart(name, price, mrp) {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const index = cart.findIndex(item => item.name === name && item.price === price);
+  if (index > -1) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart-count').innerText = cart.length;
+    renderProducts();
+  }
+}
+
+function checkout() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    alert('⚠️ Order करने के लिए पहले Login करें!');
+    showLogin();
+    return;
+  }
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if (cart.length === 0) {
+    alert('Cart खाली है! पहले products add करें।');
+    return;
+  }
+  window.location.href = 'cart.html';
+}
+
+var currentOTP = '';
+function showLogin() {
+  document.getElementById('loginModal').style.display = 'flex';
+  document.getElementById('otpSection').style.display = 'none';
+  document.getElementById('sendOtpBtn').style.display = 'block';
+}
+function closeLogin() {
+  document.getElementById('loginModal').style.display = 'none';
+  document.getElementById('phone').value = '';
+  document.getElementById('otp').value = '';
+}
+function sendOTP() {
+  var phone = document.getElementById('phone').value;
+  if(phone && phone.length >= 10) {
+    currentOTP = Math.floor(1000 + Math.random() * 9000).toString();
+    alert('OTP sent to ' + phone + '\n\nYour OTP is: ' + currentOTP + '\n\n(Demo mode - OTP shown here)');
+    document.getElementById('otpSection').style.display = 'block';
+    document.getElementById('sendOtpBtn').style.display = 'none';
+    document.getElementById('otpMessage').innerText = 'OTP sent! Check alert message';
+  } else {
+    alert('Valid phone number डालें!');
+  }
+}
+function verifyOTP() {
+  var enteredOTP = document.getElementById('otp').value;
+  var phone = document.getElementById('phone').value;
+  if(enteredOTP === currentOTP) {
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userPhone', phone);
+    alert('Login successful!');
+    closeLogin();
+    updateLoginButton();
+  } else {
+    alert('Invalid OTP! Try again');
+  }
+}
+function updateLoginButton() {
+  var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  var loginBtn = document.querySelector('.login-btn');
+  if(isLoggedIn) {
+    loginBtn.innerHTML = '✅ Logged In';
+    loginBtn.style.background = '#25D366';
+  }
+}
+
+document.getElementById('searchInput').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const rows = document.querySelectorAll('#productsTableBody tr');
+  rows.forEach(row => {
+    const productName = row.cells[2].textContent.toLowerCase();
+    row.style.display = productName.includes(searchTerm)? '' : 'none';
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  updateLoginButton();
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').innerText = cart.length;
+});
+
+document.getElementById('otp').addEventListener('input', function(e) {
+  if(e.target.value.length === 4) {
+    verifyOTP();
+  }
+});
+</script>
+
+</body>
+  </html>
