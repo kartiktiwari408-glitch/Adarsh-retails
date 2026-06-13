@@ -527,8 +527,8 @@ const PRODUCTS = [
   {id: 50, name: "Good Knight", qty: "1 Pc", selling: 85, mrp: 95}
 ];
 
+// YAHAN FIX HAI - PAGE LOAD PE CART READ KARO
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-document.getElementById('cart-count').innerText = cart.length;
 let appliedCoupon = localStorage.getItem('coupon') || null;
 
 const COUPONS = {
@@ -560,6 +560,8 @@ function addToCart(name, sellingPrice, mrp) {
     showLogin();
     return;
   }
+  // HAR BAAR LOCALSTORAGE SE READ KARO
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
   cart.push({name: name, price: sellingPrice, mrp: mrp});
   localStorage.setItem('cart', JSON.stringify(cart));
   document.getElementById('cart-count').innerText = cart.length;
@@ -567,6 +569,7 @@ function addToCart(name, sellingPrice, mrp) {
 }
 
 function removeFromCart(name, price) {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
   const index = cart.findIndex(item => item.name === name && item.price === price);
   if (index > -1) {
     cart.splice(index, 1);
@@ -599,6 +602,7 @@ function checkout() {
     showLogin();
     return;
   }
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart.length === 0) {
     alert('Cart खाली है! पहले products add करें।');
     return;
@@ -654,12 +658,15 @@ function updateLoginButton() {
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   updateLoginButton();
+  // CART COUNT UPDATE KARO PAGE LOAD PE
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').innerText = cart.length;
   
   if (appliedCoupon) {
     document.getElementById('couponInput').value = appliedCoupon;
     document.getElementById('couponMsg').innerHTML = `<div class="applied-coupon">✅ Coupon ${appliedCoupon} Applied</div>`;
   }
 });
-</script>
+  </script>
 </body>
 </html>
