@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>आदर्श रिटेल्स - Best Kirana Store</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
+
+.header {
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.ar-logo {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #2E7D32;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Arial Black', sans-serif;
+}
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+.login-btn {
+  background: #FFD700;
+  color: #2E7D32;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  border: none;
+}
+.cart-btn {
+  background: white;
+  color: #2E7D32;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.checkout-btn {
+  background: #25D366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  border: none;
+  margin-left: 10px;
+}
+.tagline {
+  background: linear-gradient(90deg, #FF6F00, #FF9800, #FFC107, #FF9800, #FF6F00);
+  background-size: 200% 100%;
+  animation: gradient 3s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.tagline span {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.offer-banner {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.offer-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.offer-card h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.offer-card p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.offer-badge {
+  background: #FFD700;
+  color: #2E7D32;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.coupon-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.coupon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+.coupon-card {
+  background: linear-gradient(135deg, #FF6F00 0%, #FF9800 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.coupon-card h3 { font-size: 24px; margin-bottom: 10px; }
+.coupon-card .code {
+  background: white;
+  color: #FF6F00;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.hero {
+  background: linear-gradient(rgba(46,125,50,0.8), rgba(46,125,50,0.8)), url('images/offer.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero h1 { font-size: 36px; margin-bottom: 10px; }
+.hero p { font-size: 18px; }
+
+.price-menu {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+.price-menu h2 {
+  color: #2E7D32;
+  text-align: center;
+  border-bottom: 3px solid #2E7D32;
+  padding-bottom: 10px;
+  font-size: 28px;
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.price-table th {
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  color: white;
+  padding: 10px 8px;
+  text-align: left;
+  font-size: 14px;
+}
+.price-table td {
+  border: 1px solid #ddd;
+  padding: 10px 8px;
+  font-size: 13px;
+}
+.price-table tr:nth-child(even) { background-color: #f9f9f9; }
+.price-table tr:hover { background-color: #e8f5e9; }
+.price-table td:nth-child(1) { color: #FF6F00; font-weight: bold; }
+.price-table td:nth-child(2) { color: #1565C0; font-weight: 600; }
+.price-table td:nth-child(3) { color: #2E7D32; font-weight: bold; }
+.price-table td:nth-child(4) { font-weight: bold; }
+.mrp-price { color: #D32F2F; text-decoration: line-through; font-size: 13px; margin-right: 8px; }
+.selling-price { color: #2E7D32; font-weight: bold; font-size: 15px; }
+
+.add-btn {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 1px;
+  font-size: 14px;
+}
+.remove-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 1px;
+  font-size: 14px;
+}
+
+.contact-section {
+  max-width: 900px;
+  margin: 40px auto 20px auto;
+  padding: 25px;
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.contact-section h3 {
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  font-size: 24px;
+}
+.contact-cards {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.contact-card {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.contact-card .icon { font-size: 32px; margin-bottom: 8px; }
+.contact-card .label { font-size: 12px; color: #666; text-transform: uppercase; }
+.contact-card .value { font-size: 14px; font-weight: bold; color: #2E7D32; margin-top: 5px; }
+.contact-card.instagram .value { color: #E4405F; }
+.contact-card.whatsapp .value { color: #25D366; }
+.contact-note {
+  text-align: center;
+  color: white;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.modal-content h2 {
+  color: #2E7D32;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+.login-submit {
+  background: #2E7D32;
+  color: white;
+}
+.signup-submit {
+  background: #FF9800;
+  color: white;
+}
+.close-modal {
+  background: #e74c3c;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .price-table th, .price-table td {
+    padding: 8px 5px;
+    font-size: 12px;
+  }
+  .add-btn, .remove-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+.price-table tbody tr {
+  transition: all 0.3s;
+  background: white;
+}
+.price-table tbody tr:hover {
+  background: #E8F5E9;
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.price-table td {
+  padding: 15px;
+  font-size: 16px;
+  border-bottom: 2px solid #E8F5E9;
+}
+.price-table td:nth-child(2) {
+  font-weight: 600;
+  color: #1B5E20;
+}
+.add-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s;
+}
+.add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+}
+.add-btn:active {
+  transform: scale(0.95);
+}
+.remove-btn {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+  transition: all 0.3s;
+}
+.remove-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.5);
+}
+</style>
+</head>
+<body>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Login with OTP</h2>
+      <input type="text" id="phone" placeholder="Phone Number (e.g. 8298827509)">
+      <button class="login-submit" onclick="sendOTP()" id="sendOtpBtn">Send OTP</button>
+      
+      <div id="otpSection" style="display:none;">
+        <input type="text" id="otp" placeholder="Enter 4-digit OTP" maxlength="4">
+        <button class="signup-submit" onclick="verifyOTP()">Verify OTP</button>
+        <p id="otpMessage" style="text-align:center; color:#666; font-size:14px; margin-top:10px;"></p>
+      </div>
+      
+      <button class="close-modal" onclick="closeLogin()">Close</button>
+    </div>
+  </div>
+
+<div class="header">
+  <div class="header-content">
+    <div class="logo">
+      <div class="ar-logo">AR</div>
+      <span>आदर्श रिटेल्स</span>
+    </div>
+    <div class="header-buttons">
+      <button class="login-btn" onclick="showLogin()">🔐 Login</button>
+      <a href="cart.html" class="cart-btn">🛒 Cart: <span id="cart-count">0</span></a>
+      <button class="checkout-btn" onclick="checkout()">✓ Checkout</button>
+    </div>
+  </div>
+</div>
+
+<div class="tagline">
+  <span>👍</span> your needs with us
+</div>
+
+<div class="offer-banner">
+  <div class="offer-card">
+    <h2>🎉 MEGA SALE 🎉</h2>
+    <p>Up to 30% OFF on All Kirana Items</p>
+    <div class="offer-badge">Limited Time Offer!</div>
+  </div>
+</div>
+
+<div class="coupon-section">
+  <div class="coupon-grid">
+    <div class="coupon-card" onclick="applyCoupon('WELCOME50')">
+      <h3>🎉 New Customer</h3>
+      <p>Get ₹50 OFF on first order</p>
+      <div class="code">WELCOME50</div>
+    </div>
+    <div class="coupon-card" style="background: linear-gradient(135deg, #E91E63 0%, #F06292 100%);" onclick="applyCoupon('FESTIVE10')">
+      <h3>💰 Festive Sale</h3>
+      <p>10% OFF on orders above ₹500</p>
+      <div class="code">FESTIVE10</div>
+    </div>
+    <div class="coupon-card" style="background: linear-gradient(135deg, #673AB7 0%, #9575CD 100%);" onclick="applyCoupon('FREEDEL')">
+      <h3>🚚 Free Delivery</h3>
+      <p>On orders above ₹1000</p>
+      <div class="code">FREEDEL</div>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>स्वागत है आदर्श रिटेल्स में</h1>
+  <p>Best Quality Kirana Products at Best Prices</p>
+</div>
+
+<section class="price-menu">
+  <h2>Our Price List - 200 Products</h2>
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Quantity</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="productsTableBody">
+      <tr><td colspan="5" style="text-align:center;padding:20px;">Loading 200 Products...</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="contact-section">
+  <h3>📞 Contact Us</h3>
+  <div class="contact-cards">
+    <a href="tel:+918298827509" class="contact-card">
+      <span class="icon">📱</span>
+      <span class="label">Mobile</span>
+      <span class="value">+91 8298 827 509</span>
+    </a>
+    <a href="https://instagram.com/adarsh_retails" target="_blank" class="contact-card instagram">
+      <span class="icon">📷</span>
+      <span class="label">Instagram</span>
+      <span class="value">@adarsh_retails</span>
+    </a>
+    <a href="https://wa.me/918298827509" target="_blank" class="contact-card whatsapp">
+      <span class="icon">💬</span>
+      <span class="label">WhatsApp</span>
+      <span class="value">Order Here</span>
+    </a>
+  </div>
+  <p class="contact-note">आदर्श रिटेल्स, डालटनगंज</p>
+</div>
+
+<script>
+// 200 PRODUCTS DATABASE
+const PRODUCTS = [
+  {id: 1, name: "Aashirvaad Atta", qty: "5 KG", selling: 230, mrp: 250},
+  {id: 2, name: "Aashirvaad Atta", qty: "10 KG", selling: 450, mrp: 480},
+  {id: 3, name: "Fortune Chakki Atta", qty: "5 KG", selling: 225, mrp: 245},
+  {id: 4, name: "Pillsbury Atta", qty: "5 KG", selling: 235, mrp: 255},
+  {id: 5, name: "Basmati Rice", qty: "1 KG", selling: 70, mrp: 80},
+  {id: 6, name: "India Gate Basmati", qty: "1 KG", selling: 85, mrp: 95},
+  {id: 7, name: "Sona Masoori Rice", qty: "5 KG", selling: 260, mrp: 280},
+  {id: 8, name: "Kolam Rice", qty: "5 KG", selling: 240, mrp: 260},
+  {id: 9, name: "Toor Dal", qty: "1 KG", selling: 95, mrp: 105},
+  {id: 10, name: "Moong Dal", qty: "1 KG", selling: 90, mrp: 100},
+  {id: 11, name: "Chana Dal", qty: "1 KG", selling: 75, mrp: 85},
+  {id: 12, name: "Urad Dal", qty: "1 KG", selling: 100, mrp: 110},
+  {id: 13, name: "Masoor Dal", qty: "1 KG", selling: 80, mrp: 90},
+  {id: 14, name: "Fortune Refined Oil", qty: "1 LTR", selling: 140, mrp: 155},
+  {id: 15, name: "Saffola Oil", qty: "1 LTR", selling: 155, mrp: 170},
+  {id: 16, name: "Mustard Oil", qty: "1 LTR", selling: 150, mrp: 165},
+  {id: 17, name: "Amul Ghee", qty: "1 LTR", selling: 550, mrp: 580},
+  {id: 18, name: "Haldi Powder", qty: "100g", selling: 25, mrp: 30},
+  {id: 19, name: "Dhaniya Powder", qty: "100g", selling: 30, mrp: 35},
+  {id: 20, name: "Mirch Powder", qty: "100g", selling: 35, mrp: 40},
+  {id: 21, name: "Garam Masala", qty: "100g", selling: 50, mrp: 60},
+  {id: 22, name: "Parle-G", qty: "800g", selling: 70, mrp: 80},
+  {id: 23, name: "Britannia Marie", qty: "1 KG", selling: 150, mrp: 165},
+  {id: 24, name: "Good Day", qty: "600g", selling: 90, mrp: 100},
+  {id: 25, name: "Oreo", qty: "300g", selling: 75, mrp: 85},
+  {id: 26, name: "Lays", qty: "90g", selling: 48, mrp: 55},
+  {id: 27, name: "Kurkure", qty: "90g", selling: 48, mrp: 55},
+  {id: 28, name: "Haldiram Bhujia", qty: "400g", selling: 95, mrp: 110},
+  {id: 29, name: "Tata Tea", qty: "500g", selling: 250, mrp: 270},
+  {id: 30, name: "Red Label", qty: "500g", selling: 260, mrp: 280},
+  {id: 31, name: "Bru Coffee", qty: "200g", selling: 180, mrp: 200},
+  {id: 32, name: "Nescafe", qty: "200g", selling: 200, mrp: 220},
+  {id: 33, name: "Coca Cola", qty: "2 LTR", selling: 95, mrp: 100},
+  {id: 34, name: "Pepsi", qty: "2 LTR", selling: 95, mrp: 100},
+  {id: 35, name: "Dove Soap", qty: "100g", selling: 45, mrp: 50},
+  {id: 36, name: "Lux Soap", qty: "100g", selling: 35, mrp: 40},
+  {id: 37, name: "Lifebuoy Soap", qty: "100g", selling: 30, mrp: 35},
+  {id: 38, name: "Head & Shoulders", qty: "180ml", selling: 120, mrp: 135},
+  {id: 39, name: "Clinic Plus", qty: "175ml", selling: 90, mrp: 100},
+  {id: 40, name: "Colgate", qty: "200g", selling: 85, mrp: 95},
+  {id: 41, name: "Closeup", qty: "150g", selling: 70, mrp: 80},
+  {id: 42, name: "Ponds Cream", qty: "50g", selling: 75, mrp: 85},
+  {id: 43, name: "Surf Excel", qty: "1 KG", selling: 140, mrp: 155},
+  {id: 44, name: "Rin Powder", qty: "1 KG", selling: 95, mrp: 105},
+  {id: 45, name: "Tide", qty: "1 KG", selling: 130, mrp: 145},
+  {id: 46, name: "Ariel", qty: "1 KG", selling: 150, mrp: 165},
+  {id: 47, name: "Vim Bar", qty: "300g", selling: 25, mrp: 30},
+  {id: 48, name: "Harpic", qty: "500ml", selling: 85, mrp: 95},
+  {id: 49, name: "Lizol", qty: "500ml", selling: 75, mrp: 85},
+  {id: 50, name: "Good Knight", qty: "1 Pc", selling: 85, mrp: 95}
+];
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.getElementById('cart-count').innerText = cart.length;
+
+function renderProducts() {
+  const tbody = document.getElementById('productsTableBody');
+  tbody.innerHTML = '';
+  PRODUCTS.forEach(p => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><img src="https://via.placeholder.com/50x50/4CAF50/ffffff?text=${p.name.substring(0,2)}" alt="${p.name}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;"></td>
+      <td>${p.qty}</td>
+      <td>${p.name}</td>
+      <td><span class="mrp-price">MRP: ₹${p.mrp}</span><span class="selling-price">₹${p.selling}</span></td>
+      <td><button class="add-btn" onclick="addToCart('${p.name}', ${p.selling}, ${p.mrp})">+</button> <button class="remove-btn" onclick="removeFromCart('${p.name}', ${p.selling})">-</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function addToCart(name, sellingPrice, mrp) {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    alert('⚠️ Order करने के लिए पहले Login करें!');
+    showLogin();
+    return;
+  }
+  cart.push({name: name, price: sellingPrice, mrp: mrp});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  document.getElementById('cart-count').innerText = cart.length;
+  alert('✓ ' + name + ' added!');
+}
+
+function removeFromCart(name, price) {
+  const index = cart.findIndex(item => item.name === name && item.price === price);
+  if (index > -1) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart-count').innerText = cart.length;
+    alert('✗ ' + name + ' removed!');
+  } else {
+    alert('Item not in cart!');
+  }
+}
+
+function checkout() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    alert('⚠️ Order करने के लिए पहले Login करें!');
+    showLogin();
+    return;
+  }
+  if (cart.length === 0) {
+    alert('Cart खाली है! पहले products add करें।');
+    return;
+  }
+  let message = 'नमस्ते! मैं order करना चाहता/चाहती हूं:\n\n';
+  cart.forEach(item => {
+    message += `- ${item.name}: ₹${item.price} (MRP: ₹${item.mrp})\n`;
+  });
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  message += `\nTotal: ₹${total}`;
+  window.open(`https://wa.me/918298827509?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+function applyCoupon(code) {
+  localStorage.setItem('coupon', code);
+  alert('✅ Coupon ' + code + ' applied! Checkout par discount milega.');
+}
+
+// Login System
+var currentOTP = '';
+function showLogin() {
+  document.getElementById('loginModal').style.display = 'flex';
+  document.getElementById('otpSection').style.display = 'none';
+  document.getElementById('sendOtpBtn').style.display = 'block';
+}
+function closeLogin() {
+  document.getElementById('loginModal').style.display = 'none';
+  document.getElementById('phone').value = '';
+  document.getElementById('otp').value = '';
+}
+function sendOTP() {
+  var phone = document.getElementById('phone').value;
+  if(phone && phone.length >= 10) {
+    currentOTP = Math.floor(1000 + Math.random() * 9000).toString();
+    alert('OTP sent to ' + phone + '\n\nYour OTP is: ' + currentOTP + '\n\n(Demo mode - OTP shown here)');
+    document.getElementById('otpSection').style.display = 'block';
+    document.getElementById('sendOtpBtn').style.display = 'none';
+    document.getElementById('otpMessage').innerText = 'OTP sent! Check alert message';
+  } else {
+    alert('Valid phone number डालें!');
+  }
+}
+function verifyOTP() {
+  var enteredOTP = document.getElementById('otp').value;
+  var phone = document.getElementById('phone').value;
+  if(enteredOTP === currentOTP) {
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userPhone', phone);
+    alert('Login successful!');
+    closeLogin();
+    updateLoginButton();
+  } else {
+    alert('Invalid OTP! Try again');
+  }
+}
+function updateLoginButton() {
+  var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  var loginBtn = document.querySelector('.login-btn');
+  if(isLoggedIn) {
+    loginBtn.innerHTML = '✅ Logged In';
+    loginBtn.style.background = '#25D366';
+  }
+}
+
+// Load on page start
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  updateLoginButton();
+});
+</script>
+</body>
+</html>
