@@ -1,0 +1,743 @@
+
+<div class="offer-banner">
+  <h2>🎉 MEGA GROCERY SALE 🎉</h2>
+  <p>200+ Products | Up to 30% OFF | Free Delivery Above ₹1000</p>
+  <div style="background:rgba(255,255,255,0.2);padding:5px 15px;border-radius:20px;display:inline-block;margin-top:10px;font-size:12px;">Limited Time Offer!</div>
+</div>
+
+<div class="coupon-section">
+  <h3 style="text-align:center;color:var(--ar-primary);margin-bottom:10px;">🎁 Available Coupons</h3>
+  <div class="coupon-grid">
+    <div class="coupon-card" id="coupon-WELCOME50" onclick="applyCoupon('WELCOME50')">
+      <h3>🎉 New Customer</h3>
+      <p>Get ₹50 OFF on first order</p>
+      <div class="code">WELCOME50</div>
+    </div>
+    <div class="coupon-card" id="coupon-FESTIVE10" onclick="applyCoupon('FESTIVE10')">
+      <h3>💰 Festive Sale</h3>
+      <p>10% OFF on orders above ₹500</p>
+      <div class="code">FESTIVE10</div>
+    </div>
+    <div class="coupon-card" id="coupon-FREEDEL" onclick="applyCoupon('FREEDEL')">
+      <h3>🚚 Free Delivery</h3>
+      <p>On orders above ₹1000</p>
+      <div class="code">FREEDEL</div>
+    </div>
+  </div>
+  <p id="coupon-msg" style="text-align:center;color:#00C853;font-weight:bold;margin-top:10px;display:none;"></p>
+</div>
+
+<div class="hero">
+  <h1>स्वागत है आदर्श रिटेल्स में</h1>
+  <p>200+ Grocery Products at Best Prices</p>
+</div>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="🔍 Search 200+ products..." onkeyup="searchProducts()">
+</div>
+
+<section class="price-menu">
+  <h2>Our Complete Price List - 200 Products</h2>
+  
+  <div class="category-tabs">
+    <button class="cat-btn active" onclick="filterCategory('all')">All</button>
+    <button class="cat-btn" onclick="filterCategory('atta-rice')">Atta & Rice</button>
+    <button class="cat-btn" onclick="filterCategory('dal-oil')">Dal & Oil</button>
+    <button class="cat-btn" onclick="filterCategory('masala')">Masala</button>
+    <button class="cat-btn" onclick="filterCategory('snacks')">Snacks</button>
+    <button class="cat-btn" onclick="filterCategory('beverages')">Beverages</button>
+    <button class="cat-btn" onclick="filterCategory('personal')">Personal Care</button>
+    <button class="cat-btn" onclick="filterCategory('household')">Household</button>
+  </div>
+
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Qty</th>
+        <th>Product</th>
+        <th>MRP</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="productsTableBody">
+      <tr><td colspan="6" class="loading">Loading 200 Products...</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="contact-section">
+  <h2>📞 Contact Us</h2>
+  <a href="tel:+918298827509" class="contact-card">📱 Call: 8298827509</a>
+  <a href="https://wa.me/918298827509" class="contact-card">💬 WhatsApp: 8298827509</a>
+  <a href="mailto:adarshretails@gmail.com" class="contact-card">📧 Email: adarshretails@gmail.com</a>
+  <div class="contact-card">📍 Address: Near Uday Singh Petrol Pump, Glorious School Road, Daltonganj, Sudhanam</div>
+</section>
+
+
+
+<div class="offer-banner">
+  <h2>🎉 MEGA GROCERY SALE 🎉</h2>
+  <p>200+ Products | Up to 30% OFF | Free Delivery Above ₹1000</p>
+  <div style="background:rgba(255,255,255,0.2);padding:5px 15px;border-radius:20px;display:inline-block;margin-top:10px;font-size:12px;">Limited Time Offer!</div>
+</div>
+
+<div class="coupon-section">
+  <h3 style="text-align:center;color:var(--ar-primary);margin-bottom:10px;">🎁 Available Coupons</h3>
+  <div class="coupon-grid">
+    <div class="coupon-card" id="coupon-WELCOME50" onclick="applyCoupon('WELCOME50')">
+      <h3>🎉 New Customer</h3>
+      <p>Get ₹50 OFF on first order</p>
+      <div class="code">WELCOME50</div>
+    </div>
+    <div class="coupon-card" id="coupon-FESTIVE10" onclick="applyCoupon('FESTIVE10')">
+      <h3>💰 Festive Sale</h3>
+      <p>10% OFF on orders above ₹500</p>
+      <div class="code">FESTIVE10</div>
+    </div>
+    <div class="coupon-card" id="coupon-FREEDEL" onclick="applyCoupon('FREEDEL')">
+      <h3>🚚 Free Delivery</h3>
+      <p>On orders above ₹1000</p>
+      <div class="code">FREEDEL</div>
+    </div>
+  </div>
+  <p id="coupon-msg" style="text-align:center;color:#00C853;font-weight:bold;margin-top:10px;display:none;"></p>
+</div>
+
+<div class="hero">
+  <h1>स्वागत है आदर्श रिटेल्स में</h1>
+  <p>200+ Grocery Products at Best Prices</p>
+</div>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="🔍 Search 200+ products..." onkeyup="searchProducts()">
+</div>
+
+<section class="price-menu">
+  <h2>Our Complete Price List - 200 Products</h2>
+  
+  <div class="category-tabs">
+    <button class="cat-btn active" onclick="filterCategory('all')">All</button>
+    <button class="cat-btn" onclick="filterCategory('atta-rice')">Atta & Rice</button>
+    <button class="cat-btn" onclick="filterCategory('dal-oil')">Dal & Oil</button>
+    <button class="cat-btn" onclick="filterCategory('masala')">Masala</button>
+    <button class="cat-btn" onclick="filterCategory('snacks')">Snacks</button>
+    <button class="cat-btn" onclick="filterCategory('beverages')">Beverages</button>
+    <button class="cat-btn" onclick="filterCategory('personal')">Personal Care</button>
+    <button class="cat-btn" onclick="filterCategory('household')">Household</button>
+  </div>
+
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Qty</th>
+        <th>Product</th>
+        <th>MRP</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="productsTableBody">
+      <tr><td colspan="6" class="loading">Loading 200 Products...</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="contact-section">
+  <h2>📞 Contact Us</h2>
+  <a href="tel:+918298827509" class="contact-card">📱 Call: 8298827509</a>
+  <a href="https://wa.me/918298827509" class="contact-card">💬 WhatsApp: 8298827509</a>
+  <a href="mailto:adarshretails@gmail.com" class="contact-card">📧 Email: adarshretails@gmail.com</a>
+  <div class="contact-card">📍 Address: Near Uday Singh Petrol Pump, Glorious School Road, Daltonganj, Sudhanam</div>
+  </section>
+
+
+  
+<script>
+// 200 PRODUCTS DATABASE - MRP = Selling + 30%
+const PRODUCTS = [
+  // ATTA & RICE - 25 Items
+  {id: 1, name: "Aashirvaad Atta", qty: "5 KG", mrp: 299, selling: 230, cat: "atta-rice", img: "AT"},
+  {id: 2, name: "Aashirvaad Atta", qty: "10 KG", mrp: 585, selling: 450, cat: "atta-rice", img: "AT"},
+  {id: 3, name: "Fortune Chakki Atta", qty: "5 KG", mrp: 293, selling: 225, cat: "atta-rice", img: "FC"},
+  {id: 4, name: "Pillsbury Atta", qty: "5 KG", mrp: 306, selling: 235, cat: "atta-rice", img: "PA"},
+  {id: 5, name: "Basmati Rice", qty: "1 KG", mrp: 91, selling: 70, cat: "atta-rice", img: "BR"},
+  {id: 6, name: "Basmati Rice Premium", qty: "5 KG", mrp: 442, selling: 340, cat: "atta-rice", img: "BP"},
+  {id: 7, name: "India Gate Basmati", qty: "1 KG", mrp: 111, selling: 85, cat: "atta-rice", img: "IG"},
+  {id: 8, name: "Sona Masoori Rice", qty: "5 KG", mrp: 338, selling: 260, cat: "atta-rice", img: "SM"},
+  {id: 9, name: "Kolam Rice", qty: "5 KG", mrp: 312, selling: 240, cat: "atta-rice", img: "KR"},
+  {id: 10, name: "Ponni Rice", qty: "5 KG", mrp: 325, selling: 250, cat: "atta-rice", img: "PR"},
+  {id: 11, name: "Maida", qty: "1 KG", mrp: 46, selling: 35, cat: "atta-rice", img: "MD"},
+  {id: 12, name: "Besan", qty: "1 KG", mrp: 78, selling: 60, cat: "atta-rice", img: "BS"},
+  {id: 13, name: "Suji", qty: "1 KG", mrp: 52, selling: 40, cat: "atta-rice", img: "SJ"},
+  {id: 14, name: "Poha", qty: "500g", mrp: 39, selling: 30, cat: "atta-rice", img: "PH"},
+  {id: 15, name: "Daliya", qty: "500g", mrp: 46, selling: 35, cat: "atta-rice", img: "DL"},
+  {id: 16, name: "Sabudana", qty: "500g", mrp: 59, selling: 45, cat: "atta-rice", img: "SB"},
+  {id: 17, name: "Rajgira Atta", qty: "500g", mrp: 65, selling: 50, cat: "atta-rice", img: "RJ"},
+  {id: 18, name: "Singhara Atta", qty: "500g", mrp: 72, selling: 55, cat: "atta-rice", img: "SG"},
+  {id: 19, name: "Ragi Atta", qty: "1 KG", mrp: 78, selling: 60, cat: "atta-rice", img: "RG"},
+  {id: 20, name: "Jowar Atta", qty: "1 KG", mrp: 72, selling: 55, cat: "atta-rice", img: "JW"},
+  {id: 21, name: "Bajra Atta", qty: "1 KG", mrp: 65, selling: 50, cat: "atta-rice", img: "BJ"},
+  {id: 22, name: "Makka Atta", qty: "1 KG", mrp: 59, selling: 45, cat: "atta-rice", img: "MK"},
+  {id: 23, name: "Rice Flour", qty: "500g", mrp: 39, selling: 30, cat: "atta-rice", img: "RF"},
+  {id: 24, name: "Idli Rava", qty: "1 KG", mrp: 52, selling: 40, cat: "atta-rice", img: "IR"},
+  {id: 25, name: "Upma Rava", qty: "1 KG", mrp: 55, selling: 42, cat: "atta-rice", img: "UR"},
+  
+  // DAL & OIL - 25 Items
+  {id: 26, name: "Toor Dal", qty: "1 KG", mrp: 124, selling: 95, cat: "dal-oil", img: "TD"},
+  {id: 27, name: "Moong Dal", qty: "1 KG", mrp: 117, selling: 90, cat: "dal-oil", img: "MD"},
+  {id: 28, name: "Chana Dal", qty: "1 KG", mrp: 98, selling: 75, cat: "dal-oil", img: "CD"},
+  {id: 29, name: "Urad Dal", qty: "1 KG", mrp: 130, selling: 100, cat: "dal-oil", img: "UD"},
+  {id: 30, name: "Masoor Dal", qty: "1 KG", mrp: 104, selling: 80, cat: "dal-oil", img: "MS"},
+  {id: 31, name: "Rajma", qty: "1 KG", mrp: 143, selling: 110, cat: "dal-oil", img: "RJ"},
+  {id: 32, name: "Chole", qty: "1 KG", mrp: 124, selling: 95, cat: "dal-oil", img: "CH"},
+  {id: 33, name: "Lobia", qty: "500g", mrp: 78, selling: 60, cat: "dal-oil", img: "LB"},
+  {id: 34, name: "Moong Chilka", qty: "1 KG", mrp: 111, selling: 85, cat: "dal-oil", img: "MC"},
+  {id: 35, name: "Urad Chilka", qty: "1 KG", mrp: 124, selling: 95, cat: "dal-oil", img: "UC"},
+  {id: 36, name: "Fortune Refined Oil", qty: "1 LTR", mrp: 182, selling: 140, cat: "dal-oil", img: "FO"},
+  {id: 37, name: "Saffola Oil", qty: "1 LTR", mrp: 202, selling: 155, cat: "dal-oil", img: "SF"},
+  {id: 38, name: "Dhara Oil", qty: "1 LTR", mrp: 176, selling: 135, cat: "dal-oil", img: "DH"},
+  {id: 39, name: "Mustard Oil", qty: "1 LTR", mrp: 195, selling: 150, cat: "dal-oil", img: "MO"},
+  {id: 40, name: "Sunflower Oil", qty: "1 LTR", mrp: 189, selling: 145, cat: "dal-oil", img: "SO"},
+  {id: 41, name: "Groundnut Oil", qty: "1 LTR", mrp: 208, selling: 160, cat: "dal-oil", img: "GO"},
+  {id: 42, name: "Coconut Oil", qty: "500ml", mrp: 156, selling: 120, cat: "dal-oil", img: "CO"},
+  {id: 43, name: "Olive Oil", qty: "500ml", mrp: 455, selling: 350, cat: "dal-oil", img: "OO"},
+  {id: 44, name: "Ghee", qty: "500ml", mrp: 364, selling: 280, cat: "dal-oil", img: "GH"},
+  {id: 45, name: "Amul Ghee", qty: "1 LTR", mrp: 715, selling: 550, cat: "dal-oil", img: "AG"},
+  {id: 46, name: "Vanaspati", qty: "1 KG", mrp: 156, selling: 120, cat: "dal-oil", img: "VN"},
+  {id: 47, name: "Matar", qty: "500g", mrp: 65, selling: 50, cat: "dal-oil", img: "MT"},
+  {id: 48, name: "Soyabean", qty: "500g", mrp: 72, selling: 55, cat: "dal-oil", img: "SY"},
+  {id: 49, name: "Kabuli Chana", qty: "500g", mrp: 85, selling: 65, cat: "dal-oil", img: "KC"},
+  {id: 50, name: "Black Chana", qty: "500g", mrp: 59, selling: 45, cat: "dal-oil", img: "BC"},
+  
+  // MASALA - 25 Items
+  {id: 51, name: "Haldi Powder", qty: "100g", mrp: 33, selling: 25, cat: "masala", img: "HD"},
+  {id: 52, name: "Dhaniya Powder", qty: "100g", mrp: 39, selling: 30, cat: "masala", img: "DN"},
+  {id: 53, name: "Mirch Powder", qty: "100g", mrp: 46, selling: 35, cat: "masala", img: "MR"},
+  {id: 54, name: "Jeera", qty: "100g", mrp: 52, selling: 40, cat: "masala", img: "JR"},
+  {id: 55, name: "Rai", qty: "100g", mrp: 26, selling: 20, cat: "masala", img: "RI"},
+  {id: 56, name: "Methi", qty: "100g", mrp: 33, selling: 25, cat: "masala", img: "MT"},
+  {id: 57, name: "Ajwain", qty: "100g", mrp: 39, selling: 30, cat: "masala", img: "AJ"},
+  {id: 58, name: "Saunf", qty: "100g", mrp: 46, selling: 35, cat: "masala", img: "SF"},
+  {id: 59, name: "Kali Mirch", qty: "50g", mrp: 59, selling: 45, cat: "masala", img: "KM"},
+  {id: 60, name: "Laung", qty: "50g", mrp: 104, selling: 80, cat: "masala", img: "LG"},
+  {id: 61, name: "Elaichi", qty: "50g", mrp: 195, selling: 150, cat: "masala", img: "EL"},
+  {id: 62, name: "Dalchini", qty: "50g", mrp: 52, selling: 40, cat: "masala", img: "DC"},
+  {id: 63, name: "Tej Patta", qty: "50g", mrp: 26, selling: 20, cat: "masala", img: "TP"},
+  {id: 64, name: "Garam Masala", qty: "100g", mrp: 65, selling: 50, cat: "masala", img: "GM"},
+  {id: 65, name: "Kitchen King", qty: "100g", mrp: 59, selling: 45, cat: "masala", img: "KK"},
+  {id: 66, name: "Chaat Masala", qty: "100g", mrp: 52, selling: 40, cat: "masala", img: "CM"},
+  {id: 67, name: "Pav Bhaji Masala", qty: "100g", mrp: 59, selling: 45, cat: "masala", img: "PB"},
+  {id: 68, name: "Sambar Masala", qty: "100g", mrp: 52, selling: 40, cat: "masala", img: "SM"},
+  {id: 69, name: "Rasam Powder", qty: "100g", mrp: 46, selling: 35, cat: "masala", img: "RP"},
+  {id: 70, name: "Chicken Masala", qty: "100g", mrp: 65, selling: 50, cat: "masala", img: "CK"},
+  {id: 71, name: "Mutton Masala", qty: "100g", mrp: 72, selling: 55, cat: "masala", img: "MM"},
+  {id: 72, name: "Fish Masala", qty: "100g", mrp: 59, selling: 45, cat: "masala", img: "FM"},
+  {id: 73, name: "Biryani Masala", qty: "100g", mrp: 78, selling: 60, cat: "masala", img: "BM"},
+  {id: 74, name: "Tandoori Masala", qty: "100g", mrp: 65, selling: 50, cat: "masala", img: "TM"},
+  {id: 75, name: "Hing", qty: "50g", mrp: 78, selling: 60, cat: "masala", img: "HG"},
+  
+  // SNACKS - 25 Items
+  {id: 76, name: "Parle-G", qty: "800g", mrp: 91, selling: 70, cat: "snacks", img: "PG"},
+  {id: 77, name: "Britannia Marie", qty: "1 KG", mrp: 195, selling: 150, cat: "snacks", img: "BM"},
+  {id: 78, name: "Good Day", qty: "600g", mrp: 117, selling: 90, cat: "snacks", img: "GD"},
+  {id: 79, name: "Oreo", qty: "300g", mrp: 98, selling: 75, cat: "snacks", img: "OR"},
+  {id: 80, name: "Hide & Seek", qty: "400g", mrp: 111, selling: 85, cat: "snacks", img: "HS"},
+  {id: 81, name: "Bourbon", qty: "500g", mrp: 124, selling: 95, cat: "snacks", img: "BB"},
+  {id: 82, name: "Lays", qty: "90g", mrp: 62, selling: 48, cat: "snacks", img: "LY"},
+  {id: 83, name: "Kurkure", qty: "90g", mrp: 62, selling: 48, cat: "snacks", img: "KK"},
+  {id: 84, name: "Bingo", qty: "85g", mrp: 59, selling: 45, cat: "snacks", img: "BG"},
+  {id: 85, name: "Uncle Chips", qty: "60g", mrp: 39, selling: 30, cat: "snacks", img: "UC"},
+  {id: 86, name: "Haldiram Bhujia", qty: "400g", mrp: 124, selling: 95, cat: "snacks", img: "HB"},
+  {id: 87, name: "Haldiram Aloo Bhujia", qty: "400g", mrp: 117, selling: 90, cat: "snacks", img: "HA"},
+  {id: 88, name: "Haldiram Mixture", qty: "400g", mrp: 130, selling: 100, cat: "snacks", img: "HM"},
+  {id: 89, name: "Haldiram Moong Dal", qty: "200g", mrp: 65, selling: 50, cat: "snacks", img: "HD"},
+  {id: 90, name: "Haldiram Chana Dal", qty: "200g", mrp: 62, selling: 48, cat: "snacks", img: "HC"},
+  {id: 91, name: "Kurkure Masala", qty: "90g", mrp: 62, selling: 48, cat: "snacks", img: "KM"},
+  {id: 92, name: "Lays Magic Masala", qty: "90g", mrp: 62, selling: 48, cat: "snacks", img: "LM"},
+  {id: 93, name: "Bingo Mad Angles", qty: "85g", mrp: 59, selling: 45, cat: "snacks", img: "BM"},
+  {id: 94, name: "Pringles", qty: "107g", mrp: 156, selling: 120, cat: "snacks", img: "PR"},
+  {id: 95, name: "Monaco", qty: "400g", mrp: 91, selling: 70, cat: "snacks", img: "MN"},
+  {id: 96, name: "50-50", qty: "400g", mrp: 98, selling: 75, cat: "snacks", img: "FF"},
+  {id: 97, name: "Tiger", qty: "400g", mrp: 85, selling: 65, cat: "snacks", img: "TG"},
+  {id: 98, name: "Little Hearts", qty: "300g", mrp: 78, selling: 60, cat: "snacks", img: "LH"},
+  {id: 99, name: "Krackjack", qty: "400g", mrp: 91, selling: 70, cat: "snacks", img: "KJ"},
+  {id: 100, name: "NutriChoice", qty: "300g", mrp: 111, selling: 85, cat: "snacks", img: "NC"},
+  
+  // BEVERAGES - 25 Items
+  {id: 101, name: "Tata Tea", qty: "500g", mrp: 325, selling: 250, cat: "beverages", img: "TT"},
+  {id: 102, name: "Red Label", qty: "500g", mrp: 338, selling: 260, cat: "beverages", img: "RL"},
+  {id: 103, name: "Taj Mahal Tea", qty: "500g", mrp: 364, selling: 280, cat: "beverages", img: "TM"},
+  {id: 104, name: "Society Tea", qty: "500g", mrp: 351, selling: 270, cat: "beverages", img: "ST"},
+  {id: 105, name: "Wagh Bakri", qty: "500g", mrp: 312, selling: 240, cat: "beverages", img: "WB"},
+  {id: 106, name: "Bru Coffee", qty: "200g", mrp: 234, selling: 180, cat: "beverages", img: "BC"},
+  {id: 107, name: "Nescafe", qty: "200g", mrp: 260, selling: 200, cat: "beverages", img: "NC"},
+  {id: 108, name: "Sunrise Coffee", qty: "200g", mrp: 221, selling: 170, cat: "beverages", img: "SC"},
+  {id: 109, name: "Tata Coffee", qty: "200g", mrp: 228, selling: 175, cat: "beverages", img: "TC"},
+  {id: 110, name: "Green Tea", qty: "100g", mrp: 117, selling: 90, cat: "beverages", img: "GT"},
+  {id: 111, name: "Lipton Green Tea", qty: "100g", mrp: 124, selling: 95, cat: "beverages", img: "LG"},
+  {id: 112, name: "Tetley Green Tea", qty: "100g", mrp: 130, selling: 100, cat: "beverages", img: "TG"},
+  {id: 113, name: "Boost", qty: "500g", mrp: 286, selling: 220, cat: "beverages", img: "BS"},
+  {id: 114, name: "Horlicks", qty: "500g", mrp: 299, selling: 230, cat: "beverages", img: "HK"},
+  {id: 115, name: "Bournvita", qty: "500g", mrp: 312, selling: 240, cat: "beverages", img: "BV"},
+  {id: 116, name: "Complan", qty: "500g", mrp: 325, selling: 250, cat: "beverages", img: "CP"},
+  {id: 117, name: "Milo", qty: "400g", mrp: 273, selling: 210, cat: "beverages", img: "ML"},
+  {id: 118, name: "Coca Cola", qty: "2 LTR", mrp: 124, selling: 95, cat: "beverages", img: "CC"},
+  {id: 119, name: "Pepsi", qty: "2 LTR", mrp: 124, selling: 95, cat: "beverages", img: "PP"},
+  {id: 120, name: "Sprite", qty: "2 LTR", mrp: 124, selling: 95, cat: "beverages", img: "SP"},
+  {id: 121, name: "Thums Up", qty: "2 LTR", mrp: 124, selling: 95, cat: "beverages", img: "TU"},
+  {id: 122, name: "Fanta", qty: "2 LTR", mrp: 124, selling: 95, cat: "beverages", img: "FN"},
+  {id: 123, name: "Limca", qty: "2 LTR", mrp: 124, selling: 95, cat: "beverages", img: "LM"},
+  {id: 124, name: "Maaza", qty: "1.2 LTR", mrp: 91, selling: 70, cat: "beverages", img: "MZ"},
+  {id: 125, name: "Slice", qty: "1.2 LTR", mrp: 91, selling: 70, cat: "beverages", img: "SL"},
+  
+  // PERSONAL CARE - 25 Items
+  {id: 126, name: "Lux Soap", qty: "100g", mrp: 39, selling: 30, cat: "personal", img: "LX"},
+  {id: 127, name: "Dove Soap", qty: "100g", mrp: 59, selling: 45, cat: "personal", img: "DV"},
+  {id: 128, name: "Pears Soap", qty: "100g", mrp: 46, selling: 35, cat: "personal", img: "PS"},
+  {id: 129, name: "Lifebuoy Soap", qty: "125g", mrp: 46, selling: 35, cat: "personal", img: "LB"},
+  {id: 130, name: "Dettol Soap", qty: "125g", mrp: 52, selling: 40, cat: "personal", img: "DT"},
+  {id: 131, name: "Santoor Soap", qty: "100g", mrp: 39, selling: 30, cat: "personal", img: "SN"},
+  {id: 132, name: "Cinthol Soap", qty: "100g", mrp: 46, selling: 35, cat: "personal", img: "CT"},
+  {id: 133, name: "Mysore Sandal", qty: "125g", mrp: 65, selling: 50, cat: "personal", img: "MS"},
+  {id: 134, name: "Colgate", qty: "200g", mrp: 91, selling: 70, cat: "personal", img: "CG"},
+  {id: 135, name: "Closeup", qty: "150g", mrp: 85, selling: 65, cat: "personal", img: "CU"},
+  {id: 136, name: "Pepsodent", qty: "150g", mrp: 78, selling: 60, cat: "personal", img: "PD"},
+  {id: 137, name: "Sensodyne", qty: "150g", mrp: 130, selling: 100, cat: "personal", img: "SD"},
+  {id: 138, name: "Dabur Red", qty: "200g", mrp: 85, selling: 65, cat: "personal", img: "DR"},
+  {id: 139, name: "Clinic Plus", qty: "175ml", mrp: 91, selling: 70, cat: "personal", img: "CP"},
+  {id: 140, name: "Dove Shampoo", qty: "180ml", mrp: 130, selling: 100, cat: "personal", img: "DS"},
+  {id: 141, name: "Head & Shoulders", qty: "180ml", mrp: 143, selling: 110, cat: "personal", img: "HS"},
+  {id: 142, name: "Sunsilk", qty: "180ml", mrp: 111, selling: 85, cat: "personal", img: "SS"},
+  {id: 143, name: "Pantene", qty: "180ml", mrp: 124, selling: 95, cat: "personal", img: "PN"},
+  {id: 144, name: "Ponds Powder", qty: "200g", mrp: 91, selling: 70, cat: "personal", img: "PP"},
+  {id: 145, name: "Fair & Lovely", qty: "80g", mrp: 111, selling: 85, cat: "personal", img: "FL"},
+  {id: 146, name: "Vaseline", qty: "200ml", mrp: 104, selling: 80, cat: "personal", img: "VS"},
+  {id: 147, name: "Nivea Cream", qty: "200ml", mrp: 143, selling: 110, cat: "personal", img: "NV"},
+  {id: 148, name: "Coconut Hair Oil", qty: "500ml", mrp: 195, selling: 150, cat: "personal", img: "CO"},
+  {id: 149, name: "Dabur Amla Oil", qty: "300ml", mrp: 130, selling: 100, cat: "personal", img: "DA"},
+  {id: 150, name: "Bajaj Almond Oil", qty: "300ml", mrp: 156, selling: 120, cat: "personal", img: "BA"},
+  
+  // HOUSEHOLD - 25 Items
+  {id: 151, name: "Surf Excel", qty: "1 KG", mrp: 182, selling: 140, cat: "household", img: "SE"},
+  {id: 152, name: "Tide", qty: "1 KG", mrp: 169, selling: 130, cat: "household", img: "TD"},
+  {id: 153, name: "Rin", qty: "1 KG", mrp: 156, selling: 120, cat: "household", img: "RN"},
+  {id: 154, name: "Wheel", qty: "1 KG", mrp: 91, selling: 70, cat: "household", img: "WH"},
+  {id: 155, name: "Ariel", qty: "1 KG", mrp: 234, selling: 180, cat: "household", img: "AR"},
+  {id: 156, name: "Ghadi", qty: "1 KG", mrp: 85, selling: 65, cat: "household", img: "GD"},
+  {id: 157, name: "Nirma", qty: "1 KG", mrp: 78, selling: 60, cat: "household", img: "NR"},
+  {id: 158, name: "Vim Bar", qty: "300g", mrp: 26, selling: 20, cat: "household", img: "VB"},
+  {id: 159, name: "Vim Liquid", qty: "500ml", mrp: 78, selling: 60, cat: "household", img: "VL"},
+  {id: 160, name: "Exo Bar", qty: "300g", mrp: 23, selling: 18, cat: "household", img: "EB"},
+  {id: 161, name: "Pril Liquid", qty: "500ml", mrp: 85, selling: 65, cat: "household", img: "PL"},
+  {id: 162, name: "Harpic", qty: "500ml", mrp: 91, selling: 70, cat: "household", img: "HP"},
+  {id: 163, name: "Domex", qty: "500ml", mrp: 85, selling: 65, cat: "household", img: "DM"},
+  {id: 164, name: "Lizol", qty: "500ml", mrp: 78, selling: 60, cat: "household", img: "LZ"},
+  {id: 165, name: "Dettol Floor", qty: "500ml", mrp: 85, selling: 65, cat: "household", img: "DF"},
+  {id: 166, name: "Phenyl", qty: "500ml", mrp: 46, selling: 35, cat: "household", img: "PH"},
+  {id: 167, name: "Colin", qty: "500ml", mrp: 78, selling: 60, cat: "household", img: "CL"},
+  {id: 168, name: "Mr Muscle", qty: "500ml", mrp: 91, selling: 70, cat: "household", img: "MM"},
+  {id: 169, name: "Odonil", qty: "50g", mrp: 52, selling: 40, cat: "household", img: "OD"},
+  {id: 170, name: "Hit Spray", qty: "400ml", mrp: 156, selling: 120, cat: "household", img: "HT"},
+  {id: 171, name: "Mortien", qty: "400ml", mrp: 143, selling: 110, cat: "household", img: "MT"},
+  {id: 172, name: "Good Knight", qty: "45ml", mrp: 91, selling: 70, cat: "household", img: "GK"},
+  {id: 173, name: "All Out", qty: "45ml", mrp: 85, selling: 65, cat: "household", img: "AO"},
+  {id: 174, name: "Mortein Coil", qty: "10 pcs", mrp: 26, selling: 20, cat: "household", img: "MC"},
+  {id: 175, name: "Good Knight Coil", qty: "10 pcs", mrp: 29, selling: 22, cat: "household", img: "GC"},
+  
+  // EXTRA MIX - 25 Items
+  {id: 176, name: "Amul Milk", qty: "1 LTR", mrp: 65, selling: 50, cat: "beverages", img: "AM"},
+  {id: 177, name: "Amul Butter", qty: "500g", mrp: 260, selling: 200, cat: "dal-oil", img: "AB"},
+  {id: 178, name: "Amul Cheese", qty: "200g", mrp: 130, selling: 100, cat: "dal-oil", img: "AC"},
+  {id: 179, name: "Britannia Cake", qty: "300g", mrp: 52, selling: 40, cat: "snacks", img: "BC"},
+  {id: 180, name: "Kissan Jam", qty: "500g", mrp: 111, selling: 85, cat: "snacks", img: "KJ"},
+  {id: 181, name: "Maggi", qty: "560g", mrp: 98, selling: 75, cat: "snacks", img: "MG"},
+  {id: 182, name: "Yippee Noodles", qty: "400g", mrp: 65, selling: 50, cat: "snacks", img: "YN"},
+  {id: 183, name: "Top Ramen", qty: "400g", mrp: 59, selling: 45, cat: "snacks", img: "TR"},
+  {id: 184, name: "Knorr Soup", qty: "50g", mrp: 52, selling: 40, cat: "snacks", img: "KS"},
+  {id: 185, name: "MTR Ready Mix", qty: "200g", mrp: 85, selling: 65, cat: "snacks", img: "MR"},
+  {id: 186, name: "Chings Noodles", qty: "240g", mrp: 59, selling: 45, cat: "snacks", img: "CN"},
+  {id: 187, name: "Smith & Jones Pasta", qty: "500g", mrp: 78, selling: 60, cat: "snacks", img: "SJ"},
+    {id: 188, name: "Weikfield Pasta", qty: "500g", mrp: 72, selling: 55, cat: "snacks", img: "WP"},
+  {id: 189, name: "Kelloggs Corn Flakes", qty: "475g", mrp: 221, selling: 170, cat: "snacks", img: "KC"},
+  {id: 190, name: "Kelloggs Chocos", qty: "375g", mrp: 208, selling: 160, cat: "snacks", img: "KO"},
+  {id: 191, name: "Saffola Oats", qty: "1 KG", mrp: 234, selling: 180, cat: "atta-rice", img: "SO"},
+  {id: 192, name: "Quaker Oats", qty: "1 KG", mrp: 247, selling: 190, cat: "atta-rice", img: "QO"},
+  {id: 193, name: "Muesli", qty: "500g", mrp: 260, selling: 200, cat: "snacks", img: "MS"},
+  {id: 194, name: "Honey", qty: "500g", mrp: 195, selling: 150, cat: "snacks", img: "HN"},
+  {id: 195, name: "Kissan Sauce", qty: "500g", mrp: 85, selling: 65, cat: "snacks", img: "KS"},
+  {id: 196, name: "Maggi Sauce", qty: "500g", mrp: 91, selling: 70, cat: "snacks", img: "MS"},
+  {id: 197, name: "Funfoods Mayo", qty: "250g", mrp: 104, selling: 80, cat: "snacks", img: "FM"},
+  {id: 198, name: "Vinegar", qty: "500ml", mrp: 46, selling: 35, cat: "masala", img: "VG"},
+  {id: 199, name: "Soya Sauce", qty: "200ml", mrp: 52, selling: 40, cat: "masala", img: "SS"},
+  {id: 200, name: "Chilli Sauce", qty: "200ml", mrp: 46, selling: 35, cat: "masala", img: "CS"}
+];
+</script>
+
+
+
+<script>
+// ===== CONFIG =====
+const STORE_PHONE = "8298827509";
+const MIN_ORDER = 100;
+const DELIVERY_CHARGE = 30;
+const FREE_DELIVERY_ABOVE = 1000;
+
+const COUPONS = {
+  "WELCOME50": { type: "flat", value: 50, minOrder: 200, maxDiscount: 50, used: false },
+  "FESTIVE10": { type: "percent", value: 10, minOrder: 500, maxDiscount: 200, used: false },
+  "FREEDEL": { type: "free_delivery", value: 0, minOrder: 1000, maxDiscount: 30, used: false }
+};
+
+let cart = JSON.parse(localStorage.getItem('ar_cart')) || [];
+let currentCoupon = null;
+let currentCategory = 'all';
+let userProfile = JSON.parse(localStorage.getItem('ar_user')) || null;
+let currentOTP = null;
+let otpTimer = null;
+let tempPhone = null;
+
+// ===== LOGIN SYSTEM =====
+function showLogin() {
+  document.getElementById('loginModal').style.display = 'flex';
+  document.getElementById('phone').value = '';
+  document.getElementById('phoneError').textContent = '';
+  document.getElementById('otpSection').style.display = 'none';
+  document.getElementById('sendOtpBtn').style.display = 'block';
+}
+
+function closeLogin() {
+  document.getElementById('loginModal').style.display = 'none';
+  clearInterval(otpTimer);
+}
+
+function sendOTP() {
+  const phone = document.getElementById('phone').value.trim();
+  const phoneError = document.getElementById('phoneError');
+
+  if(!/^[6-9]\d{9}$/.test(phone)) {
+    phoneError.textContent = 'Please enter valid 10-digit mobile number';
+    return;
+  }
+
+  phoneError.textContent = '';
+  tempPhone = phone;
+  currentOTP = Math.floor(1000 + Math.random() * 9000).toString();
+
+  document.getElementById('otpSection').style.display = 'block';
+  document.getElementById('sendOtpBtn').style.display = 'none';
+  document.getElementById('otpMessage').textContent = `OTP sent to ${phone}: ${currentOTP}`;
+
+  startOTPTimer();
+}
+
+function startOTPTimer() {
+  let timeLeft = 30;
+  document.getElementById('resendLink').style.display = 'none';
+  document.getElementById('resendTimer').textContent = `Resend in ${timeLeft}s`;
+
+  otpTimer = setInterval(() => {
+    timeLeft--;
+    document.getElementById('resendTimer').textContent = `Resend in ${timeLeft}s`;
+    if(timeLeft <= 0) {
+      clearInterval(otpTimer);
+      document.getElementById('resendTimer').textContent = '';
+      document.getElementById('resendLink').style.display = 'inline';
+    }
+  }, 1000);
+}
+
+function resendOTP() {
+  sendOTP();
+}
+
+function verifyOTP() {
+  const enteredOTP = document.getElementById('otp').value.trim();
+
+  if(enteredOTP === currentOTP) {
+    userProfile = {
+      phone: tempPhone,
+      name: `User ${tempPhone.slice(-4)}`,
+      photo: `https://via.placeholder.com/80/6A1B9A/FFC107?text=${tempPhone.slice(-2)}`,
+      joinDate: new Date().toISOString()
+    };
+    localStorage.setItem('ar_user', JSON.stringify(userProfile));
+    updateLoginUI();
+    closeLogin();
+    showNotification('✅ Login Successful!');
+  } else {
+    document.getElementById('otpMessage').textContent = '❌ Invalid OTP';
+    document.getElementById('otpMessage').style.color = '#f44336';
+  }
+}
+
+function updateLoginUI() {
+  if(userProfile) {
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('profileBox').style.display = 'flex';
+    document.getElementById('userName').textContent = userProfile.name;
+    document.getElementById('userPhoto').src = userProfile.photo;
+    document.getElementById('loginStatus').textContent = `Welcome, ${userProfile.name}`;
+  } else {
+    document.getElementById('loginBtn').style.display = 'block';
+    document.getElementById('profileBox').style.display = 'none';
+    document.getElementById('loginStatus').textContent = 'Not Logged In';
+  }
+}
+
+function showProfile() {
+  if(!userProfile) return;
+  document.getElementById('profileModal').style.display = 'flex';
+  document.getElementById('modalName').textContent = userProfile.name;
+  document.getElementById('modalPhone').textContent = userProfile.phone;
+  document.getElementById('modalPhoto').src = userProfile.photo;
+  showTab('profile');
+}
+
+function closeProfile() {
+  document.getElementById('profileModal').style.display = 'none';
+}
+
+function showTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  if(tab === 'profile') {
+    document.getElementById('profileTab').style.display = 'block';
+    document.getElementById('ordersTab').style.display = 'none';
+  } else {
+    document.getElementById('profileTab').style.display = 'none';
+    document.getElementById('ordersTab').style.display = 'block';
+    loadOrders();
+  }
+}
+
+function uploadPhoto() {
+  const file = document.getElementById('photoUpload').files[0];
+  if(!file) {
+    alert('Please select a photo');
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    userProfile.photo = e.target.result;
+    localStorage.setItem('ar_user', JSON.stringify(userProfile));
+    document.getElementById('modalPhoto').src = e.target.result;
+    document.getElementById('userPhoto').src = e.target.result;
+    showNotification('✅ Photo Updated!');
+  };
+  reader.readAsDataURL(file);
+}
+
+function logout() {
+  if(confirm('Are you sure you want to logout?')) {
+    localStorage.removeItem('ar_user');
+    userProfile = null;
+    updateLoginUI();
+    closeProfile();
+    showNotification('✅ Logged out successfully');
+  }
+}
+
+function loadOrders() {
+  const orders = JSON.parse(localStorage.getItem('ar_orders')) || [];
+  const ordersList = document.getElementById('ordersList');
+
+  if(orders.length === 0) {
+    ordersList.innerHTML = '<p style="text-align:center;color:#999;">No orders yet</p>';
+    return;
+  }
+
+  ordersList.innerHTML = orders.map(order => `
+    <div class="order-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <strong>Order #${order.id}</strong>
+        <span class="order-status status-${order.status}">${order.status.toUpperCase()}</span>
+      </div>
+      <p style="font-size:12px;color:#666;">${new Date(order.date).toLocaleString()}</p>
+      <p style="margin:8px 0;"><strong>Total: ₹${order.total}</strong></p>
+      <p style="font-size:11px;">Items: ${order.items.length}</p>
+    </div>
+  `).join('');
+}
+
+// ===== COUPON SYSTEM =====
+function applyCoupon(code) {
+  const coupon = COUPONS[code];
+  const card = document.getElementById(`coupon-${code}`);
+  const msg = document.getElementById('coupon-msg');
+
+  if(coupon.used) {
+    msg.textContent = '❌ Coupon already used';
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 2000);
+    return;
+  }
+
+  const cartTotal = cart.reduce((sum, item) => sum + (item.selling * item.qty), 0);
+
+  if(cartTotal < coupon.minOrder) {
+    msg.textContent = `❌ Minimum order ₹${coupon.minOrder} required`;
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 2000);
+    return;
+  }
+
+  currentCoupon = code;
+  card.classList.add('used');
+  coupon.used = true;
+
+  let discount = 0;
+  if(coupon.type === 'flat') discount = coupon.value;
+  else if(coupon.type === 'percent') discount = Math.min(cartTotal * coupon.value / 100, coupon.maxDiscount);
+  else if(coupon.type === 'free_delivery') discount = DELIVERY_CHARGE;
+
+  msg.textContent = `✅ Coupon Applied! You saved ₹${discount}`;
+  msg.style.display = 'block';
+
+  updateCartCount();
+}
+
+// ===== PRODUCT DISPLAY =====
+function renderProducts() {
+  const tbody = document.getElementById('productsTableBody');
+  const filtered = currentCategory === 'all'? PRODUCTS : PRODUCTS.filter(p => p.cat === currentCategory);
+
+  tbody.innerHTML = filtered.map(p => {
+    const cartItem = cart.find(item => item.id === p.id);
+    const qty = cartItem? cartItem.qty : 0;
+    const discount = Math.round(((p.mrp - p.selling) / p.mrp) * 100);
+
+    return `
+    <tr>
+      <td><img src="https://via.placeholder.com/45/6A1B9A/FFC107?text=${p.img}" alt="${p.name}"></td>
+      <td style="font-size:10px;">${p.qty}</td>
+      <td style="font-size:11px;font-weight:500;">${p.name}</td>
+      <td><span class="mrp-price">₹${p.mrp}</span></td>
+      <td>
+        <span class="selling-price">₹${p.selling}</span>
+        <span class="discount-badge">${discount}% OFF</span>
+      </td>
+      <td>
+        <div class="btn-group">
+          ${qty > 0? `<button class="remove-btn" onclick="removeFromCart(${p.id})">-</button>` : ''}
+          <button class="add-btn" onclick="addToCart(${p.id})">${qty > 0? qty : 'Add'}</button>
+        </div>
+      </td>
+    </tr>
+  `}).join('');
+}
+
+function filterCategory(cat) {
+  currentCategory = cat;
+  document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  renderProducts();
+}
+
+function searchProducts() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const tbody = document.getElementById('productsTableBody');
+
+  if(!query) {
+    renderProducts();
+    return;
+  }
+
+  const filtered = PRODUCTS.filter(p =>
+    p.name.toLowerCase().includes(query) ||
+    p.cat.toLowerCase().includes(query)
+  );
+
+  tbody.innerHTML = filtered.map(p => {
+    const cartItem = cart.find(item => item.id === p.id);
+    const qty = cartItem? cartItem.qty : 0;
+    const discount = Math.round(((p.mrp - p.selling) / p.mrp) * 100);
+
+    return `
+    <tr>
+      <td><img src="https://via.placeholder.com/45/6A1B9A/FFC107?text=${p.img}" alt="${p.name}"></td>
+      <td style="font-size:10px;">${p.qty}</td>
+      <td style="font-size:11px;font-weight:500;">${p.name}</td>
+      <td><span class="mrp-price">₹${p.mrp}</span></td>
+      <td>
+        <span class="selling-price">₹${p.selling}</span>
+        <span class="discount-badge">${discount}% OFF</span>
+      </td>
+      <td>
+        <div class="btn-group">
+          ${qty > 0? `<button class="remove-btn" onclick="removeFromCart(${p.id})">-</button>` : ''}
+          <button class="add-btn" onclick="addToCart(${p.id})">${qty > 0? qty : 'Add'}</button>
+        </div>
+      </td>
+    </tr>
+  `}).join('');
+}
+
+// ===== CART FUNCTIONS =====
+function addToCart(id) {
+  const product = PRODUCTS.find(p => p.id === id);
+  const existing = cart.find(item => item.id === id);
+
+  if(existing) {
+    existing.qty++;
+  } else {
+    cart.push({...product, qty: 1});
+  }
+
+  localStorage.setItem('ar_cart', JSON.stringify(cart));
+  updateCartCount();
+  renderProducts();
+}
+
+function removeFromCart(id) {
+  const existing = cart.find(item => item.id === id);
+
+  if(existing) {
+    existing.qty--;
+    if(existing.qty <= 0) {
+      cart = cart.filter(item => item.id!== id);
+    }
+  }
+
+  localStorage.setItem('ar_cart', JSON.stringify(cart));
+  updateCartCount();
+  renderProducts();
+}
+
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+}
+
+function checkout() {
+  if(cart.length === 0) {
+    showNotification('❌ Cart is empty');
+    return;
+  }
+  window.location.href = 'cart.html';
+}
+
+function showNotification(msg) {
+  const div = document.createElement('div');
+  div.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--ar-gradient);color:white;padding:12px 25px;border-radius:25px;z-index:9999;font-weight:bold;box-shadow:0 5px 20px rgba(0,0,0,0.3);';
+  div.textContent = msg;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 2000);
+}
+
+// ===== INIT =====
+window.onload = function() {
+  updateLoginUI();
+  updateCartCount();
+  renderProducts();
+};
+</script>
+
+
+
+</body>
+</html>
