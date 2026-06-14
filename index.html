@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आदर्श रिटेल्स - Online Grocery | Daltenganj, Palamu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .mrp { text-decoration: line-through; color: #ef4444; font-size: 0.8rem; }
+        .save-badge { background: #dcfce7; color: #16a34a; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; }
+        .whatsapp-float { position: fixed; bottom: 80px; right: 20px; z-index: 100; }
+        .category-btn.active { background: #7c3aed; color: white; }
+        #cart-modal { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 pb-24">
+
+    <!-- Top Strip -->
+    <div class="bg-green-600 text-white text-center text-xs py-1 px-2">
+        🚚 Free Delivery above ₹499 | 💰 COD + UPI | ⏰ Same Day Delivery in Daltenganj
+    </div>
+
+    <!-- Header -->
+    <header class="bg-purple-700 text-white p-3 sticky top-0 z-10 shadow-md">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="bg-yellow-400 text-purple-800 font-bold px-2 py-1 rounded text-sm">AR</span>
+                <div>
+                    <h1 class="text-lg font-bold leading-tight">आदर्श रिटेल्स</h1>
+                    <p class="text-xs opacity-90">Palamu ka Bharosemand Kirana</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="tel:8298827509" class="bg-blue-500 px-2 py-1 rounded text-sm"><i class="fa fa-phone"></i></a>
+                <div class="relative cursor-pointer" onclick="openCart()">
+                    <i class="fa fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="p-3">
+        <!-- Location -->
+        <div class="bg-purple-100 p-2 rounded-lg mb-3 text-xs">
+            <i class="fa fa-map-marker-alt text-purple-700"></i> 
+            <span class="font-medium">Delivering to: Sudhna, Daltenganj, Palamu</span>
+        </div>
+        
+        <!-- Search -->
+        <div class="relative mb-3">
+            <input type="text" id="search" oninput="filterProducts()" placeholder="🔍 Atta, Chawal, Tel khoje..." class="w-full p-3 border-2 border-purple-700 rounded-full pl-4 text-sm">
+        </div>
+
+        <!-- Category Chips -->
+        <div id="category-list" class="flex gap-2 overflow-x-auto pb-3 mb-2">
+            <button onclick="filterCategory('All')" class="category-btn active px-4 py-1 rounded-full text-sm whitespace-nowrap">All</button>
+            <button onclick="filterCategory('Atta & Rice')" class="category-btn bg-gray-200 px-4 py-1 rounded-full text-sm whitespace-nowrap">Atta & Rice</button>
+            <button onclick="filterCategory('Dal & Pulses')" class="category-btn bg-gray-200 px-4 py-1 rounded-full text-sm whitespace-nowrap">Dal & Pulses</button>
+            <button onclick="filterCategory('Oil & Ghee')" class="category-btn bg-gray-200 px-4 py-1 rounded-full text-sm whitespace-nowrap">Oil & Ghee</button>
+            <button onclick="filterCategory('Masale')" class="category-btn bg-gray-200 px-4 py-1 rounded-full text-sm whitespace-nowrap">Masale</button>
+            <button onclick="filterCategory('Dairy')" class="category-btn bg-gray-200 px-4 py-1 rounded-full text-sm whitespace-nowrap">Dairy</button>
+            <button onclick="filterCategory('Snacks')" class="category-btn bg-gray-200 px-4 py-1 rounded-full text-sm whitespace-nowrap">Snacks</button>
+            <button onclick="filterCategory('Home Care')" class="category-btn bg-gray-200 px-4 py-1 rounded-full text-sm whitespace-nowrap">Home Care</button>
+        </div>
+
+        <!-- Product List -->
+        <div id="product-list" class="space-y-2"></div>
+    </main>
+
+    <!-- CART MODAL - NAYA ADDED -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white h-full w-full max-w-md ml-auto flex-col">
+            <div class="bg-purple-700 text-white p-4 flex justify-between items-center">
+                <h2 class="text-lg font-bold"><i class="fa fa-shopping-cart"></i> My Cart</h2>
+                <button onclick="closeCart()" class="text-2xl">&times;</button>
+            </div>
+            <div id="cart-items" class="flex-1 overflow-y-auto p-3 space-y-2">
+                <!-- Cart items yahan aayenge -->
+            </div>
+            <div class="border-t p-4 bg-gray-50">
+                <div class="flex justify-between mb-2 text-sm">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal" class="font-bold">₹0</span>
+                </div>
+                <div class="flex justify-between mb-3 text-sm">
+                    <span>Delivery:</span>
+                    <span id="cart-delivery" class="font-bold text-green-600">FREE</span>
+                </div>
+                <div class="flex justify-between mb-4 text-lg">
+                    <span class="font-bold">Total:</span>
+                    <span id="cart-total" class="font-bold text-purple-700">₹0</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold">
+                    Checkout on WhatsApp <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/918298827509?text=Namaste%20Adarsh%20Retails%2C%20mujhe%20order%20karna%20hai" 
+       class="whatsapp-float bg-green-500 text-white p-3 rounded-full shadow-lg">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Sticky Checkout -->
+    <div id="checkout-bar" class="fixed bottom-0 left-0 right-0 bg-white p-3 shadow-lg border-t hidden">
+        <button onclick="openCart()" class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold flex justify-between items-center px-4">
+            <span id="cart-summary">0 Items | ₹0</span>
+            <span>View Cart <i class="fa fa-arrow-right"></i></span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-xs p-4 mt-6">
+        <h3 class="font-bold text-sm mb-2">आदर्श रिटेल्स</h3>
+        <p class="mb-1"><i class="fa fa-map-marker-alt"></i> Near Uday Singh Petrol Pump, Glorious School Road, Sudhna, Daltenganj, Palamu, Jharkhand - 822101</p>
+        <p class="mb-1"><i class="fa fa-phone"></i> 8298827509 | <i class="fa fa-clock"></i> 8 AM - 9 PM Daily</p>
+        <div class="mt-3 pt-2 border-t border-gray-700">
+            <p class="font-bold mb-1">Our Facilities:</p>
+            <p>✓ Free Home Delivery ✓ Cash on Delivery ✓ UPI Payment ✓ Fresh Stock ✓ Best Price</p>
+        </div>
+    </footer>
+
+<script>
+const products = [
+    {id: 1, name: "Aashirvaad Shudh Chakki Atta", unit: "5 KG", price: 235, mrp: 260, img: "https://m.media-amazon.com/images/I/61+Q6RhVwqL.jpg", cat: "Atta & Rice"},
+    {id: 2, name: "Fortune Rozana Basmati Rice", unit: "1 KG", price: 98, mrp: 115, img: "https://m.media-amazon.com/images/I/81rL3eGH8TL.jpg", cat: "Atta & Rice"},
+    {id: 3, name: "Patanjali Whole Wheat Atta", unit: "10 KG", price: 420, mrp: 460, img: "https://m.media-amazon.com/images/I/61bkm6wR-PL.jpg", cat: "Atta & Rice"},
+    {id: 4, name: "Tata Sampann Toor Dal", unit: "1 KG", price: 165, mrp: 185, img: "https://m.media-amazon.com/images/I/61fZ+YAYyFL.jpg", cat: "Dal & Pulses"},
+    {id: 5, name: "Fortune Moong Dal", unit: "500 G", price: 82, mrp: 95, img: "https://m.media-amazon.com/images/I/71gC5sKS2jL.jpg", cat: "Dal & Pulses"},
+    {id: 6, name: "Rajma Chitra", unit: "1 KG", price: 145, mrp: 160, img: "https://m.media-amazon.com/images/I/61nJc2fQZPL.jpg", cat: "Dal & Pulses"},
+    {id: 7, name: "Fortune Soya Health Oil", unit: "1 L", price: 142, mrp: 165, img: "https://m.media-amazon.com/images/I/61rqERhBgwL.jpg", cat: "Oil & Ghee"},
+    {id: 8, name: "Amul Pure Ghee", unit: "500 ML", price: 310, mrp: 335, img: "https://m.media-amazon.com/images/I/61q5qYxFhXL.jpg", cat: "Oil & Ghee"},
+    {id: 9, name: "Dhara Mustard Oil", unit: "1 L", price: 155, mrp: 175, img: "https://m.media-amazon.com/images/I/61q5qYxFhXL.jpg", cat: "Oil & Ghee"},
+    {id: 10, name: "Tata Salt", unit: "1 KG", price: 28, mrp: 30, img: "https://m.media-amazon.com/images/I/61yFhlT3yDL.jpg", cat: "Masale"},
+    {id: 11, name: "MDH Kitchen King", unit: "100 G", price: 75, mrp: 85, img: "https://m.media-amazon.com/images/I/61vK5GqXwPL.jpg", cat: "Masale"},
+    {id: 12, name: "Everest Garam Masala", unit: "100 G", price: 82, mrp: 90, img: "https://m.media-amazon.com/images/I/71sOqKj5eTL.jpg", cat: "Masale"},
+    {id: 13, name: "Amul Taaza Milk", unit: "500 ML", price: 28, mrp: 30, img: "https://m.media-amazon.com/images/I/61jLbqZqE6L.jpg", cat: "Dairy"},
+    {id: 14, name: "Amul Butter", unit: "100 G", price: 58, mrp: 62, img: "https://m.media-amazon.com/images/I/61Yj3bL2YPL.jpg", cat: "Dairy"},
+    {id: 15, name: "Parle-G Biscuit", unit: "800 G", price: 90, mrp: 100, img: "https://m.media-amazon.com/images/I/61KQlk2QJGL.jpg", cat: "Snacks"},
+    {id: 16, name: "Haldiram Bhujia", unit: "400 G", price: 95, mrp: 110, img: "https://m.media-amazon.com/images/I/71pvvjWvQtL.jpg", cat: "Snacks"},
+    {id: 17, name: "Surf Excel Easy Wash", unit: "1 KG", price: 135, mrp: 155, img: "https://m.media-amazon.com/images/I/61Lr6jKqYQL.jpg", cat: "Home Care"},
+    {id: 18, name: "Vim Dishwash Bar", unit: "300 G x 3", price: 45, mrp: 55, img: "https://m.media-amazon.com/images/I/61jK5YqE7KL.jpg", cat: "Home Care"},
+];
+
+let cart = {};
+let currentCategory = 'All';
+
+function renderProducts() {
+    const searchText = document.getElementById('search').value.toLowerCase();
+    const list = document.getElementById('product-list');
+    
+    const filtered = products.filter(p => {
+        const matchCat = currentCategory === 'All' || p.cat === currentCategory;
+        const matchSearch = p.name.toLowerCase().includes(searchText);
+        return matchCat && matchSearch;
+    });
+
+    if(filtered.length === 0) {
+        list.innerHTML = '<p class="text-center text-gray-500 py-8">Koi product nahi mila 😔</p>';
+        return;
+    }
+
+    list.innerHTML = filtered.map(p => `
+        <div class="bg-white rounded-lg shadow p-3 flex gap-3">
+            <img src="${p.img}" alt="${p.name}" class="w-16 h-16 object-cover rounded border">
+            <div class="flex-1">
+                <p class="font-medium text-sm">${p.name}</p>
+                <p class="text-xs text-gray-500">${p.unit}</p>
+                <div class="flex items-center gap-2 mt-1">
+                    <p class="font-bold text-purple-700">₹${p.price}</p>
+                    <p class="mrp">₹${p.mrp}</p>
+                    <span class="save-badge">Save ₹${p.mrp - p.price}</span>
+                </div>
+            <div class="flex items-center gap-1">
+                <button onclick="updateCart(${p.id}, -1)" class="bg-red-500 text-white w-7 h-7 rounded-full disabled:opacity-30" ${!cart[p.id] ? 'disabled' : ''}>-</button>
+                <span class="w-6 text-center font-bold">${cart[p.id] || 0}</span>
+                <button onclick="updateCart(${p.id}, 1)" class="bg-green-500 text-white w-7 h-7 rounded-full">+</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function updateCart(id, change) {
+    cart[id] = (cart[id] || 0) + change;
+    if (cart[id] <= 0) delete cart[id];
+    updateCartUI();
+    renderProducts();
+    renderCartModal();
+}
+
+function updateCartUI() {
+    const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
+    const totalPrice = Object.keys(cart).reduce((sum, id) => {
+        const p = products.find(x => x.id == id);
+        return sum + p.price * cart[id];
+    }, 0);
+    
+    const countEl = document.getElementById('cart-count');
+    const barEl = document.getElementById('checkout-bar');
+    
+    if (totalItems > 0) {
+        countEl.textContent = totalItems;
+        countEl.classList.remove('hidden');
+        barEl.classList.remove('hidden');
+        document.getElementById('cart-summary').textContent = `${totalItems} Items | ₹${totalPrice}`;
+    } else {
+        countEl.classList.add('hidden');
+        barEl.classList.add('hidden');
+    }
+}
+
+function openCart() {
+    renderCartModal();
+    document.getElementById('cart-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+    document.getElementById('cart-modal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+function renderCartModal() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    const cartIds = Object.keys(cart);
+    
+    if(cartIds.length === 0) {
+        cartItemsDiv.innerHTML = '<div class="text-center text-gray-500 py-16"><i class="fa fa-shopping-cart text-4xl mb-3"></i><p>Cart khali hai</p><p class="text-xs mt-2">Products add karo</p></div>';
+        document.getElementById('cart-subtotal').textContent = '₹0';
+        document.getElementById('cart-total').textContent = '₹0';
+        return;
+    }
+
+    let subtotal = 0;
+    cartItemsDiv.innerHTML = cartIds.map(id => {
+        const p = products.find(x => x.id == id);
+        const qty = cart[id];
+        const itemTotal = p.price * qty;
+        subtotal += itemTotal;
+        
+        return `
+            <div class="bg-gray-50 rounded-lg p-3 flex gap-3">
+                <img src="${p.img}" alt="${p.name}" class="w-14 h-14 object-cover rounded border">
+                <div class="flex-1">
+                    <p class="font-medium text-sm">${p.name}</p>
+                    <p class="text-xs text-gray-500">${p.unit}</p>
+                    <p class="font-bold text-purple-700 mt-1">₹${p.price} x ${qty} = ₹${itemTotal}</p>
+                </div>
+                <div class="flex flex-col gap-1 items-center">
+                    <button onclick="updateCart(${p.id}, 1)" class="bg-green-500 text-white w-6 h-6 rounded text-xs">+</button>
+                    <span class="font-bold text-sm">${qty}</span>
+                    <button onclick="updateCart(${p.id}, -1)" class="bg-red-500 text-white w-6 h-6 rounded text-xs">-</button>
+                    <button onclick="removeFromCart(${p.id})" class="text-red-500 text-xs mt-1"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    const delivery = subtotal >= 499 ? 0 : 40;
+    document.getElementById('cart-subtotal').textContent = `₹${subtotal}`;
+    document.getElementById('cart-delivery').textContent = delivery === 0 ? 'FREE' : `₹${delivery}`;
+    document.getElementById('cart-delivery').className = delivery === 0 ? 'font-bold text-green-600' : 'font-bold';
+    document.getElementById('cart-total').textContent = `₹${subtotal + delivery}`;
+}
+
+function removeFromCart(id) {
+    delete cart[id];
+    updateCartUI();
+    renderProducts();
+    renderCartModal();
+}
+
+function filterCategory(cat) {
+    currentCategory = cat;
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.textContent === cat) btn.classList.add('active');
+    });
+    renderProducts();
+}
+
+function filterProducts() { renderProducts(); }
+
+function checkoutWhatsApp() {
+    let msg = `*New Order - आदर्श रिटेल्स*%0A*Daltenganj, Palamu*%0A%0A`;
+    let total = 0;
+    Object.keys(cart).forEach(id => {
+        const p = products.find(x => x.id == id);
+        const subtotal = p.price * cart[id];
+        total += subtotal;
+        msg += `• ${p.name} ${p.unit} x ${cart[id]} = ₹${subtotal}%0A`;
+    });
+    const delivery = total >= 499 ? 0 : 40;
+    msg += `%0A*Subtotal: ₹${total}*%0A`;
+    msg += `*Delivery: ${delivery === 0 ? 'FREE' : '₹' + delivery}*%0A`;
+    msg += `*Total Amount: ₹${total + delivery}*%0A%0A`;
+    msg += `*Delivery Address:*%0A[Apna pura address + landmark likhein]%0A%0A`;
+    msg += `*Payment:* COD / UPI%0A`;
+    msg += `*Mobile:* 8298827509`;
+    
+    window.open(`https://wa.me/918298827509?text=${msg}`, '_blank');
+    closeCart();
+}
+
+renderProducts();
+</script>
+</body>
+</html>
