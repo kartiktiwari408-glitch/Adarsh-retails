@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>Adarsh Web - Admin Panel</title>
+<style>
+  body{font-family:Arial,sans-serif;background:#f5f5f5;padding:20px}
+  h2{color:#2563eb}
+  table{width:100%;background:white;border-collapse:collapse;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+  th,td{border:1px solid #ddd;padding:12px;text-align:left}
+  th{background:#2563eb;color:white}
+  select{padding:5px;border-radius:5px}
+  .new{color:green;font-weight:bold}
+</style>
+</head>
+<body>
+<h2>📋 Adarsh Web - Saare Leads</h2>
+<button onclick="loadData()">🔄 Refresh</button>
+<br><br>
+<table id="leadsTable">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Naam</th>
+    <th>Phone</th>
+    <th>Business</th>
+    <th>Message</th>
+    <th>Status</th>
+  </tr>
+</table>
+
+<script>
+// Yaha tumhari Supabase ki detail
+const URL = 'https://pjkjmhyyqjtbgbxhgaif.supabase.co';
+const KEY = 'sb_publishable_Jbobx21kieaYH8fHyAOlCg_lcSgjAqf';
+
+// Saare leads load karne ka function
+function loadData(){
+  fetch(URL+'/rest/v1/adarshwebdesigner?order=created_at.desc',{
+    headers:{apikey:KEY, Authorization:'Bearer '+KEY}
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    let table = document.getElementById('leadsTable');
+    table.innerHTML = `<tr>
+      <th>ID</th><th>Date</th><th>Naam</th><th>Phone</th><th>Business</th><th>Message</th><th>Status</th>
+    </tr>`;
+    
+    data.forEach(x=>{
+      table.innerHTML += `<tr>
+        <td>${x.id}</td>
+        <td>${new Date(x.created_at).toLocaleString('hi-IN')}</td>
+        <td>${x.name || '-'}</td>
+        <td>${x.phone || '-'}</td>
+        <td>${x.business || '-'}</td>
+        <td>${x.text || '-'}</td>
+        <td>
+          <select onchange="updateStatus(${x.id}, this.value)">
+            <option ${x.status=='New'?'selected':''}>New</option>
+            <option ${x.status=='Contacted'?'selected':''}>Contacted</option>
+            <option ${x.status=='Done'?'selected':''}>Done</option>
+          </select>
+        </td>
+      </tr>`
+    })
+  })
+}
+
+function updateStatus(id, status){
+  fetch(URL+'/rest/v1/adarshwebdesigner?id=eq.'+id,{
+    method:'PATCH',
+    headers:{apikey:KEY, Authorization:'Bearer '+KEY, 'Content-Type':'application/json'},
+    body:JSON.stringify({status})
+  })
+  alert('Status Update ho gaya: '+status)
+}
+
+// Page load hote hi data aa jaye
+loadData();
+</script>
+</body>
+</html>
