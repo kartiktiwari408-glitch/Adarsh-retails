@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWD Login</title>
+<style>
+  body{margin:0; background:#050A1A; font-family:'Poppins', sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; overflow:hidden}
+  .room{background:radial-gradient(circle at 50% 10%, #0A1A3A 0%, #050A1A 70%); width:100%; height:100%; display:flex; justify-content:center; align-items:center; flex-direction:column}
+  
+  /* LAMP */
+  .lamp{position:relative; animation:swing 3s ease-in-out infinite}
+  @keyframes swing{0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)}}
+  .lamp-wire{width:2px; height:150px; background:#444; margin:0 auto}
+  .lamp-body{width:80px; height:80px; background:linear-gradient(180deg, #FFB800, #FF7F00); border-radius:50% 50% 40% 40%; box-shadow:0 0 40px rgba(255,184,0,0.6)}
+  .rope{width:3px; height:200px; background:#8B4513; margin:0 auto; cursor:pointer; transition:0.3s}
+  .rope:active{transform:translateY(10px)}
+  
+  /* LOGIN BOX - HIDDEN INITIALLY */
+  .login-box{display:none; background:#0F1430; padding:40px; border-radius:20px; border:2px solid #8B5CF6; text-align:center; margin-top:30px; animation:fadeIn 0.5s}
+  @keyframes fadeIn{from{opacity:0} to{opacity:1}}
+  .login-box h2{background:linear-gradient(90deg, #00D4FF, #8B5CF6, #FF7F00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:28px}
+  .login-box input{width:100%; padding:15px; margin:12px 0; background:#050A1A; border:1px solid #1E2758; border-radius:10px; color:#fff; font-size:16px}
+  .login-box button{width:100%; padding:15px; background:linear-gradient(90deg, #00D4FF, #8B5CF6, #FF7F00); border:none; border-radius:10px; color:#000; font-weight:700; font-size:16px; cursor:pointer}
+  .error{color:#FF4444; margin-top:10px; display:none}
+</style>
+</head>
+<body>
+<div class="room">
+  <h1 style="color:#fff; margin-bottom:20px">Pull the rope to Login</h1>
+  
+  <!-- LAMP WITH ROPE -->
+  <div class="lamp">
+    <div class="lamp-wire"></div>
+    <div class="lamp-body"></div>
+  </div>
+  <div class="rope" onclick="showLogin()"></div>
+
+  <!-- LOGIN FORM -->
+  <div class="login-box" id="loginBox">
+    <h2>Admin Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="checkLogin()">Login</button>
+    <p class="error" id="errorMsg">Wrong Username or Password!</p>
+  </div>
+</div>
+
+<script>
+  function showLogin(){
+    document.getElementById('loginBox').style.display = 'block';
+  }
+
+  function checkLogin(){
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    
+    // Yaha apna username password set karo
+    if(user === "admin" && pass === "adarsh123"){
+      localStorage.setItem('loggedIn', 'true'); // Login save kar dega
+      window.location.href = "index.html"; // Main site pe bhej dega
+    } else {
+      document.getElementById('errorMsg').style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>
