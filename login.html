@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Login Form</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f0f0f;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.login-box {
+  position: relative;
+  width: 350px;
+  padding: 40px;
+  background: #1e1e1e;
+  border-radius: 15px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #8cff4f;
+  text-align: center;
+}
+
+.login-box .inputBox {
+  position: relative;
+}
+
+.login-box .inputBox input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .inputBox input:focus ~ label,
+.login-box .inputBox input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #8cff4f;
+  font-size: 12px;
+}
+
+.login-box button {
+  background: #8cff4f;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background: #6edc3a;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Login Form Animation</h2>
+  <form>
+    <div class="inputBox">
+      <input type="text" required>
+      <label>Username</label>
+    </div>
+    <div class="inputBox">
+      <input type="password" required>
+      <label>Password</label>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+</body>
+</html>
