@@ -1,126 +1,553 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Adarsh Web Designer Portfolio">
-  <title>Adarsh | Web Designer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<!-- SEO -->
+<title>Adarsh Tiwari | Premium Web & Graphic Designer</title>
+<meta name="description" content="Adarsh Tiwari - Web Designer, Graphic Designer, Logo Designer. I build modern websites and creative designs for brands.">
+<meta name="keywords" content="Adarsh Tiwari, Web Designer, Graphic Designer, Logo Design, Portfolio India">
+<meta name="author" content="Adarsh Tiwari">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Open Graph -->
+<meta property="og:title" content="Adarsh Tiwari | All Rounder Designer">
+<meta property="og:description" content="Web Design, Graphic Design, Logo Design Services">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adarsh-tiwari.vercel.app">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Adarsh Tiwari",
+  "jobTitle": "Web Designer and Graphic Designer",
+  "telephone": "+918298827509",
+  "email": "KARTIKTIWARI408@gmail.com",
+  "sameAs": ["https://instagram.com/Adarsh//Tiwari"]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{--bg:#0a0a0f; --text:#fff; --accent:#7c3aed; --glass:rgba(255,255,255,0.05);}
+[data-theme="light"]{--bg:#f8f9fa; --text:#111; --glass:rgba(0,0,0,0.05);}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transition:0.1s}
+.cursor-follower{position:fixed;width:40px;height:40px;background:rgba(124,58,237,0.2);border-radius:50%;pointer-events:none;z-index:9998;transition:0.3s}
+
+/* LOADER */
+.loader{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:10000;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.loader-logo{font-size:3rem;font-weight:800;color:var(--accent)}
+.loader-bar{width:200px;height:4px;background:var(--glass);margin-top:20px;border-radius:10px;overflow:hidden}
+.loader-bar::after{content:'';display:block;width:0;height:100%;background:var(--accent);animation:load 2s forwards}
+@keyframes load{to{width:100%}}
+.hide-loader{opacity:0;pointer-events:none;transition:0.5s}
+
+/* PARTICLES */
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+
+/* NAVBAR */
+header{position:fixed;top:0;width:100%;z-index:1000;backdrop-filter:blur(10px);background:var(--glass)}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%}
+.logo{font-size:1.8rem;font-weight:800}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text);text-decoration:none;font-weight:500;transition:0.3s}
+.nav-links a:hover{color:var(--accent)}
+.theme-btn{background:none;border:none;color:var(--text);font-size:1.2rem;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:space-between;padding:0 5%;gap:3rem;padding-top:80px}
+.hero-content .tag{color:var(--accent);font-weight:600;letter-spacing:2px}
+.hero-content h1{font-size:4rem;font-weight:800;line-height:1.1;margin:1rem 0}
+.hero-content h1 span{color:var(--accent)}
+.hero-content h2{font-size:1.5rem;font-weight:400;margin-bottom:1rem;opacity:0.8}
+.hero-buttons{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.btn{padding:12px 30px;background:var(--accent);color:#fff;border:none;border-radius:50px;text-decoration:none;font-weight:600;transition:0.3s}
+.btn.outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+.btn:hover{transform:translateY(-3px)}
+.glass-card{padding:2rem;background:var(--glass);backdrop-filter:blur(10px);border-radius:20px;border:1px solid rgba(255,255,255,0.1)}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;bottom:30px;right:30px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:2rem;z-index:999;text-decoration:none;box-shadow:0 0 20px rgba(37,211,102,0.5)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero{flex-direction:column;text-align:center}
+  .hero-content h1{font-size:2.5rem}
+}
+</style>
 </head>
-
 <body>
 
+<!-- Custom Cursor -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<!-- Loading Screen -->
+<div class="loader">
+  <div class="loader-logo">Adarsh</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- Particle Background -->
+<canvas id="particles"></canvas>
+
+<!-- Navbar -->
 <header>
   <nav class="navbar">
-    <div class="logo">Adarsh.</div>
-
+    <div class="logo">Adarsh<span>.</span></div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-btn"><i class="fa-solid fa-moon"></i></button>
   </nav>
 </header>
 
-<section id="home" class="hero">
-
-<div class="hero-content">
-
-<h3>Hello, I'm</h3>
-
-<h1>Adarsh</h1>
-
-<h2>Professional Web Designer</h2>
-
-<p>
-I create premium websites with modern UI,
-smooth animations and responsive design.
-</p>
-
-<a href="#contact" class="btn">Hire Me</a>
-
-</div>
-
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="tag">WELCOME TO MY WORLD</p>
+    <h1>Adarsh <span>Tiwari</span></h1>
+    <h2>Web Designer | Graphic Designer | Logo Designer</h2>
+    <p>I build modern, fast and premium websites + Creative Graphics for brands, businesses and startups.</p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn">View Work</a>
+      <a href="#pricing" class="btn outline">Get Quote</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="glass-card">
+      <h3>All Rounder Designer</h3>
+      <p>Website + Logo + Graphics</p>
+    </div>
+  </div>
 </section>
 
-<section id="about">
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/918298827509" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-<h2>About Me</h2>
+<script>
+// LOADER
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.querySelector('.loader').classList.add('hide-loader'),1500)
+})
 
-<p>
-I'm a passionate Web Designer who builds
-modern, responsive and premium websites
-for businesses and personal brands.
-</p>
+// CUSTOM CURSOR
+const cursor = document.querySelector('.cursor')
+const follower = document.querySelector('.cursor-follower')
+document.addEventListener('mousemove',e=>{
+  cursor.style.left = e.clientX + 'px'
+  cursor.style.top = e.clientY + 'px'
+  setTimeout(()=>{follower.style.left = e.clientX-10 + 'px'; follower.style.top = e.clientY-10 + 'px'},100)
+})
 
+// THEME SWITCHER
+const themeBtn = document.querySelector('.theme-btn')
+themeBtn.addEventListener('click',()=>{
+  let theme = document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark'
+  document.documentElement.setAttribute('data-theme',theme)
+  themeBtn.innerHTML = theme==='dark' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>'
+})
+
+// PARTICLES
+const canvas = document.getElementById('particles'), ctx = canvas.getContext('2d')
+canvas.width = window.innerWidth; canvas.height = window.innerHeight
+let particlesArray = [];
+for(let i=0;i<80;i++){
+  particlesArray.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,size:2,speedX:Math.random()*2-1,speedY:Math.random()*2-1})
+}
+function animateParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height)
+  particlesArray.forEach(p=>{
+    ctx.fillStyle = 'rgba(124,58,237,0.4)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill()
+    p.x+=p.speedX; p.y+=p.speedY;
+    if(p.x<0||p.x>canvas.width)p.speedX*=-1; if(p.y<0||p.y>canvas.height)p.speedY*=-1
+  })
+  requestAnimationFrame(animateParticles)
+}
+animateParticles()
+</script>
+  <!-- ========== ABOUT SECTION ========== -->
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-content">
+      <div class="about-text glass-card">
+        <h3>I'm Adarsh Tiwari</h3>
+        <p>I'm a passionate Web Designer, Graphic Designer and Logo Designer. I help brands and businesses grow with premium websites and creative designs. I focus on clean UI, fast websites and modern animations.</p>
+        <div class="about-info">
+          <p><i class="fa-solid fa-envelope"></i> KARTIKTIWARI408@gmail.com</p>
+          <p><i class="fa-brands fa-instagram"></i> @adarsh__tiwarii_</p>
+        </div>
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="services">
-
-<h2>Services</h2>
-
-<div class="card">Website Design</div>
-
-<div class="card">Landing Page</div>
-
-<div class="card">Portfolio Website</div>
-
-<div class="card">UI Design</div>
-
+<!-- ========== SKILLS SECTION ========== -->
+<section class="skills" id="skills">
+  <div class="container">
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card glass-card">
+        <i class="fa-brands fa-html5"></i><h4>HTML/CSS</h4><div class="progress-bar"><div style="width:95%"></div></div>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fa-brands fa-js"></i><h4>JavaScript</h4><div class="progress-bar"><div style="width:90%"></div></div>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fa-brands fa-figma"></i><h4>UI/UX Design</h4><div class="progress-bar"><div style="width:88%"></div></div>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fa-solid fa-palette"></i><h4>Logo Design</h4><div class="progress-bar"><div style="width:92%"></div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="portfolio">
-
-<h2>Portfolio</h2>
-
-<div class="projects">
-
-<div class="project">Project 1</div>
-
-<div class="project">Project 2</div>
-
-<div class="project">Project 3</div>
-
-</div>
-
+<!-- ========== SERVICES SECTION ========== -->
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">My <span>Services</span></h2>
+    <div class="services-grid">
+      <div class="service-card glass-card">
+        <i class="fa-solid fa-laptop-code"></i><h3>Website Design</h3><p>Modern, Fast, Responsive and SEO friendly websites</p>
+      </div>
+      <div class="service-card glass-card">
+        <i class="fa-solid fa-palette"></i><h3>Logo Design</h3><p>Creative and memorable brand logos</p>
+      </div>
+      <div class="service-card glass-card">
+        <i class="fa-solid fa-image"></i><h3>Graphic Design</h3><p>Posters, Social Media Posts, Banners</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="contact">
-
-<h2>Contact</h2>
-
-<form>
-
-<input type="text" placeholder="Your Name">
-
-<input type="email" placeholder="Your Email">
-
-<textarea placeholder="Your Message"></textarea>
-
-<button type="submit">
-Send Message
-</button>
-
-</form>
-
+<!-- ========== PRICING + CALCULATOR SECTION ========== -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <h2 class="section-title">Pricing & <span>Calculator</span></h2>
+    <p style="text-align:center; margin-bottom:2rem;">Select services and get instant quote</p>
+    
+    <div class="calculator-wrapper">
+      <div class="price-list glass-card">
+        <h3>Select Services</h3>
+        <div class="price-item">
+          <label><input type="checkbox" class="calc-item" data-price="2000"> Logo Design <span>₹2000</span></label>
+        </div>
+        <div class="price-item">
+          <label><input type="checkbox" class="calc-item" data-price="15000"> Website Design <span>₹15000</span></label>
+        </div>
+        <div class="price-item">
+          <label><input type="checkbox" class="calc-item" data-price="500"> Instagram Post <span>₹500</span></label>
+        </div>
+        <div class="price-item">
+          <label><input type="checkbox" class="calc-item" data-price="3000"> Banner Design <span>₹3000</span></label>
+        </div>
+        <div class="total-box">
+          <h4>Total: ₹<span id="total">0</span></h4>
+          <a href="https://wa.me/918298827509" target="_blank" class="btn" id="orderBtn">Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<style>
+/* ========== PART 2 CSS ========== */
+.container{max-width:1200px;margin:0 auto;padding:5rem 5%}
+.section-title{font-size:2.5rem;text-align:center;margin-bottom:3rem}
+.section-title span{color:var(--accent)}
+.glass-card{padding:2rem;background:var(--glass);backdrop-filter:blur(10px);border-radius:20px;border:1px solid rgba(255,255,255,0.1);transition:0.3s}
+.glass-card:hover{transform:translateY(-5px)}
+
+.about-content{display:flex;justify-content:center}
+.about-text h3{font-size:2rem;margin-bottom:1rem}
+.about-info{margin:1.5rem 0}
+.about-info p{margin:0.5rem 0}
+
+.skills-grid, .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+.skill-card i{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+.progress-bar{width:100%;height:8px;background:var(--glass);border-radius:10px;margin-top:1rem;overflow:hidden}
+.progress-bar div{height:100%;background:var(--accent);border-radius:10px}
+
+.service-card{text-align:center}
+.service-card i{font-size:3rem;color:var(--accent);margin-bottom:1rem}
+
+.calculator-wrapper{display:flex;justify-content:center}
+.price-list{width:100%;max-width:600px}
+.price-item{margin:1rem 0;padding:1rem;border-bottom:1px solid var(--glass)}
+.price-item label{display:flex;justify-content:space-between;cursor:pointer;font-size:1.1rem}
+.price-item input{margin-right:10px;transform:scale(1.3)}
+.total-box{margin-top:2rem;padding-top:1.5rem;border-top:2px solid var(--accent);text-align:center}
+.total-box h4{font-size:1.8rem;margin-bottom:1rem}
+</style>
+
+<script>
+// ========== CALCULATOR JS ==========
+const calcItems = document.querySelectorAll('.calc-item')
+const totalSpan = document.getElementById('total')
+const orderBtn = document.getElementById('orderBtn')
+
+calcItems.forEach(item=>{
+  item.addEventListener('change', updateTotal)
+})
+
+function updateTotal(){
+  let total = 0
+  let services = []
+  calcItems.forEach(item=>{
+    if(item.checked){
+      total += parseInt(item.dataset.price)
+      services.push(item.parentElement.textContent.trim())
+    }
+  })
+  totalSpan.textContent = total
+  orderBtn.href = `https://wa.me/918298827509?text=Hi Adarsh, I want to order: ${services.join(', ')}. Total: ₹${total}`
+}
+</script>
+  <!-- ========== PORTFOLIO SECTION ========== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <h2 class="section-title">My <span>Portfolio</span></h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item glass-card">
+        <img src="https://via.placeholder.com/400x300/7c3aed/ffffff?text=Project+1" alt="Project 1">
+        <h3>Website Design</h3><p>Business Website</p>
+      </div>
+      <div class="portfolio-item glass-card">
+        <img src="https://via.placeholder.com/400x300/7c3aed/ffffff?text=Project+2" alt="Project 2">
+        <h3>Logo Design</h3><p>Brand Logo</p>
+      </div>
+      <div class="portfolio-item glass-card">
+        <img src="https://via.placeholder.com/400x300/7c3aed/ffffff?text=Project+3" alt="Project 3">
+        <h3>Poster Design</h3><p>Social Media</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TIMELINE SECTION ========== -->
+<section class="timeline" id="experience">
+  <div class="container">
+    <h2 class="section-title">My <span>Experience</span></h2>
+    <div class="timeline-wrapper">
+      <div class="timeline-item glass-card">
+        <h3>2024 - Present</h3><h4>Freelance Designer</h4><p>Working with 20+ clients for Web and Graphic Design</p>
+      </div>
+      <div class="timeline-item glass-card">
+        <h3>2023</h3><h4>Graphic Designer</h4><p>Created 100+ Social Media Posts and Logos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS SECTION ========== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-box glass-card">
+        <h3 class="counter" data-target="50">0</h3><p>Projects Done</p>
+      </div>
+      <div class="stat-box glass-card">
+        <h3 class="counter" data-target="20">0</h3><p>Happy Clients</p>
+      </div>
+      <div class="stat-box glass-card">
+        <h3 class="counter" data-target="3">0</h3><p>Years Experience</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS SECTION ========== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <h2 class="section-title">Client <span>Testimonials</span></h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card glass-card">
+        <p>"Adarsh made an amazing website for my business. Very professional and fast work."</p>
+        <h4>- Rahul Sharma</h4>
+      </div>
+      <div class="testimonial-card glass-card">
+        <p>"Best logo design! He understood my brand perfectly."</p>
+        <h4>- Priya Singh</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ========== PART 3 CSS ========== */
+.portfolio-grid, .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.portfolio-item img{width:100%;border-radius:10px;margin-bottom:1rem}
+.portfolio-item{overflow:hidden;cursor:pointer}
+.portfolio-item:hover img{transform:scale(1.1);transition:0.3s}
+
+.timeline-wrapper{display:flex;flex-direction:column;gap:2rem;max-width:800px;margin:0 auto}
+.timeline-item{border-left:3px solid var(--accent);padding-left:2rem}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:center}
+.stat-box h3{font-size:3rem;color:var(--accent)}
+
+.testimonial-card p{font-style:italic;margin-bottom:1rem}
+</style>
+
+<script>
+// ========== COUNTER ANIMATION ==========
+const counters = document.querySelectorAll('.counter')
+const speed = 200
+
+const animateCounter = (counter) => {
+  const target = +counter.getAttribute('data-target')
+  const count = +counter.innerText
+  const inc = target / speed
+  
+  if(count < target){
+    counter.innerText = Math.ceil(count + inc)
+    setTimeout(()=>animateCounter(counter), 10)
+  } else {
+    counter.innerText = target + '+'
+  }
+}
+
+// Run counter when section is visible
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      counters.forEach(counter=>animateCounter(counter))
+      observer.disconnect()
+    }
+  })
+})
+observer.observe(document.querySelector('.stats'))
+</script>
+  
+<!-- ========== FAQ SECTION ========== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+    <div class="faq-wrapper">
+      <div class="faq-item glass-card">
+        <h4>How long does a website take? <i class="fa-solid fa-plus"></i></h4>
+        <p>Normally 7-10 days depending on features.</p>
+      </div>
+      <div class="faq-item glass-card">
+        <h4>Do you provide revisions? <i class="fa-solid fa-plus"></i></h4>
+        <p>Yes, 3 free revisions on every project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BLOG SECTION ========== -->
+<section class="blog" id="blog">
+  <div class="container">
+    <h2 class="section-title">Latest <span>Blog</span></h2>
+    <div class="blog-grid">
+      <div class="blog-card glass-card">
+        <h3>5 Tips for Better Website Design</h3><p>Learn how to make your website stand out in 2026</p>
+      </div>
+      <div class="blog-card glass-card">
+        <h3>Why Logo is Important for Brand</h3><p>Your logo is the face of your business</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="contact-wrapper">
+      <div class="contact-info glass-card">
+        <h3>Let's Talk</h3>
+        <p><i class="fa-solid fa-envelope"></i> KARTIKTIWARI408@gmail.com</p>
+        <p><i class="fa-brands fa-instagram"></i> @adarsh__tiwarii_</p>
+        <p><i class="fa-solid fa-phone"></i> +91 8298827509</p>
+      </div>
+      <form class="contact-form glass-card">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
 <footer>
-
-<p>
-© 2026 Adarsh Web Designer
-</p>
-
+  <div class="container">
+    <div class="footer-content">
+      <div class="logo">Adarsh<span>.</span></div>
+      <p>Web Designer | Graphic Designer | Logo Designer</p>
+      <div class="social-links">
+        <a href="https://instagram.com/adarsh__tiwarii_"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/918298827509"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Adarsh Tiwari. All Rights Reserved.</p>
+  </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- ========== BACK TO TOP ========== -->
+<a href="#home" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
 
+<style>
+/* ========== PART 4 CSS ========== */
+.faq-item h4{display:flex;justify-content:space-between;cursor:pointer}
+.faq-item p{display:none;margin-top:1rem}
+.faq-item.active p{display:block}
+
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.contact-form input, .contact-form textarea{padding:12px;border-radius:10px;border:1px solid var(--glass);background:var(--glass);color:var(--text);font-family:'Poppins'}
+
+footer{text-align:center;padding:3rem 0;border-top:1px solid var(--glass)}
+.social-links a{color:var(--text);font-size:1.5rem;margin:0 10px}
+.back-to-top{position:fixed;bottom:100px;right:30px;background:var(--accent);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;text-decoration:none;opacity:0;transition:0.3s}
+.back-to-top.show{opacity:1}
+
+@media(max-width:768px){.contact-wrapper{grid-template-columns:1fr}}
+</style>
+
+<script>
+// ========== FAQ TOGGLE ==========
+document.querySelectorAll('.faq-item h4').forEach(item=>{
+  item.addEventListener('click',()=>{
+    item.parentElement.classList.toggle('active')
+  })
+})
+
+// ========== BACK TO TOP ==========
+const backToTop = document.querySelector('.back-to-top')
+window.addEventListener('scroll',()=>{
+  if(window.scrollY > 500) backToTop.classList.add('show')
+  else backToTop.classList.remove('show')
+})
+
+// ========== CONTACT FORM ==========
+document.querySelector('.contact-form').addEventListener('submit',e=>{
+  e.preventDefault()
+  alert('Message sent! I will contact you soon on WhatsApp.')
+})
+</script>
+
+</body>
+</html>
 </body>
 </html>
