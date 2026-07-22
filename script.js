@@ -38,3 +38,35 @@ window.addEventListener("scroll", () => {
   });
 
 });
+
+revealItems.forEach(item => {
+  item.style.opacity = "0";
+  item.style.transform = "translateY(60px)";
+  item.style.transition = "all .8s ease";
+});
+
+// ===== Typing Effect =====
+const text = "Professional Web Designer";
+const target = document.querySelector(".hero h2");
+
+let i = 0;
+
+target.innerHTML = "";
+
+function typing() {
+
+  if (i < text.length) {
+    target.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 80);
+  }
+
+}
+
+typing();
+
+// ===== Current Year =====
+const footer = document.querySelector("footer p");
+
+footer.innerHTML =
+`© ${new Date().getFullYear()} Adarsh Web Designer. All Rights Reserved.`;
