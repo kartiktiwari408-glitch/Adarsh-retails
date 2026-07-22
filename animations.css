@@ -1,0 +1,113 @@
+/* Fade Up */
+
+.fade-up{
+opacity:0;
+transform:translateY(60px);
+transition:all .8s ease;
+}
+
+.fade-up.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Zoom */
+
+.zoom{
+opacity:0;
+transform:scale(.8);
+transition:all .7s ease;
+}
+
+.zoom.active{
+opacity:1;
+transform:scale(1);
+}
+
+/* Left */
+
+.left{
+opacity:0;
+transform:translateX(-80px);
+transition:all .8s ease;
+}
+
+.left.active{
+opacity:1;
+transform:translateX(0);
+}
+
+/* Right */
+
+.right{
+opacity:0;
+transform:translateX(80px);
+transition:all .8s ease;
+}
+
+.right.active{
+opacity:1;
+transform:translateX(0);
+}
+
+/* Floating */
+
+.float{
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
+/* Button Glow */
+
+.btn:hover{
+
+box-shadow:
+0 0 20px #38bdf8,
+0 0 40px #38bdf8,
+0 0 60px #38bdf8;
+
+}
+
+/* Gradient Text */
+
+.gradient-text{
+
+background:linear-gradient(
+90deg,
+#38bdf8,
+#6366f1,
+#8b5cf6
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-size:200%;
+
+animation:gradientMove 4s linear infinite;
+
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:200%;
+}
+
+}
