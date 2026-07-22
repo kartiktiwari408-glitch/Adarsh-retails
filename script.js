@@ -1,96 +1,113 @@
-// Loader
-window.addEventListener('load',()=>{
-  document.getElementById('loader').style.display='none'
-})
+// ===============================
+// LOADER
+// ===============================
 
-// Custom Cursor
-const cursor = document.createElement('div')
-cursor.classList.add('cursor')
-document.body.appendChild(cursor)
-document.addEventListener('mousemove',e=>{
-  cursor.style.left = e.clientX + 'px'
-  cursor.style.top = e.clientY + 'px'
-})
+window.addEventListener("load", () => {
 
-// Navbar Scroll
-window.addEventListener('scroll',()=>{
-  const navbar = document.querySelector('.navbar')
-  if(window.scrollY > 50) navbar.style.background='rgba(10,10,15,0.9)'
-  else navbar.style.background='var(--glass)'
-})
+const loader = document.querySelector(".loader");
 
-// Typed.js for Hero
-new Typed('.typed-text',{
-  strings:['Web Designer','Graphic Designer','Logo Designer'],
-  typeSpeed:100,
-  backSpeed:50,
-  loop:true
-})
+setTimeout(() => {
 
-// Calculator
-const calcItems = document.querySelectorAll('.calc-item')
-const totalSpan = document.getElementById('total')
-const orderBtn = document.getElementById('orderBtn')
-if(calcItems.length > 0){
-  calcItems.forEach(item=>{
-    item.addEventListener('change', updateTotal)
-  })
-  function updateTotal(){
-    let total = 0
-    let services = []
-    calcItems.forEach(item=>{
-      if(item.checked){
-        total += parseInt(item.dataset.price)
-        services.push(item.parentElement.textContent.trim())
-      }
-    })
-    totalSpan.textContent = total
-    orderBtn.href = `https://wa.me/918298827509?text=Hi Adarsh, I want to order: ${services.join(', ')}. Total: ₹${total}`
-  }
+loader.style.opacity = "0";
+
+loader.style.visibility = "hidden";
+
+loader.style.transition = "0.8s";
+
+},1500);
+
+});
+
+
+// ===============================
+// STICKY NAVBAR
+// ===============================
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>80){
+
+navbar.style.background="rgba(5,8,22,.95)";
+navbar.style.boxShadow="0 10px 30px rgba(0,0,0,.35)";
+
+}else{
+
+navbar.style.background="rgba(255,255,255,.08)";
+navbar.style.boxShadow="none";
+
 }
 
-// Counter Animation
-const counters = document.querySelectorAll('.counter')
-const animateCounter = (counter) => {
-  const target = +counter.getAttribute('data-target')
-  const count = +counter.innerText
-  const inc = target / 200
-  if(count < target){
-    counter.innerText = Math.ceil(count + inc)
-    setTimeout(()=>animateCounter(counter), 10)
-  } else {
-    counter.innerText = target + '+'
-  }
+});
+
+
+// ===============================
+// SCROLL ANIMATION
+// ===============================
+
+const sections=document.querySelectorAll("section");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
 }
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      counters.forEach(counter=>animateCounter(counter))
-      observer.disconnect()
-    }
-  })
-})
-if(document.querySelector('.stats')) observer.observe(document.querySelector('.stats'))
 
-// FAQ Toggle
-document.querySelectorAll('.faq-item h4').forEach(item=>{
-  item.addEventListener('click',()=>{
-    item.parentElement.classList.toggle('active')
-  })
-})
+});
 
-// Back to Top
-const backToTop = document.querySelector('.back-to-top')
-window.addEventListener('scroll',()=>{
-  if(window.scrollY > 500) backToTop.classList.add('show')
-  else backToTop.classList.remove('show')
-})
+},{threshold:.15});
 
-// Contact Form
-const contactForm = document.querySelector('.contact-form')
-if(contactForm){
-  contactForm.addEventListener('submit',e=>{
-    e.preventDefault()
-    alert('Message sent! I will contact you soon on WhatsApp.')
-  })
-}
+sections.forEach(section=>{
+
+observer.observe(section);
+
+});
+
+
+// ===============================
+// SMOOTH SCROLL
+// ===============================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+
+
+// ===============================
+// BUTTON HOVER
+// ===============================
+
+const buttons=document.querySelectorAll(".btn");
+
+buttons.forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="translateY(-5px) scale(1.05)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translateY(0)";
+
+});
+
+});
