@@ -1,21 +1,12 @@
-@media(max-width: 1024px){
-  .hero-text h1{font-size:2.8rem}
-  .hero-img img{width:350px}
+@media(max-width:992px){
+  .container{padding:60px 0;}
+  .hero{flex-direction:column;text-align:center;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .hero-text h1{font-size:40px;}
 }
-
-@media(max-width: 768px){
-  .navbar{padding:1rem 5%}
-  .hero-text h1{font-size:2.2rem}
-  .hero-text h2{font-size:1.5rem}
-  .section-title{font-size:2rem}
-  .skills-grid, .services-grid, .portfolio-grid{grid-template-columns:1fr}
-  .contact-wrapper{grid-template-columns:1fr}
-  .calculator-wrapper{padding:0 1rem}
-}
-
-@media(max-width: 480px){
-  .hero-text h1{font-size:1.8rem}
-  .btn{padding:10px 20px;font-size:0.9rem}
-  .glass-card{padding:1.5rem}
-  .logo{font-size:1.5rem}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .services-grid{grid-template-columns:1fr;}
+  .hero-text h1{font-size:32px;}
+  .btn-group{flex-direction:column;}
 }
