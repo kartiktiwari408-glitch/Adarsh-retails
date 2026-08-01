@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Adarsh Web Designing</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Outfit', sans-serif; background: linear-gradient(135deg, #0a0f1f 0%, #1a1033 50%, #2d1b69 100%); color: white; }
+.header { background: rgba(10, 15, 31, 0.8); padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; }
+.ar-logo { width: 50px; height: 50px; background: linear-gradient(90deg, #00c6ff, #8a2be2, #ff8a00); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; }
+.back-btn { background: linear-gradient(90deg, #00c6ff, #8a2be2, #ff8a00); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; border: none; }
+.cart-container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+.service-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 15px; display: flex; gap: 15px; }
+.checkout-btn { background: linear-gradient(90deg, #25D366, #128C7E); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: bold; font-size: 20px; width: 100%; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="header"><div class="header-content"><div style="display:flex;align-items:center;gap:10px;"><div class="ar-logo">AWD</div><span style="font-weight:900;">ADARSH WEB DESIGNING</span></div><button class="back-btn" onclick="window.location.href='products.html'">← Back</button></div></div>
+<div class="cart-container" id="cartContainer"></div>
+<script>
+let paymentMethod = 'cod';
+function renderCart() {
+  const container = document.getElementById('cartContainer');
+  let cart = JSON.parse(localStorage.getItem('awd_cart')) || [];
+  if (cart.length === 0) {
+    container.innerHTML = `<div style="background:rgba(255,255,255,0.05);padding:60px 20px;border-radius:12px;text-align:center;"><h2>No services selected</h2><button class="back-btn" onclick="window.location.href='products.html'">Browse Services</button></div>`;
+    return;
+  }
+  let subtotal = 0;
+  let itemsHTML = cart.map((item, index) => {
+    subtotal += parseInt(item.price.replace(/[^0-9]/g,'')) || 0;
+    return `<div class="service-item"><div style="font-size:40px;"><i class="fa ${item.icon || 'fa-briefcase'}"></i></div><div style="flex:1;"><div style="font-size:18px;font-weight:bold;">${item.name}</div><div style="color:#00c6ff;font-weight:bold;">${item.price}</div></div><button onclick="removeItem(${index})" style="background:red;color:white;border:none;padding:10px 20px;border-radius:25px;">Remove</button></div>`;
+  }).join('');
+  container.innerHTML = `<h1 style="text-align:center;margin-bottom:20px;">Checkout (${cart.length} Services)</h1>${itemsHTML}<div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;"><input id="name" placeholder="Your Name" style="width:100%;padding:12px;margin-bottom:10px;background:rgba(255,255,255,0.1);border:1px solid #555;border-radius:8px;color:white;"><input id="phone" placeholder="Mobile" style="width:100%;padding:12px;margin-bottom:10px;background:rgba(255,255,255,0.1);border:1px solid #555;border-radius:8px;color:white;"><div style="font-size:24px;font-weight:900;margin:15px 0;">Total: ₹${subtotal}</div><button class="checkout-btn" onclick="checkout(${subtotal})"><i class="fab fa-whatsapp"></i> Send on WhatsApp</button></div>`;
+}
+function removeItem(index){let cart=JSON.parse(localStorage.getItem('awd_cart'))||[];cart.splice(index,1);localStorage.setItem('awd_cart',JSON.stringify(cart));renderCart();}
+function checkout(total){const name=document.getElementById('name').value;const phone=document.getElementById('phone').value;if(!name||!phone){alert('Fill details');return;}let cart=JSON.parse(localStorage.getItem('awd_cart'))||[];let msg=`*NEW INQUIRY - ADARSH WEB DESIGNING*%0AName: ${name}%0APhone: ${phone}%0A%0A`;cart.forEach((i,n)=>{msg+=`${n+1}. ${i.name} - ${i.price}%0A`});msg+=`%0ATotal: ₹${total}`;window.open(`https://wa.me/918298827509?text=${msg}`,'_blank');localStorage.removeItem('awd_cart');}
+document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+</body>
+</html>
